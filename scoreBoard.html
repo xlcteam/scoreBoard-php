@@ -1,0 +1,81 @@
+<html>
+  <head>   
+    <title> scoreBoard </title>    
+    <meta http-equiv="Content-Language" content="en-EN">
+    <style type="text/css">
+    @font-face {
+      font-family: "digital-7";
+      src: url(digital-7.ttf);
+    }
+    .customfont { 
+      font-family: "digital-7";
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;    
+    }
+    .half {
+      width: 50%;
+      text-align: center;
+    }
+    .third {
+      width: 48%;
+    }
+    
+    .name {
+      font-size: 6em;
+    }
+    .score {
+      float: left;
+      font-size: 12em;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .time{
+      float: center;
+      font-size: 5em;
+      margin: 0 auto;
+      text-align: center;  
+      padding-top: 100px;
+    }
+    .colon {
+        float: left;
+        font-size: 12em;
+        margin-top: -0.05em;
+        text-align: center;
+        width: 20px;
+    }      
+    #main{
+        width: 100%;
+        height: 100%; 
+    }     
+    #names{
+        height: 150px;
+    }
+    #scores{
+        height: 200px;
+    }
+    #time{
+        height: 200px;    
+    }
+    </style>
+    </head>
+    <body>    
+      <div id="main">
+        <div id="names">
+          <div class="half name" style="float: left;">Robot</div>
+          <div class="half name" style="float: right;">Human</div>
+        </div>
+        <div id="scores" style="width: 100%;" >
+          <div class="third score">0</div>
+          <div class="colon">:</div>
+          <div class="third score">0</div>
+        </div>
+        <div id="time">
+          <div class="time customfont">00:00:00,00</div>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+    </body>
+</html>
