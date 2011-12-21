@@ -2,6 +2,27 @@
   <head>   
     <title> scoreBoard </title>    
     <meta http-equiv="Content-Language" content="en-EN">
+    
+    <script src="vendor/jquery-1.4.2.min.js"></script>
+    <script src="lib/keylock.js"></script>
+    <script src="lib/jquery.keylock.js"></script>
+    
+    <script type="text/javascript">
+      function toggle(){
+        if (document.getElementById("mySelect").disabled == false){
+          document.getElementById("mySelect").disabled = true
+          document.getElementById("btns").value="Stop"
+          return
+        }
+        if (document.getElementById("mySelect").disabled == true){
+          document.getElementById("mySelect").disabled = false
+          document.getElementById("btns").value="Start"
+          return
+        }
+      }
+    </script>
+    
+    
     <style type="text/css">
     @font-face {
       font-family: "digital-7";
@@ -26,6 +47,13 @@
     .name {
       font-size: 6em;
     }
+    
+    .buttons{
+      float: center;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 30px
+    }
     .score {
       float: left;
       font-size: 12em;
@@ -37,7 +65,7 @@
       font-size: 5em;
       margin: 0 auto;
       text-align: center;  
-      padding-top: 100px;
+      padding-top: 10px;
     }
     .colon {
         float: left;
@@ -45,7 +73,11 @@
         margin-top: -0.05em;
         text-align: center;
         width: 20px;
-    }      
+    }
+    
+    
+    
+    
     #main{
         width: 100%;
         height: 100%; 
@@ -59,6 +91,10 @@
     #time{
         height: 200px;    
     }
+    #btns{
+        height: 60px;
+    }
+    
     </style>
     </head>
     <body>    
@@ -71,6 +107,9 @@
           <div class="third score">0</div>
           <div class="colon">:</div>
           <div class="third score">0</div>
+        </div>
+        <div id="btns">
+          <div class="buttons"><button type="togglebutton" onclick="toggle()" style="height: 25px; width: 100px" value="Start"></button></div>
         </div>
         <div id="time">
           <div class="time customfont">00:00:00,00</div>
