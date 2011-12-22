@@ -1,117 +1,1 @@
-<html>
-  <head>   
-    <title> scoreBoard </title>    
-    <meta http-equiv="Content-Language" content="en-EN">
-    
-    <script src="vendor/jquery-1.4.2.min.js"></script>
-    <script src="lib/keylock.js"></script>
-    <script src="lib/jquery.keylock.js"></script>
-    
-    <script type="text/javascript">
-      function toggle(){
-        if (document.getElementById("btnStart").innerHTML == "Start"){
-          document.getElementById("btnStart").innerHTML = "Stop";
-          return;
-        }
-        if (document.getElementById("btnStart").innerHTML == "Stop"){
-          document.getElementById("btnStart").innerHTML = "Start";
-          return;
-        }
-      }
-    </script>
-    
-    
-    <style type="text/css">
-    @font-face {
-      font-family: "digital-7";
-      src: url(digital-7.ttf);
-    }
-    .customfont { 
-      font-family: "digital-7";
-    }
-
-    body {
-      background-color: #000;
-      color: #fff;    
-    }
-    .half {
-      width: 50%;
-      text-align: center;
-    }
-    .third {
-      width: 48%;
-    }
-    
-    .name {
-      font-size: 6em;
-    }
-    
-    .buttons{
-      margin: 0 auto;
-      text-align: center;
-      padding-top: 30px
-    }
-    .score {
-      float: left;
-      font-size: 12em;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .time{
-      float: center;
-      font-size: 5em;
-      margin: 0 auto;
-      text-align: center;  
-      padding-top: 10px;
-    }
-    .colon {
-        float: left;
-        font-size: 12em;
-        margin-top: -0.05em;
-        text-align: center;
-        width: 20px;
-    }
-    
-    
-    
-    
-    #main{
-        width: 100%;
-        height: 100%; 
-    }     
-    #names{
-        height: 150px;
-    }
-    #scores{
-        height: 200px;
-    }
-    #time{
-        height: 200px;    
-    }
-    #btns{
-        height: 60px;
-    }
-    
-    </style>
-    </head>
-    <body>    
-      <div id="main">
-        <div id="names">
-          <div class="half name" style="float: left;">Robot</div>
-          <div class="half name" style="float: right;">Human</div>
-        </div>
-        <div id="scores" style="width: 100%;" >
-          <div class="third score">0</div>
-          <div class="colon">:</div>
-          <div class="third score">0</div>
-        </div>
-        <div id="btns">
-          <div class="buttons"><button id="btnStart" type="button" onclick="toggle()" style="height: 25px; width: 100px">Start</button></div>
-        </div>
-        <div id="time">
-          <div class="time customfont">00:00:00,00</div>
-        </div>
-        <div style="clear: both;"></div>
-      </div>
-    </body>
-</html>
+<html>  <head>       <title> scoreBoard </title>        <meta http-equiv="Content-Language" content="en-EN">        <script src="vendor/jquery-1.4.2.min.js"></script>    <script src="lib/keylock.js"></script>    <script src="lib/jquery.keylock.js"></script>        <script type="text/javascript">      function toggle(){        if (document.getElementById("btnStart").innerHTML == "Start"){          document.getElementById("btnStart").innerHTML = "Stop";          return;        }        if (document.getElementById("btnStart").innerHTML == "Stop"){          document.getElementById("btnStart").innerHTML = "Start";          return;        }      }            var delay = 10;      var milisecs = 0;      var secs = 0;      var mins = 0;      function timer()      {        if (document.getElementById("btnStart").innerHTML == "Stop"){          milisecs += 1;          if (milisecs == 100){            secs += 1;            milisecs = 0;          }          if (secs == 60){            mins += 1;            secs = 0;          }             }      }      setInterval(timer, delay);            function view()       {        if (mins < 10){          $("#mins").html("0"+mins);        }else {          $("#mins").html(mins);        }                if (secs < 10){          $("#secs").html("0"+secs);        } else {          $("#secs").html(secs);        }                if (milisecs < 10){          $("#milis").html("0"+milisecs);        } else {          $("#milis").html(milisecs);        }                              }            setInterval(view, 10);    </script>            <style type="text/css">    @font-face {      font-family: "digital-7";      src: url(digital-7.ttf);    }        body {      background-color: #000;      color: #fff;        }    .half {      width: 50%;      text-align: center;    }    .third {      width: 48%;    }        .name {      font-size: 6em;    }        .buttons{      margin: 0 auto;      text-align: center;      padding-top: 30px    }    .score {      float: left;      font-size: 12em;      margin: 0 auto;      text-align: center;    }    .time{      float: left;      font-size: 5em;      margin: 0 auto;      text-align: center;        padding-top: 10px;      width: 80px;      font-family: "digital-7";    }    .timecolon{      float: left;      font-size: 5em;      margin: 0 auto;      text-align: center;        padding-top: 10px;      width: 20px;      font-family: "digital-7";    }    .colon {        float: left;        font-size: 12em;        margin-top: -0.05em;        text-align: center;        width: 20px;    }                    #main{        width: 100%;        height: 100%;     }         #names{        height: 150px;    }    #scores{        height: 200px;    }    #time{        height: 200px;        }    #btns{        height: 60px;    }        </style>    </head>    <body>          <div id="main">        <div id="names">          <div class="half name" style="float: left;">Robot</div>          <div class="half name" style="float: right;">Human</div>        </div>        <div id="scores" style="width: 100%;" >          <div class="third score">0</div>          <div class="colon">:</div>          <div class="third score">0</div>        </div>        <div id="btns">          <div class="buttons"><button id="btnStart" type="button" onclick="toggle()" style="height: 25px; width: 100px">Start</button></div>        </div>        <div id="time">          <div style="margin: 0 auto; width: 290px; text-align: center;">            <div id="mins" class="time">00</div>            <div id="colon" class="timecolon">:</div>            <div id="secs" class="time">00</div>            <div id="comma" class="timecolon">,</div>            <div id="milis" class="time">00</div>          </div>        </div>        <div style="clear: both;"></div>      </div>    </body></html>
