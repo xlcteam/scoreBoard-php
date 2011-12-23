@@ -1,1 +1,166 @@
-<html>  <head>       <title> scoreBoard </title>        <meta http-equiv="Content-Language" content="en-EN">        <script src="vendor/jquery-1.4.2.min.js"></script>    <script src="lib/keylock.js"></script>    <script src="lib/jquery.keylock.js"></script>    <script src="stopwatch.js"></script>                <style type="text/css">    @font-face {      font-family: "digital-7";      src: url(digital-7.ttf);    }        body {      background-color: #000;      color: #fff;        }    .half {      width: 50%;      text-align: center;    }    .third {      width: 48%;    }        .name {      font-size: 6em;    }        .buttons{      margin: 0 auto;      text-align: center;      padding-top: 30px    }    .score {      float: left;      font-size: 12em;      margin: 0 auto;      text-align: center;    }    .time{      float: left;      font-size: 5em;      margin: 0 auto;      text-align: center;        padding-top: 10px;      width: 80px;      font-family: "digital-7";    }    .timecolon{      float: left;      font-size: 5em;      margin: 0 auto;      text-align: center;        padding-top: 10px;      width: 20px;      font-family: "digital-7";    }    .colon {        float: left;        font-size: 12em;        margin-top: -0.05em;        text-align: center;        width: 20px;    }                    #main{        width: 100%;        height: 100%;     }         #names{        height: 150px;    }    #scores{        height: 200px;    }    #time{        height: 200px;        }    #btns{        height: 60px;    }        </style>    </head>    <body>          <div id="main">        <div id="names">          <div class="half name" style="float: left;">Robot</div>          <div class="half name" style="float: right;">Human</div>        </div>        <div id="scores" style="width: 100%;" >          <div class="third score">0</div>          <div class="colon">:</div>          <div class="third score">0</div>        </div>        <div id="btns">          <div class="buttons"><button id="btnStart" type="button" onclick="toggle()" style="height: 25px; width: 100px">Start</button></div>        </div>        <div id="time">          <div style="margin: 0 auto; width: 290px; text-align: center;">            <div id="mins" class="time">00</div>            <div id="colon" class="timecolon">:</div>            <div id="secs" class="time">00</div>            <div id="comma" class="timecolon">,</div>            <div id="milis" class="time">00</div>          </div>        </div>        <div style="clear: both;"></div>      </div>    </body></html>
+<html>
+  <head>   
+    <title> scoreBoard </title>    
+    <meta http-equiv="Content-Language" content="en-EN">
+    
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/keylock.js"></script>
+    <script src="js/lib/jquery.keylock.js"></script>
+    <script src="js/lib/jquery.idle-timer.js"></script>
+    <script src="js/stopwatch.js"></script>
+    
+    <style type="text/css">
+    @font-face {
+      font-family: "digital-7";
+      src: url(digital-7.ttf);
+    }
+    
+    body {
+      background-color: #000;
+      color: #cccccc;
+    }
+    .half {
+      width: 50%;
+      text-align: center;
+      float: left;
+    }
+    .third {
+      width: 48%;
+    }
+    
+    .name {
+      font-size: 6em;
+    }
+    
+    .buttons{
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 30px
+    }
+    
+    .score {
+      float: left;
+      font-size: 12em;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .time{
+      float: left;
+      font-size: 5em;
+      margin: 0 auto;
+      text-align: center;  
+      padding-top: 10px;
+      width: 80px;
+      font-family: "digital-7";
+    }
+    .timecolon{
+      float: left;
+      font-size: 5em;
+      margin: 0 auto;
+      text-align: center;  
+      padding-top: 10px;
+      width: 20px;
+      font-family: "digital-7";
+    }
+    .colon {
+        float: left;
+        font-size: 12em;
+        margin-top: -0.05em;
+        text-align: center;
+        width: 20px;
+    }
+
+    #main{
+        width: 100%;
+        height: 100%; 
+    }     
+
+    #names{
+        height: 150px;
+    }
+
+    #scores{
+        height: 200px;
+    }
+
+    #time{
+        height: 200px;    
+    }
+    
+    #startStop{
+        height: 60px;
+        width: 150px;
+        margin: 0 auto;
+    }
+    
+    #scored {
+        height: 40px;
+    }
+
+    button {
+      width: 150px;
+      margin: 0 auto;
+      font: lighter 22px "helvetica neue", helvetica, arial, sans-serif;
+      line-height: 1;
+      text-align: center;
+      text-shadow: 0px -1px 1px #1e2d4d;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      border-radius: 4px;
+      background-color: #006699;
+    }
+
+    </style>
+
+    <script>
+      $(document).ready(function() {
+        $.idleTimer(3000);
+        
+        $(document).bind("idle.idleTimer", function() {
+          $("button").fadeOut("slow");
+        });
+        
+        $(document).bind("active.idleTimer", function() {
+          $("button").fadeIn("slow");
+        });
+
+
+      });
+
+
+    </script>
+
+    </head>
+    <body>    
+      <div id="main">
+        <div id="scored">
+          <div class="half"> <button id="team1GoalBtn" > Goal! </button> </div>
+          <div class="half"> <button id="team2GoalBtn" > Goal! </button> </div>
+        </div>
+        <div id="names">
+          <div class="half name">Robot</div>
+          <div class="half name">Human</div>
+        </div>
+        <div id="scores" style="width: 100%;" >
+          <div class="third score">0</div>
+          <div class="colon">:</div>
+          <div class="third score">0</div>
+        </div>
+        <div id="startStop">
+          <button id="btnStart" onclick="toggle()">Start</button>
+        </div>
+        <div id="time">
+          <div style="margin: 0 auto; width: 290px; text-align: center;">
+            <div id="mins" class="time">00</div>
+            <div id="colon" class="timecolon">:</div>
+            <div id="secs" class="time">00</div>
+            <div id="comma" class="timecolon">,</div>
+            <div id="milis" class="time">00</div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+    </body>
+</html>
