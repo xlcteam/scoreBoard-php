@@ -8,6 +8,7 @@
     <script src="js/lib/jquery.keylock.js"></script>
     <script src="js/lib/jquery.idle-timer.js"></script>
     <script src="js/stopwatch.js"></script>
+    <script src="js/goals.js"></script>
     
     <style type="text/css">
     @font-face {
@@ -136,17 +137,17 @@
     <body>    
       <div id="main">
         <div id="scored">
-          <div class="half"> <button id="team1GoalBtn" > Goal! </button> </div>
-          <div class="half"> <button id="team2GoalBtn" > Goal! </button> </div>
+          <div class="half"> <button id="team1GoalBtn"  onclick="team1Goal()"> Goal! </button> </div>
+          <div class="half"> <button id="team2GoalBtn"  onclick="team2Goal()"> Goal! </button> </div>
         </div>
         <div id="names">
           <div class="half name">Robot</div>
           <div class="half name">Human</div>
         </div>
         <div id="scores" style="width: 100%;" >
-          <div class="third score">0</div>
+          <div id="team1" class="third score">0</div>
           <div class="colon">:</div>
-          <div class="third score">0</div>
+          <div id="team2" class="third score">0</div>
         </div>
         <div id="startStop">
           <button id="btnStart" onclick="toggle()">Start</button>
