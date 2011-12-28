@@ -7,7 +7,8 @@
     <script src="js/lib/keylock.js"></script>
     <script src="js/lib/jquery.keylock.js"></script>
     <script src="js/lib/jquery.idle-timer.js"></script>
-    <script src="js/stopwatch.js"></script>
+		<script src="js/lib/jquery.stopwatch.js"></script>    
+		<script src="js/stopwatch.js"></script>
     <script src="js/goals.js"></script>
     
     <style type="text/css">
@@ -33,12 +34,6 @@
       font-size: 6em;
     }
     
-    .buttons{
-      margin: 0 auto;
-      text-align: center;
-      padding-top: 30px
-    }
-    
     .score {
       float: left;
       font-size: 12em;
@@ -46,12 +41,12 @@
       text-align: center;
     }
     .time{
-      float: left;
+      float: center;
       font-size: 5em;
       margin: 0 auto;
       text-align: center;  
       padding-top: 10px;
-      width: 80px;
+      width: 250px;
       font-family: "digital-7";
     }
     .timecolon{
@@ -111,13 +106,14 @@
       -o-border-radius: 4px;
       border-radius: 4px;
       background-color: #006699;
+			cursor: pointer;
     }
 
     </style>
 
     <script>
-      $(document).ready(function() {
-        $.idleTimer(3000);
+      $(document).ready(function() {      
+				$.idleTimer(3000);
         
         $(document).bind("idle.idleTimer", function() {
           $("button").fadeOut("slow");
@@ -126,12 +122,9 @@
         $(document).bind("active.idleTimer", function() {
           $("button").fadeIn("slow");
         });
+			});
 
-
-      });
-
-
-    </script>
+		</script>
 
     </head>
     <body>    
@@ -152,15 +145,7 @@
         <div id="startStop">
           <button id="btnStart" onclick="toggle()">Start</button>
         </div>
-        <div id="time">
-          <div style="margin: 0 auto; width: 290px; text-align: center;">
-            <div id="mins" class="time">00</div>
-            <div id="colon" class="timecolon">:</div>
-            <div id="secs" class="time">00</div>
-            <div id="comma" class="timecolon">,</div>
-            <div id="milis" class="time">00</div>
-          </div>
-        </div>
+        <div id="time" class="time">00:00:00</div>
         <div style="clear: both;"></div>
       </div>
     </body>
