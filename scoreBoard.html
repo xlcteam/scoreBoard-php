@@ -85,7 +85,7 @@
     
     #startStop{
         height: 60px;
-        width: 150px;
+        width: 350px;
         margin: 0 auto;
     }
     
@@ -94,7 +94,7 @@
     }
 
     button {
-      width: 150px;
+   		width: 150px;
       margin: 0 auto;
       font: lighter 22px "helvetica neue", helvetica, arial, sans-serif;
       line-height: 1;
@@ -142,8 +142,9 @@
           <div class="colon">:</div>
           <div id="team2" class="third score">0</div>
         </div>
-        <div id="startStop">
-          <button id="btnStart" onclick="toggle()">Start</button>
+        <div id="startStop" >
+					<div class="half"> <button id="btnStart" onclick="toggle()">Start</button> </div>
+          <div class="half"> <button id="btnResetTime" onclick="resetTime()">Reset Time</button> </div>
         </div>
         <div id="time" class="time">00:00:00</div>
         <div style="clear: both;"></div>
