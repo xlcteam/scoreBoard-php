@@ -12,3 +12,10 @@ function toggle()
 		return;
   }
 }
+function resetTime()
+{
+	$("#time").stopwatch().stopwatch('stop');		
+	$("#time").stopwatch().stopwatch('reset');
+	$("#time").html("00:00:00");
+	document.getElementById("btnStart").innerHTML = "Start";
+}
