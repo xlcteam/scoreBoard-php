@@ -1,21 +1,23 @@
-function toggle()
+function toggle ()
 {
-  if ((document.getElementById("btnStart").innerHTML == "Start") || 
-					(document.getElementById("btnStart").innerHTML == "Resume")){
-    document.getElementById("btnStart").innerHTML = "Pause";
+  btnStart = document.getElementById("btnStart");  
+	if (btnStart.innerHTML == "Start" || btnStart.innerHTML == "Resume"){
+    btnStart.innerHTML = "Pause";
 		$("#time").stopwatch().stopwatch('start');
     return;
   }
-  if (document.getElementById("btnStart").innerHTML == "Pause"){
-    document.getElementById("btnStart").innerHTML = "Resume";
+  if (btnStart.innerHTML == "Pause" || btnStart.innerHTML == "Resume"){
+    btnStart.innerHTML = "Resume";
 		$("#time").stopwatch().stopwatch('stop');
 		return;
   }
 }
+
 function resetTime()
 {
+  btnStart = document.getElementById("btnStart");	
 	$("#time").stopwatch().stopwatch('stop');		
 	$("#time").stopwatch().stopwatch('reset');
 	$("#time").html("00:00:00");
-	document.getElementById("btnStart").innerHTML = "Start";
+	btnStart.innerHTML = "Start";
 }
