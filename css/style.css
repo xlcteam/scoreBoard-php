@@ -6,6 +6,7 @@
 body {
   background-color: #000;
   color: #cccccc;
+	margin: 0;
 }
 .half {
   width: 50%;
@@ -36,6 +37,8 @@ body {
   padding-top: 10px;
   width: 250px;
   font-family: "digital-7";
+	position: relative;
+	z-index: 20;
 }
 
 .timecolon{
@@ -57,43 +60,43 @@ body {
 }
 
 .leftBckg {
+	opacity: 0;
+	background-color: #006699;
 	width: 50%;
 	height: 100%;
 	float: left;
 }
 
 .rightBckg {
+	opacity: 0;
+	background-color: #006699;
 	width: 50%;
 	height: 100%;
 	float: right;
 }
 
 #main{
-    width: 100%;
-    height: 100%;
-		position: absolute; 
+  width: 100%;
+  height: 100%;
+	position: absolute; 
 }     
 
 #names{
-    height: 150px;
+  height: 150px;
 }
 
 #scores{
-    height: 200px;
-}
-
-#time{
-    height: 200px;    
+  height: 200px;
 }
 
 #startStop{
-    height: 60px;
-    width: 350px;
-    margin: 0 auto;
+  height: 60px;
+  width: 350px;
+  margin: 0 auto;
 }
 
 #scored {
-    height: 40px;
+  height: 40px;
 }
 
 button {
@@ -112,5 +115,38 @@ button {
 	position: relative;
 	z-index: 20;
 	cursor: pointer;
+}
+
+.element {
+	position: relative;
+	z-index: 20;
+}
+
+.element1 {
+	position: relative;
+	z-index: 20;
+}
+
+.element2 {
+	position: relative;
+	z-index: 20;
+}
+
+.goalLText {
+	font-size: 6em;
+  color: #cccccc;
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	z-index: 20;
+}
+
+.goalRText {
+  font-size: 6em;
+	color: #cccccc;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	z-index: 20;
 }
 
