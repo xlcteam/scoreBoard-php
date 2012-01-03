@@ -19,11 +19,16 @@
         
         $(document).bind("idle.idleTimer", function() {
           $("button").fadeOut("slow");
+					$("#main").fadeOut("slow");
         });
         
         $(document).bind("active.idleTimer", function() {
           $("button").fadeIn("slow");
+					$("#main").fadeIn("slow");
         });
+			
+				
+
 				$(".element1").bind("mouseover", fill1);
 				$(".element1").bind("mouseout", unfill1);
 				$(".element2").bind("mouseover", fill2);
