@@ -30,10 +30,8 @@ body {
 }
 
 .time{
-  float: center;
   font-size: 5em;
   margin: 0 auto;
-  text-align: center;  
   padding-top: 10px;
   width: 250px;
   font-family: "digital-7";
@@ -86,7 +84,12 @@ body {
 }
 
 #scores{
-  height: 200px;
+	height: 200px;
+}
+
+#timeBar {
+	width: 300px;
+	margin: 0 auto;
 }
 
 #startStop{
