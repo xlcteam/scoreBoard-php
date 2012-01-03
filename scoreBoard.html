@@ -10,6 +10,7 @@
 		<script src="js/lib/jquery.stopwatch.js"></script>    
 		<script src="js/stopwatch.js"></script>
     <script src="js/goals.js"></script>
+		<script src="js/fills.js"></script>
 		<link rel="stylesheet" href="css/style.css">    
 
     <script>
@@ -23,6 +24,10 @@
         $(document).bind("active.idleTimer", function() {
           $("button").fadeIn("slow");
         });
+				$(".element1").bind("mouseover", fill1);
+				$(".element1").bind("mouseout", unfill1);
+				$(".element2").bind("mouseover", fill2);
+				$(".element2").bind("mouseout", unfill2);
 			});
 
 		</script>
@@ -30,21 +35,25 @@
     </head>
     <body>  
       <div id="main">
-				<div class="leftBckg" onclick="team1Goal()"> </div>
-				<div class="rightBckg" onclick="team2Goal()"> </div>
+				<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
+					<span class="goalLText">Goal!</span>	
+				</div>
+				<div class="rightBckg" onclick="team2Goal()" onmouseover="fill2()" onmouseout="unfill2()"> 
+					<span class="goalRText">Goal!</span>
+				</div>
 			</div>
 			<div id="scored" style="position: relative;">
           <div class="half"> <button id="team1GoalBtn"  onclick="team1Goal()"> Goal! </button> </div>
           <div class="half"> <button id="team2GoalBtn"  onclick="team2Goal()"> Goal! </button> </div>
       </div>
       <div id="names">
-        <div class="half name">Robot</div>
-        <div class="half name">Human</div>
+        <div class="half name"><span class="element1">Robot</span></div>
+        <div class="half name"><span class="element2">Human</span></div>
       </div>
-      <div id="scores" style="width: 100%;" >
-        <div id="team1" class="third score">0</div>
-        <div class="colon">:</div>
-        <div id="team2" class="third score">0</div>
+      <div id="scores" style="width: 100%;">
+        <div class="third score"><span class="element1" id="team1">0</span></div>
+        <div class="colon"><span class="element"> :</span></div>
+        <div class="third score"><span class="element2" id="team2">0</span></div>
       </div>
       <div id="startStop" >
 				<div class="half"> <button id="btnStart" onclick="toggle()">Start</button> </div>

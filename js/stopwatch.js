@@ -21,3 +21,5 @@ function resetTime()
 	$("#time").html("00:00:00");
 	btnStart.innerHTML = "Start";
 }
+
+
