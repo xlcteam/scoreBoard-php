@@ -1,0 +1,116 @@
+@font-face {
+	font-family: "digital-7";
+  src: url(../digital-7.ttf);
+}
+    
+body {
+  background-color: #000;
+  color: #cccccc;
+}
+.half {
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+
+.third {
+  width: 48%;
+}
+    
+.name {
+  font-size: 6em;
+}
+    
+.score {
+  float: left;
+  font-size: 12em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.time{
+  float: center;
+  font-size: 5em;
+  margin: 0 auto;
+  text-align: center;  
+  padding-top: 10px;
+  width: 250px;
+  font-family: "digital-7";
+}
+
+.timecolon{
+  float: left;
+  font-size: 5em;
+  margin: 0 auto;
+  text-align: center;  
+  padding-top: 10px;
+  width: 20px;
+  font-family: "digital-7";
+}
+
+.colon {
+	float: left;
+	font-size: 12em;
+  margin-top: -0.05em;
+  text-align: center;
+  width: 20px;
+}
+
+.leftBckg {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+.rightBckg {
+	width: 50%;
+	height: 100%;
+	float: right;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+		position: absolute; 
+}     
+
+#names{
+    height: 150px;
+}
+
+#scores{
+    height: 200px;
+}
+
+#time{
+    height: 200px;    
+}
+
+#startStop{
+    height: 60px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+#scored {
+    height: 40px;
+}
+
+button {
+	width: 150px;
+  margin: 0 auto;
+  font: lighter 22px "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0px -1px 1px #1e2d4d;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #006699;
+	position: relative;
+	z-index: 20;
+	cursor: pointer;
+}
+
