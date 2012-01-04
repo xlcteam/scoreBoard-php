@@ -32,7 +32,7 @@ function resetTime()
   btnStart = document.getElementById("btnStart");	
 	$("#time").stopwatch().stopwatch('stop');		
 	$("#time").stopwatch().stopwatch('reset');
-	$("#time").html("00:00:00");
+	$("#time").html("00:00,00");
 	btnStart.innerHTML = "Start";
   return;
 }
