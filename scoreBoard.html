@@ -26,6 +26,11 @@
           $("button").fadeIn("slow");
 					$("#main").fadeIn("slow");
         });
+				
+				$(".btn-slide").click(function(){
+					$("#panel").slideToggle("slow");
+					$(this).toggleClass("active"); return false;
+				});
 			
 				
 
@@ -38,8 +43,9 @@
 		</script>
 
     </head>
-    <body>  
-      <div id="main">
+    <body>
+			<div id="panel"></div>
+			<div id="main">
 				<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
 					<span class="goalLText">Goal!</span>	
 				</div>
@@ -47,7 +53,8 @@
 					<span class="goalRText">Goal!</span>
 				</div>
 			</div>
-			<div id="scored" style="position: relative;">
+			<p class="slide" style="text-align: center;"><a href="#" class="btn-slide"><span>&#9660;</span></a></p> 
+			<div id="scored">
           <div class="half"> <button id="team1GoalBtn"  onclick="team1Goal()"> Goal! </button> </div>
           <div class="half"> <button id="team2GoalBtn"  onclick="team2Goal()"> Goal! </button> </div>
       </div>
@@ -64,7 +71,6 @@
 				<div class="half"> <button id="btnStart" onclick="toggle()">Start</button> </div>
         <div class="half"> <button id="btnResetTime" onclick="resetTime()">Reset Time</button> </div>
       </div>
-      <div id="timeBar"><div id="time" class="time">00:00:00</div></div>
+      <div id="timeBar"><div id="time" class="time">00:00,00</div></div>
       <div style="clear: both;"></div> 
-    </body>
 </html>
