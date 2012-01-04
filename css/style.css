@@ -102,6 +102,17 @@ body {
   height: 40px;
 }
 
+#panel {
+	background: #2d8cd6;
+	width: 350px;
+	height: 150px;
+	display: none;
+	margin-left: auto;
+  margin-right: auto;
+	position: relative;
+	z-index: 500;
+}
+
 button {
 	width: 150px;
   margin: 0 auto;
@@ -151,5 +162,26 @@ button {
 	right: 5px;
 	bottom: 5px;
 	z-index: 20;
+}
+
+.btn-slide {
+	background-color: #220bff no-repeat center top;	
+	padding: 10px 10px 0 0;
+	margin: 0 auto;
+	display: block;
+	font: bold 120%/100% Arial, Helvetica, sans-serif;
+	color: #fff;
+	text-decoration: none;
+	position: relative;
+	z-index: 500;
+}
+
+.slide {
+	margin: 0;
+	padding: 0;
+}
+
+.active {
+	background-position: right 12px;
 }
 
