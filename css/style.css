@@ -115,7 +115,8 @@ body {
 	display: none;
 	margin-left: auto;
   margin-right: auto;
-	position: center;
+	left: 50%;
+	margin-left: -172px;
 	z-index: 50;
 }
 
@@ -178,7 +179,9 @@ button {
 	font: bold 120%/100% Arial, Helvetica, sans-serif;
 	color: #fff;
 	text-decoration: none;
-	position: relative;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
 	z-index: 50;
 }
 
