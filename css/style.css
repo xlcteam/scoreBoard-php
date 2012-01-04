@@ -77,6 +77,11 @@ body {
   width: 100%;
   height: 100%;
 	position: absolute; 
+}
+#underMain {
+	width: 100%;
+	height: 100%;
+	position: absolute;
 }     
 
 #names{
@@ -103,14 +108,15 @@ body {
 }
 
 #panel {
-	background: #2d8cd6;
+	background: #2d8cd6;	
+	position: absolute;
 	width: 350px;
 	height: 150px;
 	display: none;
 	margin-left: auto;
   margin-right: auto;
-	position: relative;
-	z-index: 500;
+	position: center;
+	z-index: 50;
 }
 
 button {
@@ -173,7 +179,7 @@ button {
 	color: #fff;
 	text-decoration: none;
 	position: relative;
-	z-index: 500;
+	z-index: 50;
 }
 
 .slide {
