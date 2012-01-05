@@ -61,16 +61,27 @@ body {
 	opacity: 0;
 	background-color: #006699;
 	width: 50%;
-	height: 100%;
+	height: 65%;
 	float: left;
+  position: relative;
 }
 
 .rightBckg {
+  position: relative;
 	opacity: 0;
 	background-color: #006699;
 	width: 50%;
-	height: 100%;
+	height: 65%;
 	float: right;
+}
+
+.startBckg {
+  position: relative;
+ 	opacity: 0;
+	background-color: #918D1C;
+	width: 100%;
+	height: 35%;
+	clear: left;
 }
 
 #main{
@@ -148,6 +159,15 @@ button {
 }
 
 .goalRText {
+  font-size: 6em;
+	color: #cccccc;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	z-index: 20;
+}
+
+.startText {
   font-size: 6em;
 	color: #cccccc;
 	position: absolute;

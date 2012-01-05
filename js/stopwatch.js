@@ -1,5 +1,6 @@
 function toggle ()
 {
+  
   btnStart = document.getElementById("btnStart");  
 	if (btnStart.innerHTML == "Start" || btnStart.innerHTML == "Resume"){
     btnStart.innerHTML = "Pause";

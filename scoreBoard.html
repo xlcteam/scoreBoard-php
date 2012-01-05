@@ -15,12 +15,15 @@
 
     <script>
       $(document).ready(function() {      
-				$.idleTimer(3000);
+				$.idleTimer(2500);
         
         $(document).bind("idle.idleTimer", function() {
-          $("button").fadeOut("slow");
-					$("#main").fadeOut("slow");
-          $("#underMain").fadeOut("slow");
+          btnStart = document.getElementById("btnStart");  
+  	      if (btnStart.innerHTML != "Start" || btnStart.innerHTML != "Resume"){
+            $("button").fadeOut("slow");
+            $("#main").fadeOut("slow");
+            $("#underMain").fadeOut("slow");
+          }
         });
         
         $(document).bind("active.idleTimer", function() {
@@ -63,10 +66,11 @@
 				<div class="rightBckg" onclick="team2Goal()" onmouseover="fill2()" onmouseout="unfill2()"> 
 					<span class="goalRText">Goal!</span>
 				</div>
+        <div class="startBckg" onclick="toggle()" onmouseover="fill3()" onmouseout="unfill3()">
+					<span id="btnStart" class="startText">Start</span>
+        </div>
 			</div>
 			<div id="scored">
-          <div class="half"> <button id="team1GoalBtn"  onclick="team1Goal()"> Goal! </button> </div>
-          <div class="half"> <button id="team2GoalBtn"  onclick="team2Goal()"> Goal! </button> </div>
       </div>
       <div id="names">
         <div class="half name"><span class="element1">Robot</span></div>
@@ -78,7 +82,6 @@
         <div class="third score"><span class="element2" id="team2">0</span></div>
       </div>
       <div id="startStop" >
-				<button id="btnStart" onclick="toggle()">Start</button> 
       </div>
       <div id="timeBar"><div id="time" class="time">00:00,00</div></div>
       <div style="clear: both;"></div> 
