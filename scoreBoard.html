@@ -20,16 +20,22 @@
         $(document).bind("idle.idleTimer", function() {
           $("button").fadeOut("slow");
 					$("#main").fadeOut("slow");
+          $("#underMain").fadeOut("slow");
         });
         
         $(document).bind("active.idleTimer", function() {
           $("button").fadeIn("slow");
 					$("#main").fadeIn("slow");
+          $("#underMain").fadeIn("slow");
         });
 				
 				$(".btn-slide").click(function(){
 					$("#panel").slideToggle("slow");
-					$(this).toggleClass("active"); return false;
+					if ($(this).text() == String.fromCharCode(9660)) {
+            $(this).text(String.fromCharCode(9650));  
+          } else {
+            $(this).text(String.fromCharCode(9660));  
+          }
 				});
 			
 				
@@ -44,8 +50,10 @@
 
     </head>
     <body>
-			<div id="panel"></div>
 			<div id="underMain">
+			  <div id="panel">
+          <button id="btnResetTime" onclick="resetTime()">Reset Time</button>
+        </div>
 				<div class="slide" style="text-align: center;"><a href="#" class="btn-slide"><span>&#9660;</span></a></div>
 			</div> 
 			<div id="main">
@@ -70,8 +78,7 @@
         <div class="third score"><span class="element2" id="team2">0</span></div>
       </div>
       <div id="startStop" >
-				<div class="half"> <button id="btnStart" onclick="toggle()">Start</button> </div>
-        <div class="half"> <button id="btnResetTime" onclick="resetTime()">Reset Time</button> </div>
+				<button id="btnStart" onclick="toggle()">Start</button> 
       </div>
       <div id="timeBar"><div id="time" class="time">00:00,00</div></div>
       <div style="clear: both;"></div> 
