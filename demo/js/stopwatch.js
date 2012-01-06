@@ -31,10 +31,12 @@ function toggle ()
 function resetTime()
 {
   btnStart = document.getElementById("btnStart");	
-	$("#time").stopwatch().stopwatch('stop');		
-	$("#time").stopwatch().stopwatch('reset');
-	$("#time").html("00:00,00");
-	btnStart.innerHTML = "Start";
+	if (btnStart.innerHTML == "Resume" || btnStart.innerHTML == "Pause") {
+    $("#time").stopwatch().stopwatch('stop');		
+    $("#time").stopwatch().stopwatch('reset');
+    $("#time").html("00:00,00");
+    btnStart.innerHTML = "Start";
+  }
   return;
 }
 

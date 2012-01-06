@@ -16,7 +16,6 @@
     <script>
       $(document).ready(function() {      
 				$.idleTimer(2500);
-        
         $(document).bind("idle.idleTimer", function() {
           $("#main").fadeOut("slow");
           $("#underMain").fadeOut("slow");
@@ -59,8 +58,8 @@
     <body>
 			<div id="underMain">
 			  <div id="panel">
-          <button id="btnResetTime" onclick="resetTime()">Reset Time</button>
-					<button id="btnResetScore" onclick="resetScore()">Reset Score</button>
+          <div class="placeholder"><button id="btnResetTime" onclick="resetTime()">Reset Time</button></div>
+					<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
 				</div>
 				<div class="slide" style="text-align: center;"><a href="#" class="btn-slide"><span>&#9660;</span></a></div>
 			</div> 
