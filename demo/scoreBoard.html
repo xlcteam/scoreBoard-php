@@ -18,18 +18,11 @@
 				$.idleTimer(2500);
         
         $(document).bind("idle.idleTimer", function() {
-          btnStart = document.getElementById("btnStart");  
-  	      if (btnStart.innerHTML != "Start" || btnStart.innerHTML != "Resume"){
-            $("button").fadeOut("slow");
             $("#main").fadeOut("slow");
-            $("#underMain").fadeOut("slow");
-          }
         });
         
         $(document).bind("active.idleTimer", function() {
-          $("button").fadeIn("slow");
 					$("#main").fadeIn("slow");
-          $("#underMain").fadeIn("slow");
         });
 				
 				$(".btn-slide").click(function(){
@@ -43,7 +36,10 @@
 
         $('.element1').click(team1Goal);
         $('.element2').click(team2Goal);
-			
+				
+				$('.time').click(function(){
+					$('#time').stopwatch.stopwatch('stop');
+				});
 				
 
 				$(".element1").bind("mouseover", fill1);
@@ -59,7 +55,8 @@
 			<div id="underMain">
 			  <div id="panel">
           <button id="btnResetTime" onclick="resetTime()">Reset Time</button>
-        </div>
+					<button id="btnResetScore" onclick="resetScore()">Reset Score</button>
+				</div>
 				<div class="slide" style="text-align: center;"><a href="#" class="btn-slide"><span>&#9660;</span></a></div>
 			</div> 
 			<div id="main">
