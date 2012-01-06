@@ -19,12 +19,12 @@
         
         $(document).bind("idle.idleTimer", function() {
           $("#main").fadeOut("slow");
-          $("#panel").fadeOut("slow");
+          $("#underMain").fadeOut("slow");
         });
         
         $(document).bind("active.idleTimer", function() {
 					$("#main").fadeIn("slow");
-          $("#panel").fadeIn("slow");
+          $("#underMain").fadeIn("slow");
         });
 				
 				$(".btn-slide").click(function(){
