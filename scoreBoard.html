@@ -18,11 +18,13 @@
 				$.idleTimer(2500);
         
         $(document).bind("idle.idleTimer", function() {
-            $("#main").fadeOut("slow");
+          $("#main").fadeOut("slow");
+          $("#panel").fadeOut("slow");
         });
         
         $(document).bind("active.idleTimer", function() {
 					$("#main").fadeIn("slow");
+          $("#panel").fadeIn("slow");
         });
 				
 				$(".btn-slide").click(function(){
