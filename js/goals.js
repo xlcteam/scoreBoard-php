@@ -24,3 +24,11 @@ function team2Goal()
 	toggleOnGoal();
 	$("#team2").html(goal2);
 }
+
+function resetScore()
+{
+	goal1 = 0;
+	goal2 = 0;
+	$('#team1').html(goal1);
+	$('#team2').html(goal2);
+}
