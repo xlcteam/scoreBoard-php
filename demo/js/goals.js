@@ -4,9 +4,8 @@ var goal2 = 0;
 function toggleOnGoal()
 {
 	btnStart = document.getElementById("btnStart");
-	$("#time").stopwatch().stopwatch('stop');
-	
 	if (btnStart.innerHTML == "Pause"){
+	    $("#time").stopwatch().stopwatch('stop');
 		btnStart.innerHTML = "Resume";
 	}
 }
