@@ -16,15 +16,14 @@
     <script>
       $(document).ready(function() {      
 				$.idleTimer(2500);
-        
         $(document).bind("idle.idleTimer", function() {
           $("#main").fadeOut("slow");
-        //  $("#underMain").fadeOut("slow");
+          $("#underMain").fadeOut("slow");
         });
         
         $(document).bind("active.idleTimer", function() {
 					$("#main").fadeIn("slow");
-         // $("#underMain").fadeIn("slow");
+          $("#underMain").fadeIn("slow");
         });
 				
 				$(".btn-slide").click(function(){
