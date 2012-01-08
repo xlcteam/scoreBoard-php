@@ -20,7 +20,18 @@ class Authenticator extends NObject implements IAuthenticator
 		$this->users = $users;
 	}
 
-
+	/**
+	 * Registers an user.
+	 * @param  string
+	 * @param  string
+	 * @param  string
+	 * @return NIdentity
+	 */
+	
+    public function register($username, $password, $name)
+    {
+        
+    }
 
 	/**
 	 * Performs an authentication

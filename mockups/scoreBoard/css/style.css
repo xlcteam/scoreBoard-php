@@ -316,3 +316,14 @@ button:active {
 	z-index: 101;
 	overflow: hidden;
 }
+
+#progress {
+  padding-top: 30px;
+}
+
+#progress progress {
+  padding-bottom: 30px;
+  margin: 0 auto;
+  width: 200px;
+  display: block;
+}
