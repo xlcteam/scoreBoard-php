@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "digital-7";
+  src: url(../digital-7.ttf);
+}
+
+body {
+  background-color: #000;
+  color: #cccccc;
+    margin: 0;
+  font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+}
+
+#leftPage{
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: #8C0000;
+}
+
+#rightPage{
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: #8C0000;
+}
