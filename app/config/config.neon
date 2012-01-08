@@ -9,8 +9,8 @@ common:
 		database:
 			driver: mysql
 			host: localhost
-			dbname: test
-			user:
+			dbname: scoreBoard
+			user: root
 			password:
 
 

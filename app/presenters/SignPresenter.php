@@ -60,5 +60,4 @@ class SignPresenter extends BasePresenter
 		$this->flashMessage('You have been signed out.');
 		$this->redirect('in');
 	}
-
 }
