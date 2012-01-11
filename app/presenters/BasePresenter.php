@@ -8,5 +8,4 @@
  */
 abstract class BasePresenter extends NPresenter
 {
-
 }

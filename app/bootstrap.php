@@ -37,8 +37,8 @@ if ($container->session->exists()) {
 
 // Setup router
 $router = $container->router;
-$router[] = new NRoute('index.php', 'Homepage:default', NRoute::ONE_WAY);
-$router[] = new NRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
+$router[] = new NRoute('index.php', 'Dashboard:default', NRoute::ONE_WAY);
+$router[] = new NRoute('<presenter>/<action>[/<id>]', 'Dashboard:default');
 
 
 // Configure and run the application!

@@ -10,6 +10,9 @@
  */
 class SignPresenter extends BasePresenter
 {
+        /** @persistent */                                                    
+        public $backlink = '';                                                
+
 
 
 	/**
@@ -33,10 +36,33 @@ class SignPresenter extends BasePresenter
 		return $form;
 	}
 
+	/**
+	 * Sign up form component factory.
+	 * @return NAppForm
+	 */
+	protected function createComponentSignUpForm()
+	{
+		$form = new NAppForm;
+		$form->addText('name', 'Name:')
+			->setRequired('Please provide a name.');
+        
+                $form->addText('username', 'Username:')
+			->setRequired('Please provide a username.');
+
+		$form->addPassword('password', 'Password:')
+			->setRequired('Please provide a password.');
+
+		$form->addSubmit('send', 'Sign up');
+
+		$form->onSuccess[] = callback($this, 'signUpFormSubmitted');
+		return $form;
+	}
+
 
 
 	public function signInFormSubmitted($form)
 	{
+                
 		try {
 			$values = $form->getValues();
 			if ($values->remember) {
@@ -45,7 +71,23 @@ class SignPresenter extends BasePresenter
 				$this->getUser()->setExpiration('+ 20 minutes', TRUE);
 			}
 			$this->getUser()->login($values->username, $values->password);
-			$this->redirect('Homepage:');
+                        $this->application->restoreRequest($this->backlink);  
+			$this->redirect('Dashboard:');
+
+		} catch (NAuthenticationException $e) {
+			$form->addError($e->getMessage());
+		}
+	}
+
+	public function signUpFormSubmitted($form)
+	{
+		try {
+			$values = $form->getValues();
+                        $values->password = $this->calculateHash($values->password);
+			$this->getService('model')->getUsers()
+                                ->insert($values);
+
+			$this->redirect('Dashboard:');
 
 		} catch (NAuthenticationException $e) {
 			$form->addError($e->getMessage());
@@ -60,4 +102,15 @@ class SignPresenter extends BasePresenter
 		$this->flashMessage('You have been signed out.');
 		$this->redirect('in');
 	}
+
+	/**
+	 * Computes salted password hash.
+	 * @param  string
+	 * @return string
+	 */
+	public function calculateHash($password)
+	{
+		return hash('sha512', $password . str_repeat($this->context->params['salt'], 10));
+	}
+
 }

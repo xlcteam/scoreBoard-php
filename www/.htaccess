@@ -6,7 +6,7 @@ Options -Indexes
 # enable cool URL
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	# RewriteBase /
+	#RewriteBase /
 
 	# front controller
 	RewriteCond %{REQUEST_FILENAME} !-f

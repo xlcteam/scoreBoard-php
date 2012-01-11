@@ -21,19 +21,6 @@ class Authenticator extends NObject implements IAuthenticator
 	}
 
 	/**
-	 * Registers an user.
-	 * @param  string
-	 * @param  string
-	 * @param  string
-	 * @return NIdentity
-	 */
-	
-    public function register($username, $password, $name)
-    {
-        
-    }
-
-	/**
 	 * Performs an authentication
 	 * @param  array
 	 * @return NIdentity
@@ -56,8 +43,6 @@ class Authenticator extends NObject implements IAuthenticator
 		return new NIdentity($row->id, $row->role, $row->toArray());
 	}
 
-
-
 	/**
 	 * Computes salted password hash.
 	 * @param  string
@@ -65,7 +50,8 @@ class Authenticator extends NObject implements IAuthenticator
 	 */
 	public function calculateHash($password)
 	{
-		return md5($password . str_repeat('*enter any random salt here*', 10));
+                $cfg = NEnvironment::getConfig();
+		return hash('sha512', $password . str_repeat($cfg['salt'], 10));
 	}
 
 }

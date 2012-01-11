@@ -29,10 +29,24 @@
 </head>
 
 <body>
-	<script> document.body.className+=' js' </script>
+        <div id="banner">
+                <div id="logo">
+	                <h1>scoreBoard</h1>
+                </div>
+                <div n:if="$user->isLoggedIn()" id="userPanel">
+                       <strong><em>{$user->getIdentity()->name}</em></strong> 
+                       <strong>|</strong> <a n:href="Sign:out"> Logout </a>
+                </div>
+        </div>
+
+        <div id="content">
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-
 	{include #content}
+        </div>
+
+
+
+
 </body>
 </html>
