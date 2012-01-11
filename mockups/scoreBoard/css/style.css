@@ -259,6 +259,12 @@ button:active {
   margin: 0 auto;
 }
 
+.placeholder2 {
+  width: 200px;
+	padding-top: 10px;
+  margin: 0 auto;
+}
+
 .meter { 
 	height: 20px;
 	width: 300px;
@@ -329,3 +335,5 @@ button:active {
   width: 200px;
   display: block;
 }
+
+
