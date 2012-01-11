@@ -21,7 +21,7 @@ function toggle ()
 		$("#time").stopwatch({formatter: format, updateInterval: 50}).stopwatch('start');
     return;
   }
-  if (btnStart.innerHTML == "Pause" || btnStart.innerHTML == "Resume"){
+  else if (btnStart.innerHTML == "Pause"){
     btnStart.innerHTML = "Resume";
 		$("#time").stopwatch().stopwatch('stop');
 		return;
