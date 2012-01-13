@@ -24,6 +24,30 @@ function team2Goal()
 	$("#team2").html(goal2);
 }
 
+function team1Down()
+{
+	if (goal1 <= 0){
+		goal1 = 0;
+		return false;	
+	}else{
+		goal1--;
+		$("#team1").html(goal1);	
+		return false;
+	}
+}
+
+function team2Down()
+{
+	if (goal2 <= 0){
+		goal2 = 0;
+		return false;	
+	}else{
+		goal2--;
+		$("#team2").html(goal2);
+		return false;	
+	}
+}
+
 function resetScore()
 {
 	goal1 = 0;
