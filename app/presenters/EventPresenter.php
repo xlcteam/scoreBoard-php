@@ -21,6 +21,9 @@ class EventPresenter extends SecuredPresenter
 		$form->addText('name', 'Name of the event:')
 			->setRequired('Please provide a name.');
 
+		$form->addCheckbox('finished', 'Finished');
+
+
 		$form->addSubmit('send', 'Create');
 
 		$form->onSuccess[] = callback($this, 'eventFormSubmitted');
@@ -29,11 +32,21 @@ class EventPresenter extends SecuredPresenter
 
         public function eventFormSubmitted($form)
         {
-                $values = $form->getValues();
-                $values->uID = $this->getUser()->getIdentity()->id;
-                $values->finished = 0;
-                $this->getService('model')->getEvents()->insert($values);
-                $this->redirect('Dashboard:');
+                $this->events = $this->getService('model')->getEvents();
+
+                if ($form['send']->isSubmittedBy()) {
+                        $row = (int) $this->getParam('id');
+                        $values = $form->getValues();
+
+                        if($row > 0) {
+                                $this->events->find($row)->update($values);
+                        } else {
+                                $values->uID = $this->getUser()->getIdentity()->id;
+                                $values->finished = 0;
+                                $this->events->find($row)->insert($values);
+                        }
+                        $this->redirect('Dashboard:');
+                }
                 
         }
 
@@ -42,6 +55,7 @@ class EventPresenter extends SecuredPresenter
                 $this->events = $this->getService('model')->getEvents();
                 
                 $form = $this['eventForm'];
+                $form['send']->caption = 'Save';
                 if(!$form->isSubmitted()) {
                         $row = $this->events->get($id);
                         if(!$row) {
@@ -51,6 +65,5 @@ class EventPresenter extends SecuredPresenter
                 }
 
         }
-
 
 }

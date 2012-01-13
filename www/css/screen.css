@@ -11,6 +11,14 @@ a { color: #006aeb; padding: 3px 1px; }
         width: 80%;
         float: left;
 }
+#logo a{
+        color: white;
+        text-decoration: none;
+}
+
+#logo a:hover {
+        text-decoration: underline;
+}
 
 #userPanel {
         width: 20%;
