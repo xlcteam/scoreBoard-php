@@ -19,7 +19,9 @@
         $(document).bind("idle.idleTimer", function() {
           $("#main").fadeOut("slow");
           $("#underMain").fadeOut("slow");
-        });
+      });
+				
+
         
         $(document).bind("active.idleTimer", function() {
 					$("#main").fadeIn("slow");
@@ -52,6 +54,7 @@
 				$(".element3").bind("mouseout", unfill3);
 			});
 
+
 		</script>
 
     </head>
@@ -62,7 +65,9 @@
 					<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
 					<div class="placeholder2">						
 						<form method="get">
-  						Time: <input type="text" name="fname" /> <br />
+  						Time: <input type="text" name="minutes" size="2" value="20"/>
+							: <input type="text" name="seconds" size="2" value="00"/> 
+							, <input type="text" name="millis" size="2" value="00"/> <br />
   					</form>
 					</div> 
 				</div>
