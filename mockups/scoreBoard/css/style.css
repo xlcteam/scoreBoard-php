@@ -336,4 +336,8 @@ button:active {
   display: block;
 }
 
+.input {
+	width: 30px;
+}
+
 
