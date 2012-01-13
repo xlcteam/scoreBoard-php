@@ -57,50 +57,51 @@
 
 		</script>
 
-    </head>
-    <body>
-			<div id="underMain">
-			  <div id="panel">
-          <div class="placeholder"><button id="btnResetTime" onclick="resetTime()">Reset Time</button></div>
-					<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
-					<div class="placeholder2">						
-						<form method="get">
-  						Time: <input type="text" name="minutes" size="2" value="20"/>
-							: <input type="text" name="seconds" size="2" value="00"/> 
-							, <input type="text" name="millis" size="2" value="00"/> <br />
-  					</form>
-					</div> 
-				</div>
-				<div class="slide" style="text-align: center;"><a href="#" class="btn-slide"><span>&#9660;</span></a></div>
-			</div> 
-			<div id="main">
-				<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
-					<span class="goalLText">Goal!</span>	
-				</div>
-				<div class="rightBckg" onclick="team2Goal()" onmouseover="fill2()" onmouseout="unfill2()"> 
-					<span class="goalRText">Goal!</span>
-				</div>
-        <div class="startBckg" onclick="toggle()" onmouseover="fill3()" onmouseout="unfill3()">
-					<span id="btnStart" class="startText">Start</span>
-        </div>
+	</head>
+  <body>
+		<div id="underMain">
+		  <div id="panel">
+        <div class="placeholder"><button id="btnResetTime" onclick="resetTime()">Reset Time</button></div>
+				<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
+				<div class="placeholder2">						
+					<form method="get">
+						Time: <input type="text" id="minutes" size="2" value="20"/>
+						: <input type="text" id="seconds" size="2" value="00"/> 
+						, <input type="text" id="millis" size="2" value="00"/> <br />
+							<center><input type="button" id="submitTime" value="Submit time"/> <br /> <center>
+					</form>
+				</div> 
 			</div>
-			<div id="scored">
+			<div class="slide" style="text-align: center;"><a href="#" class="btn-slide"><span>&#9660;</span></a></div>
+		</div> 
+		<div id="main">
+			<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
+				<span class="goalLText">Goal!</span>	
+			</div>
+			<div class="rightBckg" onclick="team2Goal()" onmouseover="fill2()" onmouseout="unfill2()"> 
+				<span class="goalRText">Goal!</span>
+			</div>
+      <div class="startBckg" onclick="toggle()" onmouseover="fill3()" onmouseout="unfill3()">
+				<span id="btnStart" class="startText">Start</span>
       </div>
-      <div id="names">
-        <div class="half name"><span class="element1">Robot</span></div>
-        <div class="half name"><span class="element2">Human</span></div>
-      </div>
-      <div id="scores" style="width: 100%;">
-        <div class="third score"><span class="element1" id="team1">0</span></div>
-        <div class="colon"><span class="element"> :</span></div>
-        <div class="third score"><span class="element2" id="team2">0</span></div>
-      </div>				
-			<div id="progress">
-        <div class="meter">
-					<span style="width: 58%">58%</span>
-				</div>
-      </div>
-      <div id="timeBar"><div id="time" class="time"><span class="element3">00:00,00</span></div></div>
-      <div style="clear: both;"></div>
+		</div>
+		<div id="scored">
+    </div>
+    <div id="names">
+      <div class="half name"><span class="element1">Robot</span></div>
+      <div class="half name"><span class="element2">Human</span></div>
+    </div>
+    <div id="scores" style="width: 100%;">
+      <div class="third score"><span class="element1" id="team1">0</span></div>
+      <div class="colon"><span class="element"> :</span></div>
+      <div class="third score"><span class="element2" id="team2">0</span></div>
+    </div>				
+		<div id="progress">
+      <div class="meter">
+				<span style="width: 58%">58%</span>
+			</div>
+    </div>
+    <div id="timeBar"><div id="time" class="time"><span class="element3">00:00,00</span></div></div>
+    <div style="clear: both;"></div>
 	</body> 
 </html>
