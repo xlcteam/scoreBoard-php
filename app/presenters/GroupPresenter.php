@@ -17,9 +17,9 @@ class GroupPresenter extends NPresenter
                 
         }
         
-        public function renderNew($id = 0)
+        public function renderNew()
         {
-                $this->template->id = $id;
+
         }
 
 	protected function createComponentGroupForm($id = 0)
@@ -32,16 +32,15 @@ class GroupPresenter extends NPresenter
                 
                 $events = $this->events->fetchPairs('id', 'name');
 
-                $form->addSelect('event', 'Group for event', $events)
-                        ->setDefaultValue($this->template->id);
+                $form->addSelect('event', 'Group for event', $events);
 
 		$form->addSubmit('send', 'Create');
 
-		$form->onSuccess[] = callback($this, 'eventGroupSubmitted');
+		$form->onSuccess[] = callback($this, 'groupFormSubmitted');
 		return $form;
 	}
         
-        public function eventFormSubmitted($form)
+        public function groupFormSubmitted($form)
         {
                 $this->groups = $this->getService('model')->getGroups();
 
@@ -59,4 +58,19 @@ class GroupPresenter extends NPresenter
                 
         }
 
+        public function renderEdit($id = 0)
+        {
+                $this->groups = $this->getService('model')->getGroups();
+                
+                $form = $this['groupForm'];
+                $form['send']->caption = 'Save';
+                if(!$form->isSubmitted()) {
+                        $row = $this->groups->get($id);
+                        if(!$row) {
+                                throw new NBadRequestException('Group not found');
+                        }
+                        $form->setDefaults($row);
+                }
+
+        }
 }

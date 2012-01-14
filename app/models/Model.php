@@ -31,7 +31,6 @@ class Model extends NObject
                 return $this->database->table('groups');
         }
 
-
 	public function createAuthenticatorService()
 	{
 		return new Authenticator($this->database->table('users'));
