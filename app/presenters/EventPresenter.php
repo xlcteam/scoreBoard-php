@@ -41,7 +41,7 @@ class EventPresenter extends SecuredPresenter
                         if($row > 0) {
                                 $this->events->find($row)->update($values);
                         } else {
-                                $values->uID = $this->getUser()->getIdentity()->id;
+                                $values->userID = $this->getUser()->getIdentity()->id;
                                 $values->finished = 0;
                                 $this->events->find($row)->insert($values);
                         }
