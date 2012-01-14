@@ -180,6 +180,7 @@ body {
 	color: #fff;
 	text-decoration: none;
 	z-index: 50;
+	cursor: pointer;
 }
 
 .slide {
