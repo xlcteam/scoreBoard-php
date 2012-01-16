@@ -202,6 +202,7 @@ body {
 	position: absolute;
 	z-index: 50;
 } 
+
 .active {
 	background-position: right 12px;
 }
@@ -273,6 +274,14 @@ button:active {
 
 .saved {
 	display: none;
+}
+
+.halftime {
+	font-size: 6em;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 500;
 }
 
 

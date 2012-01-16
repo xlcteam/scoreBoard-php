@@ -5,8 +5,8 @@ window.halftime = 1;
 
 function toggleHalf()
 {
-	btnStart = document.getElementById("btnStart");  
-  btnStart.innerHTML = "Start 2nd halftime";
+	halftimeNumber = document.getElementById("halftime");  
+  halftimeNumber.innerHTML = "2.";
 }
 
 
@@ -44,7 +44,7 @@ function toggle ()
 {
   
   btnStart = document.getElementById("btnStart");  
-	if (btnStart.innerHTML == "Start" || btnStart.innerHTML == "Resume" || btnStart.innerHTML == "Start 2nd halftime"){
+	if (btnStart.innerHTML == "Start" || btnStart.innerHTML == "Resume"){
     btnStart.innerHTML = "Pause";
 		$("#time").stopwatch({formatter: format, updateInterval: 50}).stopwatch('start');
     return;
