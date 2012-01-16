@@ -70,13 +70,14 @@ function resetTime()
 
 function newTime()
 {
-	resetTime();
-	
 	var inpMins = $('#fmins').val();
 	var inpSecs = $('#fsecs').val();
 	
 	window.newMins = inpMins;
 	window.newSecs = inpSecs;
+	$('.saved').fadeIn(200).delay(500).fadeOut(200);
+
+
 	return false;
 }
 
