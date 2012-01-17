@@ -59,8 +59,9 @@ class TeamPresenter extends NPresenter
                 if ($form['send']->isSubmittedBy()) {
                         $row = (int) $this->getParam('id');
                         $values = $form->getValues();
+                        $action = $this->getParam('action');
 
-                        if($row > 0) {
+                        if($action == 'edit') {
                                 $this->teams->find($row)->update($values);
                         } else {
                                 $this->teams->find($row)->insert($values);
