@@ -12,8 +12,29 @@ class EventPresenter extends SecuredPresenter
 
 	public function renderDefault()
 	{
-                
+
 	}
+
+        public function renderList($id = 0)
+        {
+                if ($id === 0)
+                        return $this->renderDefault();
+
+                $this->events = $this->getService('model')->getEvents();
+
+                $row = $this->events->get($id);
+                if(!$row) {
+                        throw new NBadRequestException('Event not found');
+                }
+ 
+                $this->template->event = $row;
+
+        }
+
+        public function createComponentGroupList()
+        {
+                return new GroupList($this->getService('model'));
+        }
 
 	protected function createComponentEventForm()
 	{

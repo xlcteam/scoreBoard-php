@@ -12,7 +12,7 @@
         {foreach $events as $event}
         <tr n:class="$event->finished ? finished">
                 <td> #{$event->id} </td>
-                <td style='width: 250px;'> {$event->name} </td>
+                <td style='width: 250px;'> <a href="{plink Event:list $event->id}"> {$event->name} </td>
                 <td style='width: 50px;'> <a class="button smaller" href="{plink Event:edit $event->id}"> Edit </a> </td>
         </tr>
         {if !$event->finished}
