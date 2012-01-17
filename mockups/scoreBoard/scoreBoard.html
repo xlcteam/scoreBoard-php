@@ -66,7 +66,8 @@
 					<form name="frmtime">
 						<center>Time: <input class="input" type="text" id="fmins" value="20"/>
 						: <input class="input" type="text" id="fsecs" value="00"/> 
-							<input type="button" onclick="newTime()" value="Submit time"/> <br /> </center>
+							<input type="button" onclick="newTime()" value="Set time"/> <br /> 
+							<span class="saved">Saved!</span></center>
 					</form>
 				</div> 
 			</div>
@@ -91,10 +92,13 @@
     </div>
     <div id="scores" style="width: 100%;">
       <div class="third score"><span class="element1" id="team1">0</span></div>
-      <div class="colon"><span class="element"> :</span></div>
+      <div class="colon"><span class="element">:</span></div>
       <div class="third score"><span class="element2" id="team2">0</span></div>
     </div>				
-    <div id="timeBar"><div id="time" class="time"><span class="element3">00:00,00</span></div></div>
+    <div id="timeBar">		
+			<div id="time" class="time"><span class="element3">00:00,00</span></div>
+		</div>
+		<div id="halftime" class="halftime"><span>1.</span></div>		
     <div style="clear: both;"></div>
 	</body> 
 </html>
