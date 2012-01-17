@@ -19,8 +19,13 @@ class TeamPresenter extends NPresenter
         
         public function renderNew($id = 0)
         {
+        }
+
+        public function renderList($id = 0)
+        {
                 $this->template->id = $id;
         }
+
 
 	protected function createComponentTeamForm()
 	{
@@ -30,7 +35,7 @@ class TeamPresenter extends NPresenter
                 foreach($events as $event){
                         $g = $this->getService('model')->getGroups()->where('eventID', $event->id);
                         foreach ($g as $group) {
-                                $groups[$group->id] = $group->name . " - " . $event->name;
+                                $groups[$group->id] = $event->name . " - " . $group->name;
                         }
                 }
 
@@ -38,13 +43,12 @@ class TeamPresenter extends NPresenter
 		$form->addText('name', 'Name of the team:')
 			->setRequired('Please provide a name.');
                 
-
                 $select = $form->addSelect('groupID', 'Group:', $groups)
-                        ->setDefaultValue($this->template->id);
+                        ->setDefaultValue((int) $this->getParam('id'));
 
 		$form->addSubmit('send', 'Create');
 
-		$form->onSuccess[] = callback($this, 'eventGroupSubmitted');
+		$form->onSuccess[] = callback($this, 'eventFormSubmitted');
 		return $form;
 	}
         

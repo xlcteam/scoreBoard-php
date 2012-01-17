@@ -17,8 +17,23 @@ class GroupPresenter extends NPresenter
                 
         }
         
-        public function renderNew()
+        public function renderNew($id = 0)
         {
+        }
+
+        public function renderList($id = 0)
+        {
+                if ($id === 0)
+                        return $this->renderDefault();
+
+                $this->groups = $this->getService('model')->getGroups();
+
+                $row = $this->groups->get($id);
+                if(!$row) {
+                        throw new NBadRequestException('Group not found');
+                }
+ 
+                $this->template->group = $row;
 
         }
 
@@ -32,7 +47,8 @@ class GroupPresenter extends NPresenter
                 
                 $events = $this->events->fetchPairs('id', 'name');
 
-                $form->addSelect('event', 'Group for event', $events);
+                $form->addSelect('eventID', 'Group for event', $events)
+                        ->setDefaultValue((int) $this->getParam('id'));
 
 		$form->addSubmit('send', 'Create');
 
@@ -46,9 +62,10 @@ class GroupPresenter extends NPresenter
 
                 if ($form['send']->isSubmittedBy()) {
                         $row = (int) $this->getParam('id');
+                        $action = $this->getParam('action');
                         $values = $form->getValues();
 
-                        if($row > 0) {
+                        if($action == 'edit') {
                                 $this->groups->find($row)->update($values);
                         } else {
                                 $this->groups->find($row)->insert($values);
@@ -73,4 +90,11 @@ class GroupPresenter extends NPresenter
                 }
 
         }
+
+        public function createComponentTeamList()
+        {
+                return new TeamList($this->getService('model'));
+        }
+
+
 }

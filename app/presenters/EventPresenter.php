@@ -58,8 +58,9 @@ class EventPresenter extends SecuredPresenter
                 if ($form['send']->isSubmittedBy()) {
                         $row = (int) $this->getParam('id');
                         $values = $form->getValues();
+                        $action = $this->getParam('action');
 
-                        if($row > 0) {
+                        if($action == 'edit') {
                                 $this->events->find($row)->update($values);
                         } else {
                                 $values->userID = $this->getUser()->getIdentity()->id;
@@ -85,6 +86,16 @@ class EventPresenter extends SecuredPresenter
                         $form->setDefaults($row);
                 }
 
+        }
+
+        public function renderDelete($id = 0)
+        {
+                
+        }
+
+        public function renderFinish($id = 0)
+        {
+        
         }
 
 }
