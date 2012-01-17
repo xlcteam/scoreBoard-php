@@ -62,10 +62,12 @@ class EventPresenter extends SecuredPresenter
 
                         if($action == 'edit') {
                                 $this->events->find($row)->update($values);
+                                $this->flashMessage("Event '{$values->name}' saved.");
                         } else {
                                 $values->userID = $this->getUser()->getIdentity()->id;
                                 $values->finished = 0;
                                 $this->events->find($row)->insert($values);
+                                $this->flashMessage("Event '{$values->name}' created.");
                         }
                         $this->redirect('Dashboard:');
                 }

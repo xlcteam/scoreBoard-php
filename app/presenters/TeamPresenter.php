@@ -63,9 +63,13 @@ class TeamPresenter extends NPresenter
 
                         if($action == 'edit') {
                                 $this->teams->find($row)->update($values);
+                                $this->flashMessage("Team '{$values->name}' saved.");
                         } else {
                                 $this->teams->find($row)->insert($values);
+                                $this->flashMessage("Team '{$values->name}' created.");
                         }
+                        
+
                         $this->redirect('Dashboard:');
                 }
                 

@@ -67,8 +67,10 @@ class GroupPresenter extends NPresenter
 
                         if($action == 'edit') {
                                 $this->groups->find($row)->update($values);
+                                $this->flashMessage("Group '{$values->name}' saved.");
                         } else {
                                 $this->groups->find($row)->insert($values);
+                                $this->flashMessage("Group '{$values->name}' created.");
                         }
                         $this->redirect('Dashboard:');
                 }
