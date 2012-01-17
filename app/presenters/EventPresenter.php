@@ -62,7 +62,7 @@ class EventPresenter extends SecuredPresenter
 
                         if($action == 'edit') {
                                 $this->events->find($row)->update($values);
-                                $this->flashMessage("Event '{$values->name}' saved.");
+                                $this->flashMessage("Event '{$values->name}' updated.");
                         } else {
                                 $values->userID = $this->getUser()->getIdentity()->id;
                                 $values->finished = 0;
@@ -97,7 +97,40 @@ class EventPresenter extends SecuredPresenter
 
         public function renderFinish($id = 0)
         {
-        
+                $this->events = $this->getService('model')->getEvents();
+                $row = $this->events->get($id);
+                if (!$row) {
+                        throw new NBadRequestException('Event not found');
+                }
+
+                $this->template->event = $row;
+        }
+
+        public function createComponentFinishForm()
+        {
+                $form = new NAppForm;
+
+		$form->addSubmit('send', 'Mark as finished');
+		$form->addSubmit('cancel', 'Cancel');
+
+		$form->onSuccess[] = callback($this, 'eventFinishFormSubmitted');
+                return $form;
+
+        }
+
+        public function eventFinishFormSubmitted($form)
+        {
+                $this->events = $this->getService('model')->getEvents();
+
+                if ($form['send']->isSubmittedBy()) {
+                        $row = (int) $this->getParam('id');
+                        $event = $this->events->get($row);
+                        $event->finished = 1;
+                        $event->update();
+                        $this->flashMessage("Event '{$event->name}' marked as finished.");
+                }
+                $this->redirect('Dashboard:');
+               
         }
 
 }
