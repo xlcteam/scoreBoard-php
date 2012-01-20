@@ -1,5 +1,10 @@
 
 {block #content}
+<div style='float: left; width: 100px;'>
+Back
+</div>
+
+<div style='margin-left: 100px;'>
 <div>
 <a class="button smaller" href="{plink Event:edit $event->id}"> Edit </a>  
 <a class="button smaller blue" href="{plink Group:new $event->id}"> New group </a>
@@ -15,4 +20,6 @@
 <h1> {$event->name} </h1>
 
 {control groupList, $event->id}
+
+</div>
 

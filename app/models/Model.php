@@ -36,6 +36,11 @@ class Model extends NObject
                 return $this->database->table('teams');
         }
 
+        public function getResults()
+        {
+                return $this->database->table('results');
+        }
+
 	public function createAuthenticatorService()
 	{
 		return new Authenticator($this->database->table('users'));

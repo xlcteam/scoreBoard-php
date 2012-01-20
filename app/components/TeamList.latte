@@ -1,9 +1,22 @@
 
 {snippet}
 <table class='teamTable'>
+        <tr>
+                <th> Name </th>
+                <th> S </th>
+                <th> W </th>
+                <th> D </th>
+                <th> L </th>
+                <th> P </th>
+        </tr>
         {foreach $teams as $team}
         <tr>
-                <td> {$team->name} </td>
+                <td class='name'> {$names[$team->teamID]->name} </td>
+                <td> {$team->score} </td>
+                <td> {$team->wins} </td>
+                <td> {$team->draws} </td>
+                <td> {$team->loses} </td>
+                <td> {$team->points} </td>
         </tr>
         {/foreach}
 </table>

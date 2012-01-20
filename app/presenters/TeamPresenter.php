@@ -11,6 +11,8 @@ class TeamPresenter extends NPresenter
         private $teams;
 
         private $groups;
+
+        private $results;
         
         public function renderDefault()
         {
@@ -56,6 +58,8 @@ class TeamPresenter extends NPresenter
         {
                 $this->teams = $this->getService('model')->getTeams();
 
+                $this->results = $this->getService('model')->getResults();
+
                 if ($form['send']->isSubmittedBy()) {
                         $row = (int) $this->getParam('id');
                         $values = $form->getValues();
@@ -65,7 +69,19 @@ class TeamPresenter extends NPresenter
                                 $this->teams->find($row)->update($values);
                                 $this->flashMessage("Team '{$values->name}' saved.");
                         } else {
-                                $this->teams->find($row)->insert($values);
+                                $team = $this->teams->find($row)->insert($values);
+
+                                $result = array();
+                                //TODO: last insert ID
+                                $result['teamID'] = $team->id; 
+                                $result['wins'] = 0;
+                                $result['loses'] = 0;
+                                $result['draws'] = 0;
+                                $result['score'] = 0;
+                                $result['groupID'] = $values->groupID;
+                                
+                                $this->results->insert($result);
+
                                 $this->flashMessage("Team '{$values->name}' created.");
                         }
                         

@@ -7,6 +7,9 @@ class TeamList extends NControl
         public $teams;
 
         /** @var NTableSelection */
+        public $results;
+
+        /** @var NTableSelection */
         public $model;
 
 	public function __construct($model)
@@ -14,6 +17,7 @@ class TeamList extends NControl
 		parent::__construct();
                 $this->model = $model;
                 $this->teams = $model->getTeams();
+                $this->results = $model->getResults();
 	}
 
 
@@ -21,7 +25,14 @@ class TeamList extends NControl
 	{
 		$template = $this->template;
 		$template->setFile(dirname(__FILE__) . '/TeamList.latte');
-                $template->teams = $this->teams->where('groupID', $id);
+                $teams = $this->results->where('groupID', $id);
+                foreach($teams as $team) {
+                        $team->points = $team->wins*3 + $team->draws;
+                }
+                
+                //dump($teams);
+                $template->names = $this->teams;
+                $template->teams = $teams;
 		$template->render();
 	}
 
