@@ -102,35 +102,15 @@ class EventPresenter extends SecuredPresenter
                 if (!$row) {
                         throw new NBadRequestException('Event not found');
                 }
-
-                $this->template->event = $row;
-        }
-
-        public function createComponentFinishForm()
-        {
-                $form = new NAppForm;
-
-		$form->addSubmit('send', 'Mark as finished');
-		$form->addSubmit('cancel', 'Cancel');
-
-		$form->onSuccess[] = callback($this, 'eventFinishFormSubmitted');
-                return $form;
-
-        }
-
-        public function eventFinishFormSubmitted($form)
-        {
-                $this->events = $this->getService('model')->getEvents();
-
-                if ($form['send']->isSubmittedBy()) {
-                        $row = (int) $this->getParam('id');
-                        $event = $this->events->get($row);
-                        $event->finished = 1;
-                        $event->update();
-                        $this->flashMessage("Event '{$event->name}' marked as finished.");
-                }
+                
+                $row->finished = abs($row->finished - 1);
+                if($row->finished) 
+                        $this->flashMessage("Event '{$row->name}' marked as finished.");
+                else
+                        $this->flashMessage("Event '{$row->name}' restarted.");
+                        
+                $row->update();
                 $this->redirect('Dashboard:');
-               
-        }
 
+        }
 }
