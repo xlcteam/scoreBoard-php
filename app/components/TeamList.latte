@@ -1,5 +1,6 @@
 
 {snippet}
+{if $teams->count() != 0}
 <table class='teamTable'>
         <tr>
                 <th> Name </th>
@@ -20,5 +21,8 @@
         </tr>
         {/foreach}
 </table>
+{else}
+        <div> No teams found </div>
+{/if}
 {/snippet}
 

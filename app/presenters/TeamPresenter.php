@@ -25,7 +25,19 @@ class TeamPresenter extends NPresenter
 
         public function renderList($id = 0)
         {
-                $this->template->id = $id;
+                if ($id === 0)
+                        return $this->renderDefault();
+
+                $this->teams = $this->getService('model')->getTeams();
+
+                $row = $this->teams->get($id);
+                if(!$row) {
+                        throw new NBadRequestException('Team not found');
+                }
+                $this->template->team = $row;
+ 
+                $this->template->groups = $this->getService('model')->getGroups();
+
         }
 
 
