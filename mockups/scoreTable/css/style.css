@@ -18,12 +18,12 @@ body {
 
 #event1 {
 	position: relative;
-	top: 60px;
+	top: 70px;
 }
 
 #event2 {
 	position: relative;
-	top: 140px;
+	top: 150px;
 }
 
 .wholeEvent {	
@@ -72,7 +72,7 @@ body {
   -moz-border-radius: 18px;
   -ms-border-radius: 18px;
   -o-border-radius: 18px;
-  border-radius: 18px 18px 18px 0px;
+  border-radius: 18px 18px 0px 0px;
   -webkit-box-shadow: inset 0 1px 0 0 #7089b3;
   -moz-box-shadow: inset 0 1px 0 0 #7089b3;
   -ms-box-shadow: inset 0 1px 0 0 #7089b3;
@@ -81,14 +81,52 @@ body {
   color: #fff;
   font: bold 40px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   line-height: 1;
+	padding: 0 20px;
 	position: relative;
-	top: -35px;
+	top: -50px;
+	left: -1px;
 	text-decoration: underline;
 }
 
 .match {
 	margin: 0 auto;
+	width: 97%;
 }
+
+.leftName {
+	width: 40%;
+	text-align: center;	
+	float: left;
+	position: relative;
+}
+
+.rightName {
+	width: 40%;
+	text-align: center;
+	float: right;
+	position: relative;
+}
+
+.score {
+	width: 20%;
+	text-align: center;
+	position: relative;
+	float: left;
+}
+
+.score1{
+	width: 40%;
+}
+
+.score2 {
+	width: 40%;
+}
+
+.colon {
+	width: 10%;
+}
+
+
 
 
 
