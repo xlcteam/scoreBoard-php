@@ -87,6 +87,19 @@ a[href^="error:"] {
         color: #002047 !important;
 }
 
+.teamTable {
+        text-align: center;
+        padding-top: 20px;
+}
+.teamTable > td, th{
+        padding: 0 5px;
+}
+
+.teamTable .name {
+        min-width: 100px;
+        text-align: left;
+}
+
 .finished {
         color: #ccc;
 }
@@ -216,4 +229,6 @@ a[href^="error:"] {
 .smaller {
         padding: .5em 1em .55em;
 }
+
+
 

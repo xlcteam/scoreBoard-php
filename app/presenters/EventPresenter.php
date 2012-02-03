@@ -9,6 +9,8 @@
 class EventPresenter extends SecuredPresenter
 {
         private $events;
+        /** @persistent */
+        public $backlink = '';
 
 	public function renderDefault()
 	{
@@ -28,6 +30,8 @@ class EventPresenter extends SecuredPresenter
                 }
  
                 $this->template->event = $row;
+
+                $this->backlink = $this->application->storeRequest();
 
         }
 
@@ -110,6 +114,9 @@ class EventPresenter extends SecuredPresenter
                         $this->flashMessage("Event '{$row->name}' restarted.");
                         
                 $row->update();
+
+                //$this->application->restoreRequest($this->backlink);
+                //dump($this->backlink);
                 $this->redirect('Dashboard:');
 
         }
