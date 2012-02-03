@@ -1,0 +1,13 @@
+{block #content}
+
+<h1> {$group->name} </h1>
+
+<div>
+<a class="button smaller" href="{plink Group:edit $group->id}"> Edit </a>  
+<a class="button smaller blue" href="{plink Team:new $group->id}"> New team</a>
+<a class="button smaller red" href="{plink Group:delete $group->id}"> Delete </a>
+</div>
+
+
+{control teamList $group->id}
+

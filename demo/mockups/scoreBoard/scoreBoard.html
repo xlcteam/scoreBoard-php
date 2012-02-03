@@ -1,0 +1,104 @@
+<html>
+  <head>   
+    <title> scoreBoard </title>    
+    <meta http-equiv="Content-Language" content="en-EN">
+    
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/keylock.js"></script>
+    <script src="js/lib/jquery.keylock.js"></script>
+    <script src="js/lib/jquery.idle-timer.js"></script>
+		<script src="js/lib/jquery.stopwatch.js"></script>    
+		<script src="js/stopwatch.js"></script>
+    <script src="js/goals.js"></script>
+		<script src="js/fills.js"></script>
+		<link rel="stylesheet" href="css/style.css">    
+
+    <script>
+      $(document).ready(function() {      
+				$.idleTimer(2500);
+        $(document).bind("idle.idleTimer", function() {
+          $("#main").fadeOut("slow");
+          $("#underMain").fadeOut("slow");
+      });
+
+        
+        $(document).bind("active.idleTimer", function() {
+					$("#main").fadeIn("slow");
+          $("#underMain").fadeIn("slow");
+        });
+				
+				$(".btn-slide").click(function(){
+					$("#panel").slideToggle("slow");
+					if ($(this).text() == String.fromCharCode(9660)) {
+            $(this).text(String.fromCharCode(9650));  
+          } else {
+            $(this).text(String.fromCharCode(9660));  
+          }
+				});
+
+        $('.element1').click(team1Goal);
+        $('.element2').click(team2Goal);
+        $('.element3').click(toggle);
+				
+				$('.time').click(function(){
+					$('#time').stopwatch.stopwatch('stop');
+				});
+				
+
+				$(".element1").bind("mouseover", fill1);
+				$(".element1").bind("mouseout", unfill1);
+				$(".element2").bind("mouseover", fill2);
+				$(".element2").bind("mouseout", unfill2);
+				$(".element3").bind("mouseover", fill3);
+				$(".element3").bind("mouseout", unfill3);
+			});
+
+
+		</script>
+
+	</head>
+  <body>
+		<div id="underMain">
+		  <div id="panel">
+        <div class="placeholder"><button id="btnResetTime" onclick="resetTime()">Reset Time</button></div>
+				<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
+				<div class="placeholder2">						
+					<form name="frmtime">
+						<center>Time: <input class="input" type="text" id="fmins" value="20"/>
+						: <input class="input" type="text" id="fsecs" value="00"/> 
+							<input type="button" onclick="newTime()" value="Set time"/> <br /> 
+							<span class="saved">Saved!</span></center>
+					</form>
+				</div> 
+			</div>
+			<div class="slide" style="text-align: center;"><span class="btn-slide">&#9660;</span></div>
+		</div> 
+		<div id="main">
+			<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
+				<span class="goalLText">Goal!</span>	
+			</div>
+			<div class="rightBckg" onclick="team2Goal()" onmouseover="fill2()" onmouseout="unfill2()"> 
+				<span class="goalRText">Goal!</span>
+			</div>
+      <div class="startBckg" onclick="toggle()" onmouseover="fill3()" onmouseout="unfill3()">
+				<span id="btnStart" class="startText">Start</span>
+      </div>
+		</div>
+		<div id="scored">
+    </div>
+    <div id="names">
+      <div class="half name"><span class="element1">Robot</span></div>
+      <div class="half name"><span class="element2">Human</span></div>
+    </div>
+    <div id="scores" style="width: 100%;">
+      <div class="third score"><span class="element1" id="team1">0</span></div>
+      <div class="colon"><span class="element">:</span></div>
+      <div class="third score"><span class="element2" id="team2">0</span></div>
+    </div>				
+    <div id="timeBar">		
+			<div id="time" class="time"><span class="element3">00:00,00</span></div>
+		</div>
+		<div id="halftime" class="halftime"><span>1.</span></div>		
+    <div style="clear: both;"></div>
+	</body> 
+</html>
