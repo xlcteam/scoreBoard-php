@@ -7,6 +7,9 @@ function toggleHalf()
 {
 	halftimeNumber = document.getElementById("halftime");  
   halftimeNumber.innerHTML = "2.";
+
+	toggle();
+
 }
 
 
