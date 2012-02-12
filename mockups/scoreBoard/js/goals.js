@@ -15,6 +15,7 @@ function team1Goal()
 	goal1++;
 	toggleOnGoal();
 	$("#team1").html(goal1);
+	$("#team1").effect("scale", { percent: 150}, 1000).effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000);
 }
 
 function team2Goal()
@@ -22,6 +23,7 @@ function team2Goal()
 	goal2++;
 	toggleOnGoal();
 	$("#team2").html(goal2);
+	$("#team2").effect("scale", { percent: 150}, 1000).effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000);
 }
 
 function team1Down()
