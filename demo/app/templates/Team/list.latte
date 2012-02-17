@@ -1,0 +1,13 @@
+
+{block #content}
+
+<h1> {$team->name} </h1>
+
+<div>
+<a class="button smaller" href="{plink Team:edit $team->id}"> Edit </a>  
+<a class="button smaller red" href="{plink Team:delete $team->id}"> Delete </a>
+</div>
+
+
+Team {$team->name} is in '{$groups[$team->groupID]->name}'.
+

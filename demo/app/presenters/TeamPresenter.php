@@ -62,11 +62,11 @@ class TeamPresenter extends NPresenter
 
 		$form->addSubmit('send', 'Create');
 
-		$form->onSuccess[] = callback($this, 'eventFormSubmitted');
+		$form->onSuccess[] = callback($this, 'teamFormSubmitted');
 		return $form;
 	}
         
-        public function eventFormSubmitted($form)
+        public function teamFormSubmitted($form)
         {
                 $this->teams = $this->getService('model')->getTeams();
 
