@@ -47,7 +47,7 @@ class GroupPresenter extends NPresenter
                 
                 $events = $this->events->fetchPairs('id', 'name');
 
-                $form->addSelect('eventID', 'Group for event', $events)
+                $form->addSelect('eventID', 'Group in event', $events)
                         ->setDefaultValue((int) $this->getParam('id'));
 
 		$form->addSubmit('send', 'Create');
