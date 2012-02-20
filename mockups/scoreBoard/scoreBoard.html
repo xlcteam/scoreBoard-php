@@ -4,6 +4,12 @@
     <meta http-equiv="Content-Language" content="en-EN">
     
     <script src="js/lib/jquery.js"></script>
+		<!--
+    <script src="js/lib/jquery.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-ui2.min.js"></script>-->
+
     <script src="js/lib/jquery-ui-1.8.17.custom.min.js"></script>
     <script src="js/lib/keylock.js"></script>
     <script src="js/lib/jquery.keylock.js"></script>
@@ -12,7 +18,8 @@
 		<script src="js/stopwatch.js"></script>
     <script src="js/goals.js"></script>
 		<script src="js/fills.js"></script>
-		<link rel="stylesheet" href="css/style.css">    
+		<link rel="stylesheet" href="css/style.css">
+		<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">       
 
     <script>
       $(document).ready(function() {      
@@ -41,9 +48,9 @@
         $('.element2').click(team2Goal);
         $('.element3').click(toggle);
 				
-				$('.time').click(function(){
+				/*$('.time').click(function(){
 					$('#time').stopwatch.stopwatch('stop');
-				});
+				});*/
 				
 
 				$(".element1").bind("mouseover", fill1);
@@ -73,7 +80,10 @@
 				</div> 
 			</div>
 			<div class="slide" style="text-align: center;"><span class="btn-slide">&#9660;</span></div>
-		</div> 
+		</div>
+
+
+
 		<div id="main">
 			<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
 				<span class="goalLText">Goal!</span>	
@@ -96,8 +106,8 @@
       <div class="colon"><span class="element">:</span></div>
       <div class="third score"><span class="element2" id="team2">0</span></div>
     </div>				
-    <div id="timeBar">		
-			<div id="time" class="time"><span class="element3">00:00,00</span></div>
+    <div id="timeBar" class="element3">		
+			<div id="time" class="time"><span >00:00,00</span></div>
 		</div>
 		<div id="halftime" class="halftime"><span>1.</span></div>		
     <div style="clear: both;"></div>
