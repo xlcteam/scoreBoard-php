@@ -11,9 +11,15 @@ body {
 }
 
 #dialogMain {
-	position: relative;
+	position: absolute;
+	z-index: -1;
 	width: 100%;
 	height: 100%;
+}
+
+#dialog {
+	z-index: 10000000000;
+
 }
 
 .half {

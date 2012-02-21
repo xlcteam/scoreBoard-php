@@ -36,7 +36,10 @@ function format(millis) {
 		else if (window.halftime == 2 && minutes >= window.newMins){
 			if (seconds >= window.newSecs){
 				$("#time").stopwatch().stopwatch('stop');
-				//funct for sending results
+				//funct for sending results (dialog)	
+				$('#dialogMain').show();    
+				$("#dialog").dialog({ buttons: { "Send results": function() { $(this).dialog("close");}}
+					});
 			}			
 		}
 		return [pad2(minutes), pad2(seconds)].join(':') + ',' + pad2(millis);
