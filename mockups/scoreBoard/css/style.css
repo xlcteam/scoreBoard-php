@@ -25,6 +25,10 @@ body {
 .third {
   width: 48%;
 }
+
+.third div{
+  margin: 0 auto !important;
+}
     
 .name {
   font-size: 6em;
@@ -134,11 +138,13 @@ body {
 .element1 {
 	position: relative;
 	z-index: 20;
+    width: 320px !important;
 }
 
 .element2 {
 	position: relative;
 	z-index: 20;
+    width: 320px !important;
 }
 
 .goalLText {
