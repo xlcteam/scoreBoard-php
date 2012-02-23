@@ -4,12 +4,6 @@
     <meta http-equiv="Content-Language" content="en-EN">
     
     <script src="js/lib/jquery.js"></script>
-		<!--
-    <script src="js/lib/jquery.min.js"></script>
-		<script type="text/javascript" src="js/lib/jquery.min.js"></script>
-		<script src="jquery-ui.min.js"></script>
-		<script type="text/javascript" src="js/lib/jquery-ui2.min.js"></script>-->
-
     <script src="js/lib/jquery-ui-1.8.17.custom.min.js"></script>
     <script src="js/lib/keylock.js"></script>
     <script src="js/lib/jquery.keylock.js"></script>
@@ -22,7 +16,8 @@
 		<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">       
 
     <script>
-      $(document).ready(function() {      
+      $(document).ready(function() {  
+				$('#dialogMain').hide();    
 				$.idleTimer(2500);
         $(document).bind("idle.idleTimer", function() {
           $("#main").fadeOut("slow");
@@ -82,8 +77,6 @@
 			<div class="slide" style="text-align: center;"><span class="btn-slide">&#9660;</span></div>
 		</div>
 
-
-
 		<div id="main">
 			<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
 				<span class="goalLText">Goal!</span>	
@@ -95,8 +88,19 @@
 				<span id="btnStart" class="startText">Start</span>
       </div>
 		</div>
-		<div id="scored">
-    </div>
+
+		<!-- dialog, hidden at the begin of game by jquery funct .hide() -->
+		<div id="dialogMain">
+			<div id="dialog" title="Results" style="font-size:50.5%; text-align: center;">
+				<div style="margin: 0 auto; text-align: center; height: 25px;">		
+						Team1: <input style="width: 30px;" type="text" id="dgoals"/>
+				</div>
+				<div style="margin: 0 auto; text-align: center; height: 25px;">		
+						Team2: <input style="width: 30px;" type="text" id="d2goals"/>
+				</div>
+			</div>
+		</div>
+
     <div id="names">
       <div class="half name"><span class="element1">Robot</span></div>
       <div class="half name"><span class="element2">Human</span></div>
