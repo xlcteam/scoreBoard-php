@@ -38,7 +38,8 @@ function format(millis) {
 				$("#time").stopwatch().stopwatch('stop');
 				//funct for sending results (dialog)	
 				$('#dialogMain').show();    
-				$("#dialog").dialog({ buttons: { "Send results": function() { $(this).dialog("close");}}
+				$("#dialog").dialog({ buttons: { "Send results": function() { $(this).dialog("close");}
+						}
 					});
 			}			
 		}
