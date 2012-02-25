@@ -36,6 +36,8 @@ function team1Down()
 	}else{
 		goal1--;
 		$("#team1").html(goal1);	
+		$("#team1").effect("scale", { percent: 150}, 1000)
+               .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000);
 		return false;
 	}
 }
@@ -48,6 +50,8 @@ function team2Down()
 	}else{
 		goal2--;
 		$("#team2").html(goal2);
+		$("#team2").effect("scale", { percent: 150}, 1000)
+               .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000);
 		return false;	
 	}
 }

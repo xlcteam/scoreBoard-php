@@ -19,10 +19,13 @@
       $(document).ready(function() {  
 				$('#dialogMain').hide();    
 				$.idleTimer(2500);
+				$(document).bind("contextmenu",function(e){
+              return false;
+       	});
         $(document).bind("idle.idleTimer", function() {
           $("#main").fadeOut("slow");
           $("#underMain").fadeOut("slow");
-      });
+      	});
 
         
         $(document).bind("active.idleTimer", function() {
@@ -43,10 +46,14 @@
         $('.element2').click(team2Goal);
         $('.element3').click(toggle);
 				
-				/*$('.time').click(function(){
-					$('#time').stopwatch.stopwatch('stop');
-				});*/
-				
+				$('.leftBckg, .element1').mousedown(function(e) {
+    			if (e.which === 3) { team1Down(); }
+				});
+
+				$('.rightBckg, .element2').mousedown(function(e) {
+    			if (e.which === 3) { team2Down(); }
+				});
+
 
 				$(".element1").bind("mouseover", fill1);
 				$(".element1").bind("mouseout", unfill1);
