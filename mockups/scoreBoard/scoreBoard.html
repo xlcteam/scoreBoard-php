@@ -42,16 +42,16 @@
           }
 				});
 
-        $('.element1').click(team1Goal);
-        $('.element2').click(team2Goal);
         $('.element3').click(toggle);
 				
 				$('.leftBckg, .element1').mousedown(function(e) {
-    			if (e.which === 3) { team1Down(); }
+					if (e.which === 1) { team1Goal();}
+    			else if (e.which === 3) { team1Down(); }
 				});
 
 				$('.rightBckg, .element2').mousedown(function(e) {
-    			if (e.which === 3) { team2Down(); }
+					if (e.which === 1) { team2Goal();}    			
+					else if (e.which === 3) { team2Down(); }
 				});
 
 
@@ -85,10 +85,10 @@
 		</div>
 
 		<div id="main">
-			<div class="leftBckg" onclick="team1Goal()" onmouseover="fill1()" onmouseout="unfill1()"> 
+			<div class="leftBckg" onmouseover="fill1()" onmouseout="unfill1()"> 
 				<span class="goalLText">Goal!</span>	
 			</div>
-			<div class="rightBckg" onclick="team2Goal()" onmouseover="fill2()" onmouseout="unfill2()"> 
+			<div class="rightBckg" onmouseover="fill2()" onmouseout="unfill2()"> 
 				<span class="goalRText">Goal!</span>
 			</div>
       <div class="startBckg" onclick="toggle()" onmouseover="fill3()" onmouseout="unfill3()">
