@@ -100,14 +100,17 @@
 		<div id="dialogMain">
 			<div id="dialog" title="Results" style="font-size:50.5%; text-align: center;">
 				<div style="margin: 0 auto; text-align: center; height: 50px; font-size:130.5%;">		
-						<b>Team1 -</b> <input style="width: 30px;" type="text" id="dgoals"/> <b>:</b> <input style="width: 30px;" type="text" id="d2goals"/> <b>- Team2</b> 
+						<span id="dname"></span> <input style="width: 30px;" type="text" id="dgoals"/> 
+																<b>:</b> 
+																<input style="width: 30px;" type="text" id="d2goals"/> 
+						<span id="d2name"></span> 
 				</div>	
 			</div>
 		</div>
 
     <div id="names">
-      <div class="half name"><span class="element1">Robot</span></div>
-      <div class="half name"><span class="element2">Human</span></div>
+      <div class="half name"><span class="element1" id="name1">Robot</span></div>
+      <div class="half name"><span class="element2" id="name2">Human</span></div>
     </div>
     <div id="scores" style="width: 100%;">
       <div class="third score"><span class="element1" id="team1">0</span></div>
