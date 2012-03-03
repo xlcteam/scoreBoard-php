@@ -22,6 +22,10 @@ body {
 
 }
 
+#tabs {
+	height: 270;
+}
+
 .half {
   width: 50%;
   text-align: center;
@@ -184,7 +188,7 @@ body {
   background: #8C0000;	
 	position: relative;
 	width: 300px;
-	height: 180px;
+	height: 277px;
 	display: none;
   margin: 0 auto;
 	z-index: 50;
@@ -253,7 +257,7 @@ button {
   text-align: center;
   text-shadow: 0 -1px 1px #000f4d;
   width: 150px; 
-	margin-top: 10px;
+	margin-top: 6px;
 }
   
 button:hover {
@@ -281,7 +285,14 @@ button:active {
 }
 
 .placeholder2 {
-  width: 130px;
+  width: 160px;
+	height: 80px;
+	padding-top: 10px;
+  margin: 0 auto;
+}
+
+.placeholder3 {
+	width: 200px;
 	height: 80px;
 	padding-top: 10px;
   margin: 0 auto;

@@ -17,7 +17,8 @@
 
     <script>
       $(document).ready(function() {  
-				$('#dialogMain').hide();    
+				$('#dialogMain').hide();
+				$('#tabs').tabs();    
 				$.idleTimer(2500);
 				$(document).bind("contextmenu",function(e){
               return false;
@@ -70,16 +71,35 @@
   <body>
 		<div id="underMain">
 		  <div id="panel">
-        <div class="placeholder"><button id="btnResetTime" onclick="resetTime()">Reset Time</button></div>
-				<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
-				<div class="placeholder2">						
-					<form name="frmtime">
-						<center>Time: <input class="input" type="text" id="fmins" value="20"/>
-						: <input class="input" type="text" id="fsecs" value="00"/> 
-							<input type="button" onclick="newTime()" value="Set time"/> <br /> 
-							<span class="saved">Saved!</span></center>
-					</form>
-				</div> 
+				<div id="tabs">
+        	<ul>
+        		<li><a href="#fragment-1"><span>Settings</span></a></li>
+        		<li><a href="#fragment-2"><span>ADV Settings</span></a></li>
+    			</ul>
+					
+					<div id="fragment-1">
+						<div class="placeholder"><button id="btnResetTime" onclick="resetTime()">Reset Time</button></div>
+						<div class="placeholder"><button id="btnResetScore" onclick="resetScore()">Reset Score</button></div>
+						<div class="placeholder2">						
+							<form name="frmtime">
+								<center>Time: <input class="input" type="text" id="fmins" value="20"/>
+								: <input class="input" type="text" id="fsecs" value="00"/> 
+									<input type="button" onclick="newTime()" value="Set time"/> <br /> 
+									<span class="saved">Saved!</span></center>
+							</form>
+						</div> 
+					</div>
+	
+					<div id="fragment-2">
+						<div class="placeholder3">
+							<form name="effects">
+								<b>Effects:</b>
+								<input type="radio" name="effgroup" value="ON" checked>ON</input>
+								<input type="radio" name="effgroup" value="OFF">OFF</input>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="slide" style="text-align: center;"><span class="btn-slide">&#9660;</span></div>
 		</div>

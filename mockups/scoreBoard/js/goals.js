@@ -20,11 +20,13 @@ function team1Goal()
 		goal1++;
 		//toggleOnGoal();
 		$("#team1").html(goal1);
-		window.scaling1 = 1;
-		$("#team1").effect("scale", { percent: 150}, 1000)
-		             .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
-                        window.scaling1 = 0;
-							});
+		if(document.forms['effects'][0].checked) {
+			window.scaling1 = 1;
+			$("#team1").effect("scale", { percent: 150}, 500)
+				           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+		                      window.scaling1 = 0;
+								});
+		}
 	}
 }
 
@@ -35,11 +37,13 @@ function team2Goal()
 		goal2++;
 		//toggleOnGoal();
 		$("#team2").html(goal2);
-		window.scaling2 = 1;
-		$("#team2").effect("scale", { percent: 150}, 1000)
-		           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
-											window.scaling2 = 0;
-								});
+		if(document.forms['effects'][0].checked) {
+			window.scaling2 = 1;
+			$("#team2").effect("scale", { percent: 150}, 500)
+				         .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+												window.scaling2 = 0;
+									});
+		}
 	}
 }
 
@@ -53,11 +57,13 @@ function team1Down()
 		else {		
 			goal1--;
 			$("#team1").html(goal1);
-			window.scaling1 = 1;	
-			$("#team1").effect("scale", { percent: 150}, 1000)
-		             .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
-                        window.scaling1 = 0;
-								});
+			if(document.forms['effects'][0].checked) {
+				window.scaling1 = 1;	
+				$("#team1").effect("scale", { percent: 150}, 500)
+		             	.effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+                        	window.scaling1 = 0;
+									});
+			}
 		}
 	}
 }
@@ -72,11 +78,13 @@ function team2Down()
 		else {
 			goal2--;
 			$("#team2").html(goal2);
-			window.scaling2 = 1;
-			$("#team2").effect("scale", { percent: 150}, 1000)
-		             .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
-												window.scaling2 = 0
-								});
+			if(document.forms['effects'][0].checked) {
+				window.scaling2 = 1;
+				$("#team2").effect("scale", { percent: 150}, 500)
+				           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+													window.scaling2 = 0
+									});
+			}
 		}
 	}
 }
