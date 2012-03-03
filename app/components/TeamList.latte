@@ -3,7 +3,8 @@
 {if $teams->count() != 0}
 <table class='teamTable'>
         <tr>
-                <th> Name </th>
+                <th> Por. </th>
+                <th></th>
                 <th> S </th>
                 <th> W </th>
                 <th> D </th>
@@ -11,7 +12,8 @@
                 <th> P </th>
         </tr>
         {foreach $teams as $team}
-        <tr>
+        <tr n:class="$iterator->isOdd() ? odd : even">
+                <td> {$iterator->getCounter()}. </td>
                 <td class='name'> {$names[$team->teamID]->name} </td>
                 <td> {$team->score} </td>
                 <td> {$team->wins} </td>
