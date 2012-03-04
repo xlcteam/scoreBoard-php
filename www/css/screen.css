@@ -93,6 +93,7 @@ a[href^="error:"] {
 }
 .teamTable > td, th{
         padding: 0 5px;
+				font-size: 120%;
 }
 
 .teamTable .name {
@@ -230,5 +231,16 @@ a[href^="error:"] {
         padding: .5em 1em .55em;
 }
 
+.even {
+	background-color: #E6E6E6;	
+}
+
+.odd {
+	background-color: #ffffff;	
+}
+
+.points {
+	background: #E6E6E6;
+}
 
 
