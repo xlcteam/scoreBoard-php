@@ -51,6 +51,7 @@ body {
 	margin: 0 auto;
 	color: #fff;
   font: bold 40px "helvetica neue", helvetica, arial, sans-serif;
+	text-align: center;
 }
 
 .eventName {
@@ -109,9 +110,36 @@ body {
 	float: left;
 }
 
+.resultTable {
+	text-align: center;
+	color: #ffffff;
+	font-size: 70%;
+}
 
+.resultDiv {
+	text-align: center;
+}
 
+.name {
+	min-width: 250px;
+	text-align: left;
+}
 
+.resultTable > td, th {
+	padding: 0 5px;
+}
+
+.points  {
+	background-color: #8c9cbf;
+}
+
+.odd {
+	background-color: #ffffff;	
+}
+
+.even {
+	background-color: #8c9cbf;	
+}
 
 
 
