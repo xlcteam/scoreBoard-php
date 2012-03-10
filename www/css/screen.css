@@ -240,7 +240,8 @@ a[href^="error:"] {
 }
 
 .points {
-	background: #E6E6E6;
+	background: #444;
+        color: #fff;
 }
 
 
