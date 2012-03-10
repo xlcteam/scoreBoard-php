@@ -2,7 +2,9 @@
 <table class='matchTable'>
         {foreach $matches as $match}
         <tr>
-                <td> <a href="{plink Match:list $group->id}"> {$group->name} </a> </td>
+                <td> <a href="{plink Match:play $match->id}">
+                {$names[$match->team1ID]->name} <em>vs.</em>
+                {$names[$match->team2ID]->name} </a> </td>
         </tr>
 
 
@@ -15,7 +17,7 @@
                         Generate them!
                 </a>
 
-        {elseif $matches->count() }
+        {elseif $matches->count() == 0 }
                 No matches found.
         {/if}
 

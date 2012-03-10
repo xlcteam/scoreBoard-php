@@ -23,6 +23,7 @@ class MatchList extends NControl
                         'date' => NULL
                 ));
                 $template->group = $group;
+                $template->names = $this->model->getTeams();
 
 		$template->setFile(dirname(__FILE__) . '/MatchList.latte');
 		$template->render();
