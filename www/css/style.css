@@ -5,7 +5,7 @@
     
 body {
   background-color: #000;
-  color: #cccccc;
+  color: #999;
 	margin: 0;
   font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
 }
@@ -43,6 +43,7 @@ body {
     
 .name {
   font-size: 4em;
+  color: #ccc;
 }
     
 .score {
@@ -120,6 +121,8 @@ body {
 
 #scores{
 	height: 200px;
+        padding-top: 30px;
+        color: #fff;
 }
 
 #timeBar {
