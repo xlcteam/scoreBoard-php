@@ -30,14 +30,14 @@
 	
 				$(document).keylock({
 					w: function(){ team1Goal(); },
-					W: function(){ team1Goal(); },
 					s: function(){ team1Down(); },
-					S: function(){ team1Down(); },
 
-					"<A-UP>": function(){ team2Goal(); },
-					"<A-DOWN>": function(){ team2Down(); },
+					i: function(){ team2Goal(); },
+					k: function(){ team2Down(); },
 					
 					"<Space>": function(){ toggle(); },
+
+					c: function(){ $('.btn-slide').click(); },
 				});
 
         
