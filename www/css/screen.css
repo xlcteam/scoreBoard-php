@@ -87,13 +87,12 @@ a[href^="error:"] {
         color: #002047 !important;
 }
 
-.teamTable {
+.teamTable{
         text-align: center;
-        padding-top: 20px;
 }
 .teamTable > td, th{
         padding: 0 5px;
-				font-size: 120%;
+        font-size: 120%;
 }
 
 .teamTable .name {

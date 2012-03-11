@@ -8,5 +8,16 @@
 <a class="button smaller red" href="{plink Group:delete $group->id}"> Delete </a>
 </div>
 
-{control teamList $group->id}
+
+<div>
+        <div style="float: left; padding-top: 20px;padding-right: 120px;">
+        {control teamList $group->id}
+        </div>
+        <div style="float: left;padding-top: 20px;">
+        <strong style="font-size: 120%"> Upcomming matches: </strong>
+        {control matchList $group->id}
+        </div>
+<div style="clear: both" ></div>
+</div>
+
 

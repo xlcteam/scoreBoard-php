@@ -98,7 +98,7 @@ class TeamPresenter extends SecuredPresenter
                         }
                         
 
-                        $this->redirect('Dashboard:');
+                        $this->redirect('Group:list', $values->groupID);
                 }
                 
         }

@@ -98,5 +98,11 @@ class GroupPresenter extends SecuredPresenter
                 return new TeamList($this->getService('model'));
         }
 
+        public function createComponentMatchList()
+        {
+                return new MatchList($this->getService('model'));
+        }
+
+
 
 }
