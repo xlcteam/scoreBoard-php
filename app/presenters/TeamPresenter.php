@@ -6,7 +6,7 @@
  * @author     John Doe
  * @package    MyApplication
  */
-class TeamPresenter extends NPresenter
+class TeamPresenter extends SecuredPresenter
 {
         private $teams;
 

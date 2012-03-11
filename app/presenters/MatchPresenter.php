@@ -6,7 +6,7 @@
  * @author     John Doe
  * @package    MyApplication
  */
-class MatchPresenter extends BasePresenter 
+class MatchPresenter extends SecuredPresenter 
 {
         private $groups;
 
