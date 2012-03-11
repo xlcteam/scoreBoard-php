@@ -87,6 +87,26 @@ class MatchPresenter extends SecuredPresenter
 
         }
 
+        public function renderPlay($id = 0)
+        {
+                if ($id === 0)
+                        return $this->renderDefault();
+
+                $model = $this->getService('model');
+                $matches = $model->getMatches();
+
+                $match = $matches->get($id);
+                if(!$match)
+                        throw new NBadRequestException('Match not found');
+
+                $teams = $model->getTeams();
+
+                $this->template->match = $match;
+                $this->template->teams = $teams;
+
+        }
+
+
         public function createComponentTeamList()
         {
                 return new TeamList($this->getService('model'));
