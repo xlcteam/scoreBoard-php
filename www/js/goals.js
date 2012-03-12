@@ -23,7 +23,7 @@ function team1Goal()
 		if(document.forms['effects'][0].checked) {
 			window.scaling1 = 1;
 			$("#team1").effect("scale", { percent: 150}, 500)
-				           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+				           .effect("scale", { percent: (100 / (150 / 100))}, 1000, function(){
 		                      window.scaling1 = 0;
 								});
 		}
@@ -40,7 +40,7 @@ function team2Goal()
 		if(document.forms['effects'][0].checked) {
 			window.scaling2 = 1;
 			$("#team2").effect("scale", { percent: 150}, 500)
-				         .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+				         .effect("scale", { percent: 100 / (150 / 100)}, 1000, function(){
 												window.scaling2 = 0;
 									});
 		}

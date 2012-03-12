@@ -52,13 +52,13 @@ body {
 }
     
 .name {
-  font-size: 4em;
+  font-size: 3.2em;
   color: #ccc;
 }
     
 .score {
   float: left;
-  font-size: 12em;
+  font-size: 16em;
   margin: 0 auto;
   text-align: center;
 }
@@ -126,12 +126,12 @@ body {
     
 
 #names{
-  height: 150px;
+  height: 120px;
 }
 
 #scores{
 	height: 200px;
-        padding-top: 50px;
+        padding-top: 20px;
         color: #fff;
 }
 
@@ -162,13 +162,13 @@ body {
 .element1 {
 	position: relative;
 	z-index: 20;
-    width: 320px !important;
+        width: 420px !important;
 }
 
 .element2 {
 	position: relative;
 	z-index: 20;
-    width: 320px !important;
+        width: 420px !important;
 }
 
 .goalLText {
