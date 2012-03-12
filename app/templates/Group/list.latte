@@ -1,3 +1,12 @@
+{block head}
+		<script type="text/javascript">
+			$(function () {
+				$('input#id_search').quicksearch('.matchTable tbody tr');		
+			});
+		</script>
+{/block}
+
+
 {block #content}
 
 <h1> {$group->name} </h1>
@@ -14,7 +23,7 @@
         {control teamList $group->id}
         </div>
         <div style="float: left;padding-top: 20px;">
-        <strong style="font-size: 120%"> Upcomming matches: </strong>
+        <strong style="font-size: 120%"> Upcomming matches: <input type="text" placeholder="Quick Search" id="id_search" value="" name="search" style="margin-left: 5px;"> </strong>
         {control matchList $group->id}
         </div>
 <div style="clear: both" ></div>
