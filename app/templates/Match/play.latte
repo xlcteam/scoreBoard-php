@@ -1,6 +1,6 @@
 <html>
   <head>   
-    <title> scoreBoard </title>    
+    <title> scoreBoard - {$teams[$match->team1ID]->name} vs. {$teams[$match->team2ID]->name} </title>    
     <meta http-equiv="Content-Language" content="en-EN">
     
     <script src="{$basePath}/js/lib/jquery.js"></script>
@@ -130,12 +130,17 @@
 
 		<!-- dialog, hidden at the begin of game by jquery funct .hide() -->
 		<div id="dialogMain">
-			<div id="dialog" title="Results" style="font-size:50.5%; text-align: center;">
-				<div style="margin: 0 auto; text-align: center; height: 50px; font-size:130.5%;">		
-						<span id="dname"></span> <input style="width: 30px;" type="text" id="dgoals"/> 
-																<b>:</b> 
-																<input style="width: 30px;" type="text" id="d2goals"/> 
-						<span id="d2name"></span> 
+			<div id="dialog" title="Results" style="font-size:50.5%;">
+				<div style="margin: 0 auto;height: 70px; font-size:130.5%;">		
+                                        <table style="width: 260px; margin: 0 auto;">
+                                          <tr>
+                                            <td style="width: 100px;"> <span id="dname"></span> </td>
+                                            <td> <input style="width: 30px;" type="text" id="dgoals"/> </td>
+                                            <td> <b>:</b> </td>
+                                            <td>  <input style="width: 30px;" type="text" id="d2goals"/> </td>
+                                            <td style="width: 100px;">  <span id="d2name"></span> </td>
+                                          </tr>
+                                        </table>
 				</div>	
 			</div>
 		</div>

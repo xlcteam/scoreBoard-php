@@ -19,6 +19,7 @@ body {
 
 #dialog {
 	z-index: 10000000000;
+    color: #000 !important;
 
 }
 
