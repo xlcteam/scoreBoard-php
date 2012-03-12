@@ -17,16 +17,6 @@ body {
 	height: 100%;
 }
 
-#dname {
-	color: #000000;
-	text-align: right;
-}
-
-#d2name {
-	color: #000000 !important;
-	text-align: left;
-}
-
 #dialog {
 	z-index: 10000000000;
 }
