@@ -100,6 +100,22 @@ a[href^="error:"] {
         text-align: left;
 }
 
+.matchTable .left{
+        text-align: right;
+}
+
+.matchTable .right{
+        text-align: left;
+}
+
+.matchTable a{
+        text-decoration: none;                
+}
+
+.matchTable a:hover{
+        text-decoration: underline;
+}
+
 .finished {
         color: #ccc;
 }

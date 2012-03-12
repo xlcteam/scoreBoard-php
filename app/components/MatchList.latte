@@ -2,9 +2,19 @@
 <table class='matchTable'>
         {foreach $matches as $match}
         <tr>
-                <td> <a href="{plink Match:play $match->id}">
-                {$names[$match->team1ID]->name} <em>vs.</em>
-                {$names[$match->team2ID]->name} </a> </td>
+                <td class='left'> 
+                        <a href="{plink Match:play $match->id}">
+                                {$names[$match->team1ID]->name}
+                        </a>
+                </td>
+                <td><strong>vs.</strong></td>
+
+                <td class='right'> 
+                        <a href="{plink Match:play $match->id}">
+                                {$names[$match->team2ID]->name}
+                        </a>
+                </td>
+
         </tr>
 
 
