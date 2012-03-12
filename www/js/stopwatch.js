@@ -3,6 +3,21 @@ window.newSecs = 0;
 
 window.halftime = 1;
 
+function showD() {
+	$('#dialogMain').show();    
+	$("#dialog").dialog({ buttons: {
+				 "Send results": function() { 
+													$(this).dialog("close"); 
+													$('#dialogMain').hide();
+				}	
+			}
+	});
+	$('#dname').html($('#name1').text());
+	$('#d2name').html($('#name2').text());
+	$('#dgoals').val($('#team1').text());
+	$('#d2goals').val($('#team2').text());
+}
+
 function toggleHalf()
 {
 	halftimeNumber = document.getElementById("halftime");  
