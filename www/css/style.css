@@ -75,7 +75,7 @@ body {
 
 .colon {
 	float: left;
-	font-size: 12em;
+	font-size: 16em;
   margin-top: -0.05em;
   text-align: center;
   width: 20px;
@@ -297,8 +297,9 @@ button:active {
 
 .placeholder3 {
 	width: 200px;
-	padding-top: 10px;
+	padding-top: 5px;
   margin: 0 auto;
+	text-align: center;
 }
 
 .input {
