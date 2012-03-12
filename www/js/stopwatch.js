@@ -39,7 +39,10 @@ function format(millis) {
 				//funct for sending results (dialog)	
 				$('#dialogMain').show();    
 				$("#dialog").dialog({ buttons: {
-							 "Send results": function() { $(this).dialog("close");}
+							 "Send results": function() { 
+																	$(this).dialog("close"); 
+																	$('#dialogMain').hide();
+							}
 						}
 					});
 				$('#dname').html($('#name1').text());
