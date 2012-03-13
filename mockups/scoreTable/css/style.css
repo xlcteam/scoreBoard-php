@@ -16,12 +16,18 @@ body {
 	position: absolute;
 }
 
-.wholeEvent {
+.wholeEventLive {
 	padding-top: 20px;
 	width: 50%;
 	float: left;
-
 }
+
+.wholeEventTable {
+	padding-top: 20px;
+	width: 50%;
+	float: right;
+}
+
 
 .matches {	
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #771E10), color-stop(100%, #771E10));
