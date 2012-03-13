@@ -18,6 +18,11 @@ function team1Goal()
 	if (window.scaling1 == 1){ return false;}
   else {
 		goal1++;
+        $.post(window.update_url, {action: 'team1_increase'},
+                function(data) {
+                    return;
+                }
+        );
 		//toggleOnGoal();
 		$("#team1").html(goal1);
 		if(document.forms['effects'][0].checked) {
@@ -35,6 +40,11 @@ function team2Goal()
 	if (window.scaling2 == 1){ return false;}
 	else {
 		goal2++;
+        $.post(window.update_url, {action: 'team2_increase'},
+                function(data) {
+                    return;
+                }
+        );
 		//toggleOnGoal();
 		$("#team2").html(goal2);
 		if(document.forms['effects'][0].checked) {
@@ -56,6 +66,11 @@ function team1Down()
 		if (window.scaling1 == 1){ return false;}
 		else {		
 			goal1--;
+            $.post(window.update_url, {action: 'team1_decrease'},
+                    function(data) {
+                        return;
+                    }
+            );
 			$("#team1").html(goal1);
 			if(document.forms['effects'][0].checked) {
 				window.scaling1 = 1;	
@@ -77,6 +92,11 @@ function team2Down()
 		if (window.scaling2 == 1){ return false;}
 		else {
 			goal2--;
+            $.post(window.update_url, {action: 'team2_decrease'},
+                    function(data) {
+                        return;
+                    }
+            );
 			$("#team2").html(goal2);
 			if(document.forms['effects'][0].checked) {
 				window.scaling2 = 1;

@@ -7,8 +7,17 @@ function showD() {
 	$('#dialogMain').show();    
 	$("#dialog").dialog({ buttons: {
 				 "Send results": function() { 
-													$(this).dialog("close"); 
-													$('#dialogMain').hide();
+                        $.post(window.update_url, 
+                                {action: 'finish', 
+                                    team1goals: $('#team1').text(),
+                                    team2goals: $('#team2').text(),},
+                                function(data) {
+                                    $(this).dialog("close"); 
+				                    $('#dialogMain').hide();
+                                    window.location = window.back_url; 
+                                }
+                        );
+					
 				}	
 			}
 	});
