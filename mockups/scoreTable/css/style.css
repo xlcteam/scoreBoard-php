@@ -47,7 +47,7 @@ body {
   color: #1a3e66;
   font: normal 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	width: 97%;
-	height: 35%;
+	height: 37%;
 	margin: 0 auto;
 	color: #fff;
   font: bold 40px "helvetica neue", helvetica, arial, sans-serif;
@@ -78,7 +78,9 @@ body {
   color: #fff;
 	margin-left: -1px;
 	padding: 0 20px;
-  font: bold 40px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  /*font: bold 40px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;*/
+  font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
+	font-size: 40px;
 	text-decoration: underline;
 }
 
@@ -90,6 +92,7 @@ body {
 .match {
 	width: 97%;
 	margin: 0 auto;
+  font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
 }
 
 .leftName {
@@ -130,7 +133,7 @@ body {
 }
 
 .points  {
-	background-color: #8c9cbf;
+	background-color: #000;
 }
 
 .odd {
