@@ -105,8 +105,15 @@ class MatchPresenter extends SecuredPresenter
                         return $this->sendResponse(new JsonResponse(
                                 array('error' => 'match not found')
                         ));
+                
+                if ($match['userID'] != $this->getUser()->getIdentity()->id)
+                        return $this->sendResponse(new JsonResponse(
+                                array('error' => 'You are not authorized to do this.')
+                        ));
+
 
                 $match['state'] = 'playing';
+
 
                 $data = $this->request->post;
                 $action = $data['action'];
@@ -127,35 +134,14 @@ class MatchPresenter extends SecuredPresenter
                                 break;
 
                         case 'finish':
+                                $match['team1goals'] = $data['team1goals'];
+                                $match['team2goals'] = $data['team2goals'];
                                 $match['state'] = 'played';
                                 break;
 
 
-
                 }
 
-/*
-                switch($data['action']){
-                        case 'team1_increase':
-                                $match['team1goals']++;
-                                break;
-
-                        case 'team2_increase':
-                                $match['team2goals']++;
-                                break;
-                        case 'team1_decrease':
-                                $match['team1goals'] = ($match['team1goals'] > 0) ? ($match['team1goals'] - 1): 0;
-                                break;
-
-                        case 'team2_decrease':
-                                $match['team2goals'] = ($match['team2goals'] > 0) ? ($match['team2goals'] - 1): 0;
-                                break;
-
-                        default:
-                                break;
-                }
-
- */
                 $match->update();
 
                 $this->sendResponse(new NJsonResponse(
@@ -176,10 +162,18 @@ class MatchPresenter extends SecuredPresenter
                 if(!$match)
                         throw new NBadRequestException('Match not found');
 
-                if($match->state != 'ready')
-                        return $this->renderDefault();
+                if($match->state != 'ready'){
+                        $this->flashMessage('Match already played.');
+                        $this->redirect('Group:list', $match['groupID']);
+                }
 
                 $teams = $model->getTeams();
+
+                $match['userID'] = $this->getUser()
+                                        ->getIdentity()->id;
+
+                $match->update();
+                $match = $matches->get($id);
 
                 $this->template->match = $match;
                 $this->template->teams = $teams;
@@ -188,6 +182,76 @@ class MatchPresenter extends SecuredPresenter
 
         }
 
+        public function renderFinish($id = 0)
+        {
+                if ($id == 0)
+                        return $this->renderDefault();
+
+                $match = $this->getService('model')->getMatches()->get($id);
+
+                if ($match['userID'] != $this->getUser()->getIdentity()->id) {
+                        $this->flashMessage('You are not authorized to do that.');
+                        $this->redirect('Group:list', $match['groupID']);
+                }
+                
+                $results = $this->getService('model')->getResults();
+               
+                if($match['team1goals'] == $match['team2goals']){
+                        $result = $results->get($match['team1ID']);
+
+                        $result->matches_played = $result->matches_played + 1;
+                        $result->draws = $result->draws + 1;
+                        $result->points = $result->points + 1;
+                        $result->update();
+
+                        $result = $results->get($match['team2ID']);
+                        
+                        $result->matches_played = $result->matches_played + 1;
+                        $result->points = $result->points + 1;
+                        $result->draws = $result->draws + 1;
+                        $result->update();
+
+                } else {
+                        $score1 = $match['team1goals'];
+                        $score2 = $match['team2goals'];
+
+                        $winnerID = ($score1 > $score2)?$match['team1ID']:$match['team2ID'];
+                        $loserID = ($score1 > $score2)?$match['team2ID']:$match['team1ID'];
+                        $winnerGoalDiff = ($score1 > $score2)?($score1 -$score2):($score2-$score1);
+
+                        $result = $results->get($winnerID);
+
+                        $result->matches_played = $result->matches_played + 1;
+                        $result->wins = $result->wins + 1;
+                        $result->goal_diff = $result->goal_diff + $winnerGoalDiff;
+                        $result->points = $result->points + 3;
+                        $result->update();
+
+                        $result = $results->get($loserID);
+                        
+                        $result->matches_played = $result->matches_played + 1;
+                        $result->loses = $result->loses + 1;
+                        $result->goal_diff = $result->goal_diff - $winnerGoalDiff;
+                        $result->update();
+                }
+
+               
+
+
+                $names = $this->getService('model')->getTeams();
+
+                $this->flashMessage("Match '".$names[$match['team1ID']]->name.
+                        "' vs. '". $names[$match['team1ID']]->name .
+                        "' finished with result ". $match['team1goals'] . ":" . 
+                        $match['team2goals']);
+
+
+
+                $this->redirect('Group:list', $match['groupID']);
+
+
+
+        }
 
         public function createComponentTeamList()
         {
