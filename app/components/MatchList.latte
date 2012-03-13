@@ -29,7 +29,7 @@
 
         {/foreach}
         
-        {if $matches->count() == 0 }
+        {if $matches->count() == 0 && $links }
 
                 No matches found. 
                 <a href="{plink Match:generate $group}"> 
