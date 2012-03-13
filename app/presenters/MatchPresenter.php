@@ -162,8 +162,9 @@ class MatchPresenter extends SecuredPresenter
                 if(!$match)
                         throw new NBadRequestException('Match not found');
 
-                if($match->state != 'ready'){
-                        $this->flashMessage('Match already played.');
+                if($match->state !== 'ready' && 
+                   $match->userID !== $this->getUser()->getIdentity()->id){
+                        $this->flashMessage('Match already started.');
                         $this->redirect('Group:list', $match['groupID']);
                 }
 
@@ -241,7 +242,7 @@ class MatchPresenter extends SecuredPresenter
                 $names = $this->getService('model')->getTeams();
 
                 $this->flashMessage("Match '".$names[$match['team1ID']]->name.
-                        "' vs. '". $names[$match['team1ID']]->name .
+                        "' vs. '". $names[$match['team2ID']]->name .
                         "' finished with result ". $match['team1goals'] . ":" . 
                         $match['team2goals']);
 
