@@ -176,6 +176,9 @@ class MatchPresenter extends SecuredPresenter
                 if(!$match)
                         throw new NBadRequestException('Match not found');
 
+                if($match->state != 'ready')
+                        return $this->renderDefault();
+
                 $teams = $model->getTeams();
 
                 $this->template->match = $match;

@@ -25,6 +25,9 @@
         <div style="float: left;padding-top: 20px;">
         <strong style="font-size: 120%"> Upcomming matches: <input type="text" placeholder="Quick Search" id="id_search" value="" name="search" style="margin-left: 5px;"> </strong>
         {control matchList $group->id}
+
+        <strong style="font-size: 120%"> Played matches:  </strong>
+        {control matchList $group->id, false}
         </div>
 <div style="clear: both" ></div>
 </div>

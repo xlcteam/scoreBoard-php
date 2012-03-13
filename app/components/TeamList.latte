@@ -5,6 +5,7 @@
         <tr>
                 <th> Por. </th>
                 <th></th>
+                <th> P </th>
                 <th> S </th>
                 <th> W </th>
                 <th> D </th>
@@ -15,7 +16,8 @@
         <tr n:class="$iterator->isOdd() ? odd : even">
                 <td> {$iterator->getCounter()}. </td>
                 <td class='name'> {$names[$team->teamID]->name} </td>
-                <td> {$team->score} </td>
+                <td> {$team->matches_played} </td>
+                <td> {$team->goal_diff} </td>
                 <td> {$team->wins} </td>
                 <td> {$team->draws} </td>
                 <td> {$team->loses} </td>

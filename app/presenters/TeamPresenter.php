@@ -86,10 +86,11 @@ class TeamPresenter extends SecuredPresenter
                                 $result = array();
                                 //TODO: last insert ID
                                 $result['teamID'] = $team->id; 
+                                $result['matches_played'] = 0;
                                 $result['wins'] = 0;
                                 $result['loses'] = 0;
                                 $result['draws'] = 0;
-                                $result['score'] = 0;
+                                $result['goal_diff'] = 0;
                                 $result['groupID'] = $values->groupID;
                                 
                                 $this->results->insert($result);
