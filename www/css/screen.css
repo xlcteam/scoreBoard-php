@@ -93,6 +93,7 @@ a[href^="error:"] {
 .teamTable > td, th{
         padding: 0 5px;
         font-size: 120%;
+				min-width: 20px;
 }
 
 .teamTable .name {
@@ -256,7 +257,7 @@ a[href^="error:"] {
 
 .points {
 	background: #444;
-        color: #fff;
+  color: #fff;
 }
 
 
