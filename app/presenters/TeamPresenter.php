@@ -85,7 +85,7 @@ class TeamPresenter extends SecuredPresenter
 
                                 $result = array();
                                 //TODO: last insert ID
-                                $result['teamID'] = $team->id; 
+                                $result['id'] = $team->id; 
                                 $result['matches_played'] = 0;
                                 $result['wins'] = 0;
                                 $result['loses'] = 0;
