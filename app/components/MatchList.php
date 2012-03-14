@@ -14,24 +14,18 @@ class MatchList extends NControl
 	}
 
 
-	public function render($group, $unplayed = true)
+	public function render($group, $unplayed = 'ready')
 	{
 		$template = $this->template;
                 $template->matches = $this->model->getMatches()
                                  ->where('groupID', $group);
 
-        if ($unplayed)
             $template->unplayed = $this->model->getMatches()->where(array(
                     'groupID' => $group,
-                    'state' => 'ready' 
-            ));
-        else
-            $template->unplayed = $this->model->getMatches()->where(array(
-                    'groupID' => $group,
-                    'state' => 'played' 
+                    'state' => $unplayed 
             ));
 
-        $template->links = $unplayed;
+        $template->state = $unplayed;
  
         $template->group = $group;
         $template->names = $this->model->getTeams();

@@ -2,38 +2,44 @@
 <table class='matchTable'>
         {foreach $unplayed as $match}
         <tr>
+                {if $state == 'ready' }
                 <td class='left'> 
-                    {if $links}
                         <a href="{plink Match:play $match->id}">
                                 {$names[$match->team1ID]->name}
                         </a>
-                    {else}
-                                {$names[$match->team1ID]->name}
-                    {/if}
                 </td>
-                {if $links}
-                <td><strong>vs.</strong></td>
-                {else}
-                <td><strong>{$match->team1goals} : {$match->team2goals}</strong></td>
-                {/if}
-
+                        <td><strong>vs.</strong></td>
                 <td class='right'> 
-                    {if $links}
                         <a href="{plink Match:play $match->id}">
                                 {$names[$match->team2ID]->name}
                         </a>
-                    {else}
-                                {$names[$match->team2ID]->name}
-                    {/if}
- 
                 </td>
+                    {elseif $state == 'playing'}
+                <td class='left'> 
+                                {$names[$match->team1ID]->name}
+                </td>
+                        <td><strong>vs.</strong></td>
+                <td class='right'> 
+
+                                {$names[$match->team2ID]->name}
+                </td>
+                    {else}
+                <td class='left'> 
+                                {$names[$match->team1ID]->name}
+                </td>
+                <td><strong>{$match->team1goals} : {$match->team2goals}</strong></td>
+                <td class='right'> 
+
+                                {$names[$match->team2ID]->name}
+                </td>
+                    {/if}
 
         </tr>
 
 
         {/foreach}
         
-        {if $matches->count() == 0 && $links }
+        {if $matches->count() == 0 && $state == 'ready'}
 
                 No matches found. 
                 <a href="{plink Match:generate $group}"> 
