@@ -17,9 +17,9 @@ body {
 }
 
 #tables {
-  width: 50%;
+  width: 100%;
   position: relative;
-  float: right;
+  float: left;
 }
 
 .wholeEventLive {
@@ -30,8 +30,8 @@ body {
 
 .wholeEventTable {
 	padding-top: 20px;
-	width: 100%;
-	float: right;
+	width: 50%;
+	float: left;
 }
 
 
@@ -131,6 +131,7 @@ body {
 	color: #ffffff;
 	font-size: 70%;
 	margin: 0 auto;
+  padding: 0 20px;
 }
 
 .resultDiv {
@@ -158,6 +159,12 @@ body {
 
 .even {
 	background-color: #8c9cbf;	
+}
+
+#slider {
+  width: 100%;
+  height: 100px;
+  background: #EBC137;
 }
 
 
