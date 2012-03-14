@@ -17,6 +17,11 @@ class ResultsPresenter extends SecuredPresenter
     {
     }
 
+    public function handleUpdate()
+    {
+    
+    }
+
     public function createComponentEventList()
     {
             return new EventList($this->getService('model'));

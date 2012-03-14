@@ -89,15 +89,23 @@ a[href^="error:"] {
 
 .teamTable{
         text-align: center;
+        border-spacing: 0;
 }
-.teamTable > td, th{
-        padding: 0 5px;
+.teamTable th{
+        margin: 0 5px;
         font-size: 120%;
-				min-width: 20px;
+	min-width: 30px;
+        border: 0;
+}
+.teamTable td{
+        padding: 2px 7px;
+        margin: 0;
+        border: 0;
+        text-align: right;
 }
 
 .teamTable .name {
-        min-width: 100px;
+        min-width: 120px;
         text-align: left;
 }
 
