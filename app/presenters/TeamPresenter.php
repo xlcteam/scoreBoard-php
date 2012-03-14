@@ -48,9 +48,11 @@ class TeamPresenter extends SecuredPresenter
                 $groups = array();
                 foreach($events as $event){
                         $g = $this->getService('model')->getGroups()->where('eventID', $event->id);
+                        $o = array();
                         foreach ($g as $group) {
-                                $groups[$group->id] = $event->name . " - " . $group->name;
+                                $o[$group->id] = $group->name;
                         }
+                        $groups[$event->name] = $o;
                 }
 
 		$form = new NAppForm;
