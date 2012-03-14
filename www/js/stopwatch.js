@@ -27,6 +27,12 @@ function showD() {
 	$('#d2goals').val($('#team2').text());
 }
 
+function startMatch (){
+  $('#startAll').hide();
+  toggle();
+  
+}
+
 function toggleHalf()
 {
 	halftimeNumber = document.getElementById("halftime");  
@@ -53,7 +59,9 @@ function format(millis) {
 			if (seconds >= window.newSecs / 2){
 				$("#time").stopwatch().stopwatch('stop');
 				toggleHalf();
-				window.halftime = 2;			
+				window.halftime = 2;
+        $('#startAll').html("Start 2nd half");
+        $('#startAll').show();			
 			}				
 		}		
 			
@@ -81,6 +89,9 @@ function format(millis) {
 
 function toggle ()
 {
+  if ($("#startAll").is(':visible')){
+    $('#startAll').hide();
+  }  
   
   btnStart = document.getElementById("btnStart");  
 	if (btnStart.innerHTML == "Start" || btnStart.innerHTML == "Resume"){
@@ -103,6 +114,10 @@ function resetTime()
     $("#time").stopwatch().stopwatch('reset');
     $("#time").html("00:00,00");
     btnStart.innerHTML = "Start";
+  }
+  if ($("#startAll").is(':hidden')){
+    $('#startAll').html("Start match");
+    $('#startAll').show();
   }
 	halftimeNumber = document.getElementById("halftime"); 
 	if (halftimeNumber.innerHTML == "2."){
