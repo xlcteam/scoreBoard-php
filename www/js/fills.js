@@ -1,5 +1,5 @@
 function fill1()
-{
+{ 
 	$(".leftBckg").css("opacity", "0.7");
 	$(".goalLTex").css("opacity", "1");
 }
