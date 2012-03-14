@@ -17,7 +17,7 @@ class MatchList extends NControl
 	public function render($group, $unplayed = true)
 	{
 		$template = $this->template;
-        $template->matches = $this->model->getMatches()
+                $template->matches = $this->model->getMatches()
                                  ->where('groupID', $group);
 
         if ($unplayed)
