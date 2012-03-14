@@ -165,11 +165,27 @@ body {
   width: 100%;
   height: 100px;
   background: #EBC137;
+  overflow: hidden;
 }
 
 
+#slider ul{
+  padding-top: 10px;
+  list-style-type: none;
+  width: 2000px;
+  position: relative;
+}
 
+#slider li{
+  float: left;
+  font-size: 3em;
+  color: #771E10;
+  padding: 0 16px;
+}
 
+#slider strong{
+  color: #000;
+}
 
 
 
