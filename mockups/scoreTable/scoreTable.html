@@ -4,12 +4,16 @@
     <meta http-equiv="Content-Language" content="en-EN">
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script src="js/lib/jquery.js"></script>
-    <script src="js/lib/jquery.jcontent.0.8.min.js"></script>
+    <script src="js/lib/scrollingcarousel.2.0.min.js"></script>
     <link rel="stylesheet" href="css/style.css">    
     
     <script>
       $(document).ready(function() {  
-        $('#slider').animate({left: 2000}, {duration: 20000} );
+            $('#slider').scrollingCarousel( {
+              scrollerAlignment : 'horizontal',
+              autoScroll: true,
+              autoScrollSpeed: 40000
+             });
        });
     </script>
 
@@ -18,11 +22,12 @@
   <body>
 		<div id="slider">
       <ul>
-        <li> <strong> XLC </strong> 0:0 <strong> 0x584c43</strong> </li>
-        <li> <strong> XLC </strong> 0:0 <strong> 0x584c43</strong> </li>
-        <li> <strong> XLC </strong> 0:0 <strong> 0x584c43</strong> </li>
-        <li> <strong> XLC </strong> 0:0 <strong> 0x584c43</strong> </li>
-        <li> <strong> XLC </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC1 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC2 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC3 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC4 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC5 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC6 </strong> 0:0 <strong> 0x584c43</strong> </li>
       </ul>
     </div>
   
