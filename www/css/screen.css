@@ -268,4 +268,8 @@ a[href^="error:"] {
   color: #fff;
 }
 
+#frmteamForm-groupID{
+        width: 200px !important;
+}
+
 
