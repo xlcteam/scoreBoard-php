@@ -327,8 +327,13 @@ button:active {
   background: #3C4884;
   color: #F3F0A1;
   font-size: 6em;
-  top: 40%;
-  left: 25.5%;
+  top: 35%;
+  left: 26.5%;
   border-radius: 20px;
+}
+
+#startSpan {
+  margin-top: auto;
+
 }
 

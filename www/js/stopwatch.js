@@ -69,7 +69,7 @@ function format(millis) {
 		else if (window.halftime == 2 && minutes >= window.newMins){
 			if (seconds >= window.newSecs){
                 showD();
-		}			
+
 		}
 		return [pad2(minutes), pad2(seconds)].join(':') + ',' + pad2(millis);
 		
