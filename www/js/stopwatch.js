@@ -68,6 +68,19 @@ function format(millis) {
 		else if (window.halftime == 2 && minutes >= window.newMins){
 			if (seconds >= window.newSecs){
 				$("#time").stopwatch().stopwatch('stop');
+        
+        $.idleTimer('destroy');
+        
+        $('.startBckg, .leftBckg, .rightBckg').css("background", "#0042AB");
+	      $('.startBckg, .leftBckg, .rightBckg').css("opacity", "0.7");
+        $('.startBckg, .leftBckg, .rightBckg').fadeIn("slow");
+        
+
+        /*function blink(){
+          $('.startBckg, .leftBckg, .rightBckg').delay(100).fadeTo(100,0).delay(100).fadeTo(100,1);
+        }
+        setInterval(blink, 200);
+        blink();*/
 				//funct for sending results (dialog)	
 				$('#dialogMain').show();    
 				$("#dialog").dialog({ buttons: {
