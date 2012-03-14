@@ -3,11 +3,27 @@
     <title> scoreTable </title>    
     <meta http-equiv="Content-Language" content="en-EN">
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery.jcontent.0.8.min.js"></script>
     <link rel="stylesheet" href="css/style.css">    
+    
+    <script>
+      /*$(document).ready(function() {  
+        $("div > #live").jContent({orientation: 'vertical',
+                          easing: 'easeOutCirc',
+                          duration: 500,
+                          auto: true,
+                          direction: 'next', //or 'prev'
+                          pause: 1500,
+                          pause_on_hover: true
+                      }); 
+      });*/
+    </script>
+
   </head>
 
   <body>
-		<div id="main">
+		<div id="live">
 			<!-- new event -->			
 			<div class="wholeEventLive">
 				<div class="eventDiv"><span class="eventName">Open Soccer A</span></div>
@@ -27,10 +43,61 @@
 						<span class="rightName">teamName</span>
 					</div>
 					<!-- /match -->
+          <div style="clear: both;"> </div>
 				</div>
 			</div>
 			<!-- /event -->
+    
+      <!-- new event -->
+			<div class="wholeEventLive">
+				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
+				<div class="matches">
+					<!-- new match -->	
+					<div class="match">
+						<span class="leftName">teamName</span>
+						<span class="score">0 : 0</span>
+						<span class="rightName">teamName</span>
+					</div>
+					<!-- /match -->
 
+					<!-- new match -->	
+					<div class="match">
+						<span class="leftName">teamName</span>
+						<span class="score">0 : 0</span>
+						<span class="rightName">teamName</span>
+					</div>
+					<!-- /match -->
+          <div style="clear: both;"> </div>
+				</div>
+			</div>
+			<!--/event-->
+
+      <!-- new event -->
+			<div class="wholeEventLive">
+				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
+				<div class="matches">
+					<!-- new match -->	
+					<div class="match">
+						<span class="leftName">teamName</span>
+						<span class="score">0 : 0</span>
+						<span class="rightName">teamName</span>
+					</div>
+					<!-- /match -->
+
+					<!-- new match -->	
+					<div class="match">
+						<span class="leftName">teamName</span>
+						<span class="score">0 : 0</span>
+						<span class="rightName">teamName</span>
+					</div>
+					<!-- /match -->
+          <div style="clear: both;"> </div>
+				</div>
+			</div>
+			<!--/event-->
+    </div>
+  
+    <div id="tables">
 			<!--new table-->
 			<div class="wholeEventTable">
 				<div class="eventDiv"><span class="eventName">Table A - Group 1</span></div>
@@ -61,29 +128,6 @@
 			</div>
 			<!--/table-->
 
-			<!-- new event -->
-			<div class="wholeEventLive">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
-				<div class="matches">
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-				</div>
-			</div>
-			<!--/event-->
-
 			<!--new table-->
 			<div class="wholeEventTable">
 				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
@@ -122,30 +166,7 @@
 				</div>
 			</div>
 			<!-- /table-->
-
-			<!-- new event -->
-			<div class="wholeEventLive">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
-				<div class="matches">
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-				</div>
-			</div>
-			<!--/event-->
-
+    
 			<!--new table-->
 			<div class="wholeEventTable">
 				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
@@ -184,6 +205,6 @@
 				</div>
 			</div>
 			<!-- /table-->
-		</div>
+    </div>
   </body>
 </html> 

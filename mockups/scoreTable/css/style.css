@@ -10,21 +10,27 @@ body {
   font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
 }
 
-#main{
-  width: 100%;
-  height: 100%;
-	position: absolute;
+#live{
+  width: 50%;
+  position: relative;
+	float: left;
+}
+
+#tables {
+  width: 50%;
+  position: relative;
+  float: right;
 }
 
 .wholeEventLive {
 	padding-top: 20px;
-	width: 50%;
+	width: 100%;
 	float: left;
 }
 
 .wholeEventTable {
 	padding-top: 20px;
-	width: 50%;
+	width: 100%;
 	float: right;
 }
 
@@ -53,10 +59,11 @@ body {
   color: #1a3e66;
   font: normal 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	width: 97%;
-	height: 37%;
+	/*height: 37%;*/
 	margin: 0 auto;
 	color: #fff;
   font: bold 40px "helvetica neue", helvetica, arial, sans-serif;
+  padding-bottom: 20px;
 	/*text-align: center;*/
 }
 
