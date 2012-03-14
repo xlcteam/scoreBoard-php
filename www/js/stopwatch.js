@@ -68,8 +68,13 @@ function format(millis) {
 			
 		else if (window.halftime == 2 && minutes >= window.newMins){
 			if (seconds >= window.newSecs){
-                showD();
-
+        $("#time").stopwatch().stopwatch('stop');        
+        $.idleTimer('destroy');
+        $(".startBckg, .leftBckg, .rightBckg").fadeIn("fast");
+        $(".startBckg, .leftBckg, .rightBckg").css('opacity', '0.7');
+        $(".startBckg, .leftBckg, .rightBckg").css('background', '#0042AB');
+        showD();
+      }
 		}
 		return [pad2(minutes), pad2(seconds)].join(':') + ',' + pad2(millis);
 		
