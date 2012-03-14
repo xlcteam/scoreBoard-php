@@ -17,8 +17,12 @@
                 <script>
                         window.update_url = {link update! $id};
                         window.back_url = {link finish $id};
+                        window.finished = false;
                         window.onbeforeunload = function(){
-                                return 'There is no other way to play this match  again.';
+                                if (window.finished)
+                                        return;
+                                else
+                                        return 'There is no other way to play this match  again.';
                         }
                 </script>
 

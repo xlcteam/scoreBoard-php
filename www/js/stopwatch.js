@@ -4,6 +4,7 @@ window.newSecs = 0;
 window.halftime = 1;
 
 function showD() {
+    window.finished = true;
 	$('#dialogMain').show();    
 	$("#dialog").dialog({ buttons: {
 				 "Send results": function() { 
@@ -67,21 +68,8 @@ function format(millis) {
 			
 		else if (window.halftime == 2 && minutes >= window.newMins){
 			if (seconds >= window.newSecs){
-				$("#time").stopwatch().stopwatch('stop');
-				//funct for sending results (dialog)	
-				$('#dialogMain').show();    
-				$("#dialog").dialog({ buttons: {
-							 "Send results": function() { 
-																	$(this).dialog("close"); 
-																	$('#dialogMain').hide();
-							}
-						}
-					});
-				$('#dname').html($('#name1').text());
-				$('#d2name').html($('#name2').text());
-				$('#dgoals').val($('#team1').text());
-				$('#d2goals').val($('#team2').text());
-			}			
+                showD();
+		}			
 		}
 		return [pad2(minutes), pad2(seconds)].join(':') + ',' + pad2(millis);
 		
