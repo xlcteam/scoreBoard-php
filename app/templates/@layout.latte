@@ -51,7 +51,15 @@
         </div>
 
         <div id="content">
-
+            <ul n:if="$user->isLoggedIn()" id="menu">
+              <li>
+                Import teams
+              </li>
+              <li>
+                Show live results
+              </li>
+            </ul>
+      
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 	{include #content}
         </div>

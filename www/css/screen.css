@@ -42,7 +42,7 @@ a { color: #006aeb; padding: 3px 1px; }
 
 #banner h1 { color: white; font-size: 50px; line-height: 121px; margin: 0; padding-left: 40px; text-shadow: 1px 1px 0 rgba(0, 0, 0, .9); }
 
-#content { background: white; border: 1px solid #eff4f7; border-radius: 0 0 12px 12px; padding: 10px 5px; min-height: 50px; }
+#content { background: white; border: 1px solid #eff4f7; border-radius: 0 0 12px 12px; padding: 10px 40px; min-height: 50px; }
 #content > h2 { font-size: 130%; color: #666; clear: both; padding: 1.2em 0; margin: 0; }
 
 h2 span { color: #87A7D5; }
@@ -103,7 +103,6 @@ a[href^="error:"] {
         border: 0;
         text-align: right;
 }
-
 .teamTable .name {
         min-width: 120px;
         text-align: left;
@@ -281,10 +280,46 @@ a[href^="error:"] {
   height: 100%;
   margin-right: 5px;
   text-align: center;
+  margin-left: -20px;
 }
 
 .back:hover {
   background: #eee;
 }
+
+#menu{
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  margin-top: -11px;
+}
+
+#menu li {
+  height: 30px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font: 25px/100% Arial, Helvetica, sans-serif;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  -webkit-border-radius: 0px 0px 7px 7px; 
+  -moz-border-radius: 0px 0px 7px 7px;
+  border-radius: 0px 0px 7px 7px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	list-style: none;
+  padding: 0 15px;
+  color: #fff;
+  background: #10569c;
+  background: -webkit-gradient(linear, left top, left bottom, from(#10569c), to(#0273A0));
+  background: -moz-linear-gradient(top,  #10569c, #0273A0)
+}
+
+#menu li:hover {
+  text-decoration: underline;
+}
+
 
 
