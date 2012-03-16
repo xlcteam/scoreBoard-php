@@ -330,6 +330,7 @@ button:active {
   top: 35%;
   left: 26.5%;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 #startSpan {
