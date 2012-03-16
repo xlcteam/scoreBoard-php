@@ -10,22 +10,28 @@ body {
   font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
 }
 
-#main{
+#live{
+  width: 50%;
+  position: relative;
+	float: left;
+}
+
+#tables {
   width: 100%;
-  height: 100%;
-	position: absolute;
+  position: relative;
+  float: left;
 }
 
 .wholeEventLive {
 	padding-top: 20px;
-	width: 50%;
+	width: 100%;
 	float: left;
 }
 
 .wholeEventTable {
 	padding-top: 20px;
 	width: 50%;
-	float: right;
+	float: left;
 }
 
 
@@ -53,10 +59,11 @@ body {
   color: #1a3e66;
   font: normal 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 	width: 97%;
-	height: 37%;
+	/*height: 37%;*/
 	margin: 0 auto;
 	color: #fff;
   font: bold 40px "helvetica neue", helvetica, arial, sans-serif;
+  padding-bottom: 20px;
 	/*text-align: center;*/
 }
 
@@ -81,7 +88,7 @@ body {
   -ms-box-shadow: inset 0 1px 0 0 #771E10;
   -o-box-shadow: inset 0 1px 0 0 #771E10;
   box-shadow: inset 0 1px 0 0 #771E10;
-  color: #fff;
+  color: #EBC137;
 	margin-left: -1px;
 	padding: 0 20px;
   /*font: bold 40px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;*/
@@ -124,6 +131,7 @@ body {
 	color: #ffffff;
 	font-size: 70%;
 	margin: 0 auto;
+  padding: 0 20px;
 }
 
 .resultDiv {
@@ -153,9 +161,30 @@ body {
 	background-color: #8c9cbf;	
 }
 
+#slider {
+  width: 100%;
+  height: 100px !important;
+  background: #EBC137;
+  overflow: hidden;
+}
 
 
+#slider ul{
+  padding-top: 10px;
+  list-style-type: none;
+  position: relative;
+}
 
+#slider li{
+  float: left;
+  font-size: 3em;
+  color: #771E10;
+  padding: 0 26px;
+}
+
+#slider strong{
+  color: #000;
+}
 
 
 

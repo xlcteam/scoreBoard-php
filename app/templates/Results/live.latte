@@ -3,34 +3,44 @@
     <title> scoreTable </title>    
     <meta http-equiv="Content-Language" content="en-EN">
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="{$basePath}/js/lib/jquery.js"></script>
+    <script src="{$basePath}/js/lib/scrollingcarousel.2.0.min.js"></script>
     <link rel="stylesheet" href="{$basePath}/css/scoreTable/style.css">    
+    
+    <script>
+      $(document).ready(function() {  
+            $('#slider').scrollingCarousel( {
+              scrollerAlignment : 'horizontal',
+              autoScroll: true,
+              autoScrollSpeed: 40000
+             });
+       });
+    </script>
+
   </head>
 
   <body>
-		<div id="main">
-			<!-- new event -->			
-			<div class="wholeEventLive">
-				<div class="eventDiv"><span class="eventName">Open Soccer A</span></div>
-				<div class="matches">
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-					
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-				</div>
-			</div>
-			<!-- /event -->
+		<div id="slider">
+      <ul>
+      {if $matches->count() !== 0}
+              {foreach $matches as $match}
+                <li> <strong> {$names[$match->team1ID]->name} </strong>
+                {$match->team1goals}:{$match->team2goals}
+                <strong>{$names[$match->team2ID]->name}</strong> </li>
+              {/foreach}
+              {if $matches->count() < 3}
+              <li> <div style="width: 300px;"></div></li>
+              {/if}
+        {else}
 
+        <li> No matches are being played at the moment.</li> 
+        <li> Sorry for anyinconvenience. </li>
+        {/if}
+
+      </ul>
+    </div>
+  
+    <div id="tables">
 			<!--new table-->
 			<div class="wholeEventTable">
 				<div class="eventDiv"><span class="eventName">Table A - Group 1</span></div>
@@ -61,29 +71,6 @@
 			</div>
 			<!--/table-->
 
-			<!-- new event -->
-			<div class="wholeEventLive">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
-				<div class="matches">
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-				</div>
-			</div>
-			<!--/event-->
-
 			<!--new table-->
 			<div class="wholeEventTable">
 				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
@@ -122,30 +109,7 @@
 				</div>
 			</div>
 			<!-- /table-->
-
-			<!-- new event -->
-			<div class="wholeEventLive">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
-				<div class="matches">
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-
-					<!-- new match -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- /match -->
-				</div>
-			</div>
-			<!--/event-->
-
+    
 			<!--new table-->
 			<div class="wholeEventTable">
 				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
@@ -184,6 +148,84 @@
 				</div>
 			</div>
 			<!-- /table-->
-		</div>
+      
+      <!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
+				<div class="matches">
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>				
+				</div>
+			</div>
+			<!-- /table-->
+
+      <!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
+				<div class="matches">
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>				
+				</div>
+			</div>
+			<!-- /table-->
+    </div>
   </body>
 </html> 

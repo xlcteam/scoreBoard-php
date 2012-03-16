@@ -162,6 +162,8 @@ class MatchPresenter extends SecuredPresenter
                 if(!$match)
                         throw new NBadRequestException('Match not found');
 
+                
+
                 if($match->state !== 'ready' && 
                    $match->userID !== $this->getUser()->getIdentity()->id){
                         $this->flashMessage('Match already started.');
