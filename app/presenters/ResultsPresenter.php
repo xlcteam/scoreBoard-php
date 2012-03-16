@@ -25,8 +25,16 @@ class ResultsPresenter extends SecuredPresenter
                         array('groupID' => $active_groups,
                                 'state' => 'playing'));
 
+                $results = $model->getResults();
+
+
+                $this->template->groups = $active_groups;                
+                $this->template->model = $model;
+
                 $this->template->matches = $playing_matches;
                 $this->template->names = $model->getTeams();
+
+                
 
 
 

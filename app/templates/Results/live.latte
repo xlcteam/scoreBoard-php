@@ -41,191 +41,39 @@
     </div>
   
     <div id="tables">
-			<!--new table-->
-			<div class="wholeEventTable">
-				<div class="eventDiv"><span class="eventName">Table A - Group 1</span></div>
-				<div class="matches">
-					<table class="resultTable">
-						<tbody>
-							<tr>
-								<th>Pos.</th>
-								<th></th>
-								<th>S</th>
-								<th>W</th>
-								<th>D</th>
-								<th>L</th>
-								<th>P</th>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-						</tbody>
-					</table>			
-				</div>
-			</div>
-			<!--/table-->
-
-			<!--new table-->
-			<div class="wholeEventTable">
-				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
-				<div class="matches">
-					<table class="resultTable">
-						<tbody>
-							<tr>
-								<th>Pos.</th>
-								<th></th>
-								<th>S</th>
-								<th>W</th>
-								<th>D</th>
-								<th>L</th>
-								<th>P</th>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-						</tbody>
-					</table>				
-				</div>
-			</div>
-			<!-- /table-->
-    
-			<!--new table-->
-			<div class="wholeEventTable">
-				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
-				<div class="matches">
-					<table class="resultTable">
-						<tbody>
-							<tr>
-								<th>Pos.</th>
-								<th></th>
-								<th>S</th>
-								<th>W</th>
-								<th>D</th>
-								<th>L</th>
-								<th>P</th>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-						</tbody>
-					</table>				
-				</div>
-			</div>
-			<!-- /table-->
-      
-      <!--new table-->
-			<div class="wholeEventTable">
-				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
-				<div class="matches">
-					<table class="resultTable">
-						<tbody>
-							<tr>
-								<th>Pos.</th>
-								<th></th>
-								<th>S</th>
-								<th>W</th>
-								<th>D</th>
-								<th>L</th>
-								<th>P</th>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-						</tbody>
-					</table>				
-				</div>
-			</div>
-			<!-- /table-->
-
-      <!--new table-->
-			<div class="wholeEventTable">
-				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
-				<div class="matches">
-					<table class="resultTable">
-						<tbody>
-							<tr>
-								<th>Pos.</th>
-								<th></th>
-								<th>S</th>
-								<th>W</th>
-								<th>D</th>
-								<th>L</th>
-								<th>P</th>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-							<tr>
-								<td>1.</td>
-								<td class="name">XLC</td>
-								<td>2</td>
-								<td>2</td>
-								<td>0</td>
-								<td>0</td>
-								<td class="points"><strong>6</strong></td>
-							</tr>
-						</tbody>
-					</table>				
-				</div>
-			</div>
-			<!-- /table-->
+	<!--new table-->
+          {foreach $groups as $group}
+	<div class="wholeEventTable">
+            <div class="eventDiv"><span class="eventName">{$group->name}</span></div>
+                <div class="matches">
+                        <table class="resultTable">
+                                        <tr>
+                                                <th>Pos.</th>
+                                                <th></th>
+                                                <th>P</th>
+                                                <th>S</th>
+                                                <th>W</th>
+                                                <th>D</th>
+                                                <th>L</th>
+                                                <th>P</th>
+                                        </tr>
+                        {foreach $model->getResults()->where('groupID', $group->id)->order('points DESC, goal_diff DESC') as $team}
+                        <tr>
+                                <td> {$iterator->getCounter()}. </td>
+                                <td class='name'> {$names[$team->id]->name} </td>
+                                <td> {$team->matches_played} </td>
+                                <td> {$team->goal_diff} </td>
+                                <td> {$team->wins} </td>
+                                <td> {$team->draws} </td>
+                                <td> {$team->loses} </td>
+                                <td class="points"> {$team->points} </td>
+                        </tr>
+                        {/foreach}
+                        </table>			
+                </div>
+	
+        </div>
+          {/foreach}
     </div>
   </body>
 </html> 
