@@ -34,6 +34,7 @@ class GroupPresenter extends SecuredPresenter
                 }
  
                 $this->template->group = $row;
+                $this->template->events = $this->getService('model')->getEvents();
 
         }
 

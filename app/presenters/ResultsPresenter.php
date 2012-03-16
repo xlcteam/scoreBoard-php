@@ -29,6 +29,7 @@ class ResultsPresenter extends SecuredPresenter
 
 
                 $this->template->groups = $active_groups;                
+                $this->template->events = $model->getEvents();;                
                 $this->template->model = $model;
 
                 $this->template->matches = $playing_matches;
