@@ -51,7 +51,7 @@
         </div>
 
         <div id="content">
-            <ul id="menu">
+            <ul n:if="$user->isLoggedIn()" id="menu">
               <li>
                 Import teams
               </li>
