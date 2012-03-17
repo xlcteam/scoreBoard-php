@@ -3,6 +3,16 @@
 
 {control eventList}
 
+<strong>Upcomming matches: <input type="text" placeholder="Quick Search" id="id_search" value="" name="search" style="margin-left: 5px;"> </strong>
+{foreach $model->getEvents()->where('finished', 0) as $event}  
+  {foreach $model->getGroups()->where('eventID', $event->id) as $group}
+    {if $model->getMatches()->where('groupID', $group->id)->where('state', 'ready')->count() != 0}
+      <strong>{$event->name} :</strong>{$group->name}   
+      {control matchList $group->id}
+    {/if}  
+  {/foreach}
+{/foreach}
+
 {/block}
 
 

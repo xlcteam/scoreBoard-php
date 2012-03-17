@@ -11,6 +11,7 @@ class DashboardPresenter extends SecuredPresenter
 
 	public function renderDefault()
 	{
+    $this->template->model = $this->getService('model');
 	}
 
         public function createComponentEventList()
@@ -22,5 +23,9 @@ class DashboardPresenter extends SecuredPresenter
         {
                 return new GroupList($this->getService('model'));
         }
-        
+
+        public function createComponentMatchList()
+        {
+                return new MatchList($this->getService('model'));
+        }
 }
