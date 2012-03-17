@@ -8,7 +8,9 @@ function showD() {
 	$('#dialogMain').show();    
 	$("#dialog").dialog({ buttons: {
 				 "Send results": function() { 
-                        $.post(window.update_url, 
+                        var df = confirm("Are you sure to send results?");
+                          if(df){
+                            $.post(window.update_url, 
                                 {action: 'finish', 
                                     team1goals: $('#team1').text(),
                                     team2goals: $('#team2').text(),},
@@ -17,7 +19,12 @@ function showD() {
 				                    $('#dialogMain').hide();
                                     window.location = window.back_url; 
                                 }
-                        );
+                            );
+                          }else{
+                            return;
+                          }
+                              
+                        
 					
 				}	
 			}
