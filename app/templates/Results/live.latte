@@ -43,6 +43,8 @@
     <div id="tables">
 	<!--new table-->
           {foreach $groups as $group}
+        {var $teams = $model->getResults()->where('groupID', $group->id)->order('points DESC, goal_diff DESC');}
+        {if $teams->count() !== 0 }
 	<div class="wholeEventTable">
             <div class="eventDiv"><span class="eventName">{$events[$group->eventID]->name|truncate:10} - {$group->name}</span></div>
                 <div class="matches">
@@ -57,7 +59,7 @@
                                                 <th>L</th>
                                                 <th>P</th>
                                         </tr>
-                        {foreach $model->getResults()->where('groupID', $group->id)->order('points DESC, goal_diff DESC') as $team}
+                        {foreach $teams as $team}
                         <tr>
                                 <td> {$iterator->getCounter()}. </td>
                                 <td class='name'> {$names[$team->id]->name} </td>
@@ -73,6 +75,7 @@
                 </div>
 	
         </div>
+                {/if}
           {/foreach}
     </div>
   </body>
