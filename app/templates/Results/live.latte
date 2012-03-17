@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script src="{$basePath}/js/lib/jquery.js"></script>
     <script src="{$basePath}/js/lib/scrollingcarousel.2.0.min.js"></script>
+    <script src="{$basePath}/js/lib/jquery.masonry.min.js"></script>
     <link rel="stylesheet" href="{$basePath}/css/scoreTable/style.css">    
     
     <script>
@@ -17,6 +18,8 @@
       
             
             $("#tables .wholeEventTable:gt(3)").hide();
+
+            $('#tables').masonry();
 
        });
     </script>
