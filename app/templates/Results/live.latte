@@ -44,7 +44,7 @@
 	<!--new table-->
           {foreach $groups as $group}
 	<div class="wholeEventTable">
-            <div class="eventDiv"><span class="eventName">{$events[$group->eventID]->name|truncate:10}</span></div>
+            <div class="eventDiv"><span class="groupName">{$group->name}</span></div>
                 <div class="matches">
                         <table class="resultTable">
                                         <tr>
@@ -70,7 +70,7 @@
                         </tr>
                         {/foreach}
                         </table>	
-                    <span class="groupName">{$group->name}</span>		
+                    <span class="eventName">{$events[$group->eventID]->name}</span>		
                 </div>
 	
         </div>
