@@ -8,17 +8,32 @@
     <link rel="stylesheet" href="{$basePath}/css/scoreTable/style.css">    
     
     <script>
+      var i = 0;
+      var l = 0;
       $(document).ready(function() {  
             $('#slider').scrollingCarousel( {
               scrollerAlignment : 'horizontal',
               autoScroll: true,
-              autoScrollSpeed: 40000
+              autoScrollSpeed: 20000
              });
       
             
+            l = $('#tables .wholeEventTable').length;
             $("#tables .wholeEventTable:gt(3)").hide();
 
+
        });
+
+       function showNext(){
+        console.log(l);
+        if(i > l)
+                i = 0;
+        $('#tables .wholeEventTable:eq('+i+')').fadeOut();
+        $('#tables .wholeEventTable:eq('+((i+4)%l)+')').fadeIn();
+        i++;
+       }
+
+        setInterval(showNext, 5000);
     </script>
 
   </head>
