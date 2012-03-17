@@ -63,7 +63,7 @@ body {
 	margin: 0 auto;
 	color: #fff;
   font: bold 40px "helvetica neue", helvetica, arial, sans-serif;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 	/*text-align: center;*/
 }
 
@@ -186,6 +186,13 @@ body {
   color: #000;
 }
 
+.groupName {
+  float: right;
+  color: #EBC137;
+  margin-right: 40px;
+  padding-top: 8px;
+  font: 20px/100% Georgia, "New York CE", utopia, serif;
+}
 
 
 
