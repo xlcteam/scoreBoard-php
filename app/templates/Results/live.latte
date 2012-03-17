@@ -5,11 +5,30 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script src="{$basePath}/js/lib/jquery.js"></script>
     <script src="{$basePath}/js/lib/scrollingcarousel.2.0.min.js"></script>
+    <script src="{$basePath}/js/lib/jquery.masonry.min.js"></script>
     <link rel="stylesheet" href="{$basePath}/css/scoreTable/style.css">    
     
     <script>
-      var i = 0;
-      var l = 0;
+        var first = 0;
+        var speed = 1000;
+        var pause = 5500;
+
+function removeFirst(){
+        first = $('div#tables .wholeEventTable:first').html();
+        $('div#tables .wholeEventTable:first')
+        .fadeOut('slow', function() { 
+                $(this).remove(); 
+                addLast(first);
+        });
+}
+
+function addLast(first){
+        var last = '<div class="wholeEventTable" style="display:none">'+first+'</div>';
+        $('div#tables .wholeEventTable:last')
+        .fadeIn('slow', function(){
+                $('div#tables').append(last);
+        });
+}
       $(document).ready(function() {  
             $('#slider').scrollingCarousel( {
               scrollerAlignment : 'horizontal',
@@ -18,22 +37,9 @@
              });
       
             
-            l = $('#tables .wholeEventTable').length;
             $("#tables .wholeEventTable:gt(3)").hide();
-
-
+                setInterval(removeFirst, pause);
        });
-
-       function showNext(){
-        console.log(l);
-        if(i > l)
-                i = 0;
-        $('#tables .wholeEventTable:eq('+i+')').fadeOut();
-        $('#tables .wholeEventTable:eq('+((i+4)%l)+')').fadeIn();
-        i++;
-       }
-
-        setInterval(showNext, 5000);
     </script>
 
   </head>
