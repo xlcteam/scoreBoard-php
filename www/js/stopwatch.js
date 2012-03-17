@@ -1,5 +1,5 @@
-window.newMins = 20;
-window.newSecs = 0;
+window.mins = 20;
+window.secs = 0;
 
 window.halftime = 1;
 
@@ -56,20 +56,36 @@ function format(millis) {
     millis = Math.floor(millis % 1000);                                
     millis = Math.floor(millis / 10);
 		
-		if (window.halftime == 1 && minutes >= window.newMins / 2){
-			if (seconds >= window.newSecs / 2){
+		if (window.halftime == 1 && minutes >= window.mins / 2){
+			if (seconds >= window.secs / 2){
 				$("#time").stopwatch().stopwatch('stop');
 				toggleHalf();
 				window.halftime = 2;
-        $('#startAll').html("Start 2nd half");
+        $('#startSpan').html("Start 2nd half");
         $('#startAll').show();			
 			}				
 		}		
 			
-		else if (window.halftime == 2 && minutes >= window.newMins){
-			if (seconds >= window.newSecs){
+		else if (window.halftime == 2 && minutes >= window.mins){
+			if (seconds >= window.secs){
         $("#time").stopwatch().stopwatch('stop');        
         $.idleTimer('destroy');
+
+        //spaghetti unbind code
+        $(".element1").unbind("mouseover", fill1);
+				$(".element1").unbind("mouseout", unfill1);
+				$(".element2").unbind("mouseover", fill2);
+				$(".element2").unbind("mouseout", unfill2);
+				$(".element3").unbind("mouseover", fill3);
+				$(".element3").unbind("mouseout", unfill3);
+        $(".leftBckg").unbind("mouseover", fill1);
+				$(".leftBckg").unbind("mouseout", unfill1);
+				$(".rightBckg").unbind("mouseover", fill2);
+				$(".rightBckg").unbind("mouseout", unfill2);
+				$(".startBckg").unbind("mouseover", fill3);
+				$(".startBckg").unbind("mouseout", unfill3);
+        
+
         $(".startBckg, .leftBckg, .rightBckg").fadeIn("fast");
         $(".startBckg, .leftBckg, .rightBckg").css('opacity', '0.7');
         $(".startBckg, .leftBckg, .rightBckg").css('background', '#0042AB');
@@ -126,8 +142,8 @@ function newTime()
 	var inpMins = $('#fmins').val();
 	var inpSecs = $('#fsecs').val();
 	
-	window.newMins = inpMins;
-	window.newSecs = inpSecs;
+	window.mins = inpMins;
+	window.secs = inpSecs;
 	$('.saved').fadeIn(200).delay(500).fadeOut(200);
 
 
