@@ -301,7 +301,7 @@ a[href^="error:"] {
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  font: 20px/100% Georgia, "New York CE", utopia, serif;
+  font: 21px/100% Georgia, "New York CE", utopia, serif;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   -webkit-border-radius: 0px 0px 7px 7px; 
   -moz-border-radius: 0px 0px 7px 7px;
@@ -314,7 +314,7 @@ a[href^="error:"] {
   color: #fff;
   background: #10569c;
   background: -webkit-gradient(linear, left top, left bottom, from(#10569c), to(#0273A0));
-  background: -moz-linear-gradient(top,  #10569c, #0273A0)
+  background: -moz-linear-gradient(top,  #10569c, #0273A0);
 }
 
 #menu li:hover {
