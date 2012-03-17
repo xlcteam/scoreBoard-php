@@ -295,7 +295,7 @@ a[href^="error:"] {
 }
 
 #menu li {
-  height: 30px;
+  height: 25px;
   display: inline-block;
   outline: none;
   cursor: pointer;
