@@ -4,7 +4,7 @@
 {control eventList}
 
 <div class="upMatches">
-  <strong>Upcomming matches: <input type="text" placeholder="Quick Search" id="id_search" value="" name="search" style="margin-left: 5px;"> </strong> <br/>
+  <strong style="font-size: 20px;">Upcomming matches: <input type="text" placeholder="Quick Search" id="id_search" value="" name="search" style="margin-left: 5px;"> </strong> <br/>
   {foreach $model->getEvents()->where('finished', 0) as $event}  
     {foreach $model->getGroups()->where('eventID', $event->id) as $group}
       {if $model->getMatches()->where('groupID', $group->id)->where('state', 'ready')->count() != 0}

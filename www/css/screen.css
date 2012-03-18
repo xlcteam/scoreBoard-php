@@ -111,6 +111,7 @@ a[href^="error:"] {
 
 .matchTable .left{
         text-align: right;
+        width: 140px;
 }
 
 .matchTable .right{
@@ -330,11 +331,11 @@ a[href^="error:"] {
 .upMatches {
   min-width: 310px;
   float: left;
-  margin-left: 50px;
+  margin-left: 120px;
 }
 
 .groupMatches {
-  margin-left: 80px;
+  margin-left: 50px;
 }
 
 .gName {
