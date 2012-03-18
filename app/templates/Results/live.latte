@@ -11,7 +11,7 @@
     <script>
         var first = 0;
         var speed = 1000;
-        var pause = 5500;
+        var pause = 5000;
 
 function removeFirst(){
         first = $('div#tables .wholeEventTable:first').html();
@@ -29,18 +29,8 @@ function addLast(first){
                 $('div#tables').append(last);
         });
 }
-      $(document).ready(function() {  
-            $('#slider').scrollingCarousel( {
-              scrollerAlignment : 'horizontal',
-              autoScroll: true,
-              autoScrollSpeed: 20000
-             });
-      
-            
-            $("#tables .wholeEventTable:gt(3)").hide();
-                setInterval(removeFirst, pause);
-       });
-    </script>
+
+   </script>
 
   </head>
 
@@ -67,9 +57,11 @@ function addLast(first){
   
     <div id="tables">
 	<!--new table-->
+        {var $i = 0}
           {foreach $groups as $group}
         {var $teams = $model->getResults()->where('groupID', $group->id)->order('points DESC, goal_diff DESC');}
         {if $teams->count() !== 0 }
+        {var $i = $i + 1}
 	<div class="wholeEventTable">
             <div class="eventDiv"><span class="groupName">{$group->name}</span></div>
                 <div class="matches">
@@ -104,5 +96,21 @@ function addLast(first){
                 {/if}
           {/foreach}
     </div>
+    <script>
+      $(document).ready(function() {  
+            $('#slider').scrollingCarousel( {
+              scrollerAlignment : 'horizontal',
+              autoScroll: true,
+              autoScrollSpeed: 20000
+             });
+      
+           {if $i > 4} 
+            $("#tables .wholeEventTable:gt(3)").hide();
+                setInterval(removeFirst, pause);
+                setInterval('window.location.reload(true)', 30000);
+           {/if}
+       });
+ 
+    </script>
   </body>
 </html> 
