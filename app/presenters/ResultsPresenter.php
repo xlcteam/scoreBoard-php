@@ -45,8 +45,34 @@ class ResultsPresenter extends SecuredPresenter
 
         public function handleUpdate()
         {
+              //if (!$this->isAjax())
+              //        return $this->renderDefault();
 
+                $model = $this->getService('model');
 
+                $active_events = $model->getEvents()->where('finished', false);
+                $active_groups = $model->getGroups()->where('eventID', $active_events);
+
+                $matches = $model->getMatches();
+                $playing_matches = $matches->where(
+                        array('groupID' => $active_groups,
+                                'state' => 'playing'));
+
+                $results = $model->getResults();
+
+                $group_template = $this->template;
+                $group_template->setFile(APP_DIR . '/templates/Results/grouplist.latte');
+
+                $group_template->groups = $active_groups;                
+                $group_template->model = $model;
+
+                $group_template->matches = $playing_matches;
+                $group_template->names = $model->getTeams();
+                $group_template->events = $model->getEvents();
+
+                return $this->sendResponse(new NJsonResponse(
+                        array('groups' => $group_template->__toString(TRUE))
+                ));
         }
 
         public function createComponentEventList()

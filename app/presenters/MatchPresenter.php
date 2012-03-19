@@ -94,7 +94,7 @@ class MatchPresenter extends SecuredPresenter
                         return $this->renderDefault();
 
                 if ($id === 0)
-                        return $this->sendResponse(new JsonResponse(
+                        return $this->sendResponse(new NJsonResponse(
                                 array('error' => 'id not provided')
                         ));
                 
@@ -102,12 +102,12 @@ class MatchPresenter extends SecuredPresenter
                 $match = $matches->get($id);
 
                 if(!$match)
-                        return $this->sendResponse(new JsonResponse(
+                        return $this->sendResponse(new NJsonResponse(
                                 array('error' => 'match not found')
                         ));
                 
                 if ($match['userID'] != $this->getUser()->getIdentity()->id)
-                        return $this->sendResponse(new JsonResponse(
+                        return $this->sendResponse(new NJsonResponse(
                                 array('error' => 'You are not authorized to do this.')
                         ));
 

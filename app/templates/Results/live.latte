@@ -97,19 +97,31 @@ function addLast(first){
           {/foreach}
     </div>
     <script>
+    var interval = null;
+    function update(){
+        $.get({link update!}, function(data){
+                $("#tables").html(data['groups']); 
+                if (interval !== null){
+                        $("#tables .wholeEventTable:gt(3)").hide();
+                        interval = setInterval(removeFirst, pause);
+                }
+                console.log('updated');
+        })
+    }
       $(document).ready(function() {  
             $('#slider').scrollingCarousel( {
               scrollerAlignment : 'horizontal',
               autoScroll: true,
               autoScrollSpeed: 20000
              });
+             setInterval(update, 10000);
       
            {if $i > 4} 
             $("#tables .wholeEventTable:gt(3)").hide();
-                setInterval(removeFirst, pause);
-                setInterval('window.location.reload(true)', 30000);
+                interval = setInterval(removeFirst, pause);
            {/if}
-       });
+
+      });
  
     </script>
   </body>
