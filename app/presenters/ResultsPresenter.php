@@ -60,18 +60,28 @@ class ResultsPresenter extends SecuredPresenter
 
                 $results = $model->getResults();
 
+                $tmp = $this->template;
                 $group_template = $this->template;
                 $group_template->setFile(APP_DIR . '/templates/Results/grouplist.latte');
 
                 $group_template->groups = $active_groups;                
                 $group_template->model = $model;
 
+                $teams = $model->getTeams();
+
                 $group_template->matches = $playing_matches;
-                $group_template->names = $model->getTeams();
+                $group_template->names = $teams;
                 $group_template->events = $model->getEvents();
+                $groups = $group_template->__toString(TRUE);
+
+                $tmp->setFile(APP_DIR . '/templates/Results/matchlist.latte');
+                $tmp->matches = $playing_matches;
+                $tmp->names = $teams;
+                $matches = $tmp->__toString(TRUE);
 
                 return $this->sendResponse(new NJsonResponse(
-                        array('groups' => $group_template->__toString(TRUE))
+                        array('groups' => $groups,
+                                'matches' => $matches)
                 ));
         }
 
