@@ -104,6 +104,88 @@ class GroupPresenter extends SecuredPresenter
                 return new MatchList($this->getService('model'));
         }
 
+        public function handleExport($id = 0)
+        {
+                if($id === 0)
+                        throw new NBadRequestException('No groupID provided');
+
+                $groups = $this->getService('model')->getGroups();
+
+                $row = $groups->get($id);
+                if(!$row) {
+                        throw new NBadRequestException('Group not found');
+                }
+ 
+                $group = $row;
+                $events = $this->getService('model')->getEvents();
+                $results = $this->getService('model')->getResults();
+
+                $teams = $results->where('groupID', $group->id)
+                        ->order('points DESC, goal_diff DESC');
+                $names = $this->getService('model')->getTeams();
+
+                $matches = $this->getService('model')->getMatches()
+                        ->where(array(
+                                'groupID'=> $group->id,
+                                'state' => 'played'
+                        ));
+
+
+                $pdf = new PDF();
+		define('FPDF_FONTPATH', LIBS_DIR.'/fpdf/font/');
+
+                $pdf->title($events[$group->eventID]->name.': Group A');
+                $pdf->AliasNbPages();
+                $pdf->AddPage();
+
+                $pdf->SetLeftMargin(26);
+                $pdf->SetFont('Times','B',15);
+                $pdf->Cell(16, 6, "Pos.", 'B', 0, 'C');
+                $pdf->Cell(46, 6, "", 'B', 0);
+                $pdf->Cell(16, 6, "P", 'B', 0, 'C');
+                $pdf->Cell(16, 6, "S", 'B', 0, 'C');
+                $pdf->Cell(16, 6, "W", 'B', 0, 'C');
+                $pdf->Cell(16, 6, "D", 'B','B' , 'C');
+                $pdf->Cell(16, 6, "L", 'B', 0, 'C');
+                $pdf->Cell(16, 6, "Pts.", 'B', 0, 'C');
+
+                $pdf->Ln(6);
+
+                $pdf->SetFont('Times','',15);
+
+                $i = 0;
+                foreach($teams as $team){
+                        $i++;
+                        $pdf->Cell(16,10, "$i.", 0, 0, 'C');
+                        $pdf->Cell(46,10, $names[$team->id]->name, 0, 0);
+                        $pdf->Cell(16,10, $team->matches_played, 0, 0, 'C');
+                        $pdf->Cell(16,10, $team->goal_diff, 0, 0, 'C');
+                        $pdf->Cell(16,10, $team->wins, 0, 0, 'C');
+                        $pdf->Cell(16,10, $team->draws, 0, 0, 'C');
+                        $pdf->Cell(16,10, $team->loses, 0, 0, 'C');
+                        $pdf->Cell(16,10, $team->points, 0, 0, 'C');
+
+                        $pdf->Ln(6);
+                }
+
+                $pdf->Ln(16);
+                
+                foreach($matches as $match) {
+                        $pdf->SetFont('Courier','I',15);
+                        $pdf->Cell(70, 10, $names[$match->team1ID]->name . ' ', 0, 0, 'R');
+                        $pdf->SetFont('Courier','B',18);
+                        $pdf->Cell(13, 10, $match->team1goals . ":" . $match->team2goals, 0, 0);
+                        $pdf->SetFont('Courier','I',15);
+                        $pdf->Cell(70, 10, ' '. $names[$match->team2ID]->name, 0, 0);
+                        $pdf->Ln(6);
+                } 
+
+
+                $pdf->Output();
+
+
+        }
+
 
 
 }
