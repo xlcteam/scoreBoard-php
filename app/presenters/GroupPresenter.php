@@ -131,10 +131,10 @@ class GroupPresenter extends SecuredPresenter
                         ));
 
 
-                $pdf = new PDF();
 		define('FPDF_FONTPATH', LIBS_DIR.'/fpdf/font/');
+                $pdf = new PDF();
 
-                $pdf->title($events[$group->eventID]->name.': Group A');
+                $pdf->title($events[$group->eventID]->name.': '. $group->name);
                 $pdf->AliasNbPages();
                 $pdf->AddPage();
 
