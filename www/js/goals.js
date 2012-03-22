@@ -74,6 +74,7 @@ function team1Down()
 			$("#team1").html(goal1);
 			if(document.forms['effects'][0].checked) {
 				window.scaling1 = 1;	
+                soundPlay("whistle");
 				$("#team1").effect("scale", { percent: 150}, 500)
 		             	.effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
                         	window.scaling1 = 0;
@@ -82,6 +83,35 @@ function team1Down()
 		}
 	}
 }
+
+
+//======================================================================
+var soundEmbed = null;
+//======================================================================
+function soundPlay(which)
+    {
+    if (!soundEmbed)
+        {
+        soundEmbed = document.createElement("embed");
+        soundEmbed.setAttribute("src", "/mp3/"+which+".wav");
+        soundEmbed.setAttribute("hidden", true);
+        soundEmbed.setAttribute("autostart", true);
+        }
+    else
+        {
+        document.body.removeChild(soundEmbed);
+        soundEmbed.removed = true;
+        soundEmbed = null;
+        soundEmbed = document.createElement("embed");
+        soundEmbed.setAttribute("src", "/mp3/"+which+".wav");
+        soundEmbed.setAttribute("hidden", true);
+        soundEmbed.setAttribute("autostart", true);
+        }
+    soundEmbed.removed = false;
+    document.body.appendChild(soundEmbed);
+    }
+
+
 
 function team2Down()
 {
@@ -100,6 +130,7 @@ function team2Down()
 			$("#team2").html(goal2);
 			if(document.forms['effects'][0].checked) {
 				window.scaling2 = 1;
+                soundPlay("whistle");
 				$("#team2").effect("scale", { percent: 150}, 500)
 				           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
 													window.scaling2 = 0

@@ -170,6 +170,13 @@ class MatchPresenter extends SecuredPresenter
                         $this->redirect('Group:list', $match['groupID']);
                 }
 
+                // reset score if already started 
+                if($match->state === 'playing') {
+                        $match->userID = $this->getUser()->getIdentity()->id;
+                        $match->team1goals = 0;
+                        $match->team2goals = 0;
+                }
+
                 $teams = $model->getTeams();
 
                 $match['userID'] = $this->getUser()

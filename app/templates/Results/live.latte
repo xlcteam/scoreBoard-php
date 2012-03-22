@@ -44,7 +44,7 @@ function addLast(first){
                 <strong>{$names[$match->team2ID]->name}</strong> </li>
               {/foreach}
               {if $matches->count() < 3}
-              <li> <div style="width: 300px;"></div></li>
+              <li> <div style="width: {(3-$matches->count())*300}px;"></div></li>
               {/if}
         {else}
 
@@ -103,11 +103,20 @@ function addLast(first){
                 $("#tables").html(data['groups']); 
                 var w = $('#slider ul:first').clientWidth;
                 var offs = $('#slider ul:first').offsetLeft;
-                if(offs > 0 || offs > -w)
+                if(offs > 0 || offs > -w) {
                         $("#slider ul:first").html(data['matches']);
-                else
+                        setTimeout(function(){
+                                $("#slider ul:last").html(data['matches']);
+                                
+                        }, 5000);
+
+                } else {
                         $("#slider ul:last").html(data['matches']);
-                        
+                        setTimeout(function(){
+                                $("#slider ul:first").html(data['matches']);
+                                
+                        }, 5000);
+                }
                         
 
                 if (interval !== null){
@@ -121,7 +130,7 @@ function addLast(first){
             $('#slider').scrollingCarousel( {
               scrollerAlignment : 'horizontal',
               autoScroll: true,
-              autoScrollSpeed: 20000
+              autoScrollSpeed: 10000
              });
              setInterval(update, 5000);
       
