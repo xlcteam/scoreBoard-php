@@ -81,7 +81,7 @@ function addLast(first){
                                 <td> {$iterator->getCounter()}. </td>
                                 <td class='name'> {$names[$team->id]->name} </td>
                                 <td> {$team->matches_played} </td>
-                                <td> {$team->goals_shot}:{$team->goals_shot + $team->goal_diff} </td>
+                                <td> {$team->goals_shot}:{$team->goals_shot - $team->goal_diff} </td>
                                 <td> {$team->wins} </td>
                                 <td> {$team->draws} </td>
                                 <td> {$team->loses} </td>
@@ -95,7 +95,36 @@ function addLast(first){
         </div>
                 {/if}
           {/foreach}
-    </div>
+
+        {foreach $groups as $group}
+        {var $matches = $model->getMatches()->where('groupID',
+                                $group->id)->where('state', 'played');}
+        {if $matches->count() !== 0 }
+	<div class="wholeEventTable">
+            <div class="eventDiv"><span class="groupName">{$group->name}</span></div>
+                <div class="matches">
+                <table class='matchTable'>
+                {foreach $matches as $match}
+                                <tr>
+                                       <td class='left'> 
+                                                        {$names[$match->team1ID]->name}
+                                        </td>
+                                        <td><strong>{$match->team1goals}</strong></td> <td><strong>:</strong></td> <td><strong>{$match->team2goals}</strong></td>
+                                        <td class='right'> 
+
+                                                        {$names[$match->team2ID]->name}
+                                        </td>
+
+                                </tr>
+
+                {/foreach}
+                </table>
+        </div>
+	
+        </div>
+        </div>
+        {/if}
+        {/foreach}
 
     <div id="footer"> 
       <span>
@@ -110,22 +139,23 @@ function addLast(first){
     function update(){
         $.get({link update!}, function(data){
                 $("#tables").html(data['groups']); 
-                var w = $('#slider ul:first').clientWidth;
-                var offs = $('#slider ul:first').offsetLeft;
-                if(offs > 0 || offs > -w) {
-                        $("#slider ul:first").html(data['matches']);
-                        setTimeout(function(){
-                                $("#slider ul:last").html(data['matches']);
-                                
-                        }, 5000);
+                $("#slider ul:first, #slider ul:last").html(data['matches']);
+              //var w = $('#slider ul:first').clientWidth;
+              //var offs = $('#slider ul:first').offsetLeft;
+              //if(offs > 0 || offs > -w) {
+              //        $("#slider ul:first").html(data['matches']);
+              //        setTimeout(function(){
+              //                $("#slider ul:last").html(data['matches']);
+              //                
+              //        }, 5000);
 
-                } else {
-                        $("#slider ul:last").html(data['matches']);
-                        setTimeout(function(){
-                                $("#slider ul:first").html(data['matches']);
-                                
-                        }, 5000);
-                }
+              //} else {
+              //        $("#slider ul:last").html(data['matches']);
+              //        setTimeout(function(){
+              //                $("#slider ul:first").html(data['matches']);
+              //                
+              //        }, 5000);
+              //}
                         
 
                 if (interval !== null){

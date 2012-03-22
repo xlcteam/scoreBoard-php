@@ -23,13 +23,13 @@ body {
 }
 
 .wholeEventLive {
-	padding-top: 10px;
+	padding-top: 20px;
 	width: 100%;
 	float: left;
 }
 
 .wholeEventTable {
-	padding-top: 10px;
+	padding-top: 90px;
 	width: 50%;
         float: left;
         height: 280px;
@@ -215,3 +215,28 @@ body {
 .logo {
   background: url(imgs/logo_black.png);
 }
+
+
+.matchTable{
+  font: 40px/100% Georgia, "New York CE", utopia, serif;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.matchTable .left{
+        text-align: right;
+        width: 140px;
+}
+
+.matchTable .right{
+        text-align: left;
+}
+
+.matchTable a{
+        text-decoration: none;                
+}
+
+.matchTable a:hover{
+        text-decoration: underline;
+}
+
