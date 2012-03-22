@@ -196,5 +196,22 @@ body {
   font-style: italic;
 }
 
+#footer {
+  width: 100%;
+  background:#EBC137;
+  color: #000; 
+  height: 55px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1000000;
+  text-align: center;
+}
 
+#footer span {
+  font-size: 30px;
+}
 
+.logo {
+  background: url(imgs/logo_black.png);
+}
