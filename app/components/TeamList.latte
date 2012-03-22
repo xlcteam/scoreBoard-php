@@ -17,7 +17,7 @@
                 <td> {$iterator->getCounter()}. </td>
                 <td class='name'> {$names[$team->id]->name} </td>
                 <td> {$team->matches_played} </td>
-                <td> {$team->goal_diff} </td>
+                <td> {$team->goals_shot}:{$team->goals_shot + $team->goal_diff} </td>
                 <td> {$team->wins} </td>
                 <td> {$team->draws} </td>
                 <td> {$team->loses} </td>

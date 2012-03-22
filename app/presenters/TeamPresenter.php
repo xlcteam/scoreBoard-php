@@ -93,6 +93,7 @@ class TeamPresenter extends SecuredPresenter
                                 $result['loses'] = 0;
                                 $result['draws'] = 0;
                                 $result['goal_diff'] = 0;
+                                $result['goals_shot'] = 0;
                                 $result['groupID'] = $values->groupID;
                                 
                                 $this->results->insert($result);

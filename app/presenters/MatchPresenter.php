@@ -205,6 +205,7 @@ class MatchPresenter extends SecuredPresenter
                         $result->matches_played = $result->matches_played + 1;
                         $result->draws = $result->draws + 1;
                         $result->points = $result->points + 1;
+                        $result->goals_shot = $result->goals_shot + $match['team1goals'];
                         $result->update();
 
                         $result = $results->get($match['team2ID']);
@@ -212,6 +213,7 @@ class MatchPresenter extends SecuredPresenter
                         $result->matches_played = $result->matches_played + 1;
                         $result->points = $result->points + 1;
                         $result->draws = $result->draws + 1;
+                        $result->goals_shot = $result->goals_shot + $match['team2goals'];
                         $result->update();
 
                 } else {
@@ -221,6 +223,8 @@ class MatchPresenter extends SecuredPresenter
                         $winnerID = ($score1 > $score2)?$match['team1ID']:$match['team2ID'];
                         $loserID = ($score1 > $score2)?$match['team2ID']:$match['team1ID'];
                         $winnerGoalDiff = ($score1 > $score2)?($score1 -$score2):($score2-$score1);
+                        $winnerGoals = max($score1, $score2);
+                        $loserGoals = min($score1, $score2);
 
                         $result = $results->get($winnerID);
 
@@ -228,6 +232,7 @@ class MatchPresenter extends SecuredPresenter
                         $result->wins = $result->wins + 1;
                         $result->goal_diff = $result->goal_diff + $winnerGoalDiff;
                         $result->points = $result->points + 3;
+                        $result->goals_shot = $result->goals_shot + $winnerGoals;
                         $result->update();
 
                         $result = $results->get($loserID);
@@ -235,6 +240,7 @@ class MatchPresenter extends SecuredPresenter
                         $result->matches_played = $result->matches_played + 1;
                         $result->loses = $result->loses + 1;
                         $result->goal_diff = $result->goal_diff - $winnerGoalDiff;
+                        $result->goals_shot = $result->goals_shot + $loserGoals;
                         $result->update();
                 }
 
