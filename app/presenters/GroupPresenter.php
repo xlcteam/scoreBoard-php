@@ -78,6 +78,23 @@ class GroupPresenter extends SecuredPresenter
                 
         }
 
+
+        public function handleMatches($id)
+        {
+                
+                header("Content-type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=matches$id.xls");               
+
+                $this->template->model = $this->getService('model');
+                $this->template->setFile(APP_DIR."/templates/Match/table.latte");
+                $this->template->groups= $this->getService('model')->getGroups();
+                $this->template->id = $id;
+                $this->template->names = $this->getService('model')->getTeams();
+
+        }
+
+
+
         public function renderEdit($id = 0)
         {
                 $this->groups = $this->getService('model')->getGroups();
@@ -131,58 +148,24 @@ class GroupPresenter extends SecuredPresenter
                         ));
 
 
-		define('FPDF_FONTPATH', LIBS_DIR.'/fpdf/font/');
-                $pdf = new PDF();
+                $this->template->setFile(APP_DIR."/templates/Group/grouplist.latte");
+                $this->template->teams = $teams;
+                $this->template->names = $names;
+                $this->template->matches = $matches;
+                $this->template->group = $group;
 
-                $pdf->title($events[$group->eventID]->name.': '. $group->name);
-                $pdf->AliasNbPages();
-                $pdf->AddPage();
+                $out = $this->template->__toString();
 
-                $pdf->SetLeftMargin(26);
-                $pdf->SetFont('Times','B',15);
-                $pdf->Cell(16, 6, "Pos.", 'B', 0, 'C');
-                $pdf->Cell(46, 6, "", 'B', 0);
-                $pdf->Cell(16, 6, "P", 'B', 0, 'C');
-                $pdf->Cell(16, 6, "S", 'B', 0, 'C');
-                $pdf->Cell(16, 6, "W", 'B', 0, 'C');
-                $pdf->Cell(16, 6, "D", 'B','B' , 'C');
-                $pdf->Cell(16, 6, "L", 'B', 0, 'C');
-                $pdf->Cell(16, 6, "Pts.", 'B', 0, 'C');
+                $mpdf = new mPDF('c','A4','','',32,25,27,25,16,13); 
 
-                $pdf->Ln(6);
-
-                $pdf->SetFont('Times','',15);
-
-                $i = 0;
-                foreach($teams as $team){
-                        $i++;
-                        $pdf->Cell(16,10, "$i.", 0, 0, 'C');
-                        $pdf->Cell(46,10, $names[$team->id]->name, 0, 0);
-                        $pdf->Cell(16,10, $team->matches_played, 0, 0, 'C');
-                        $pdf->Cell(16,10, $team->goal_diff, 0, 0, 'C');
-                        $pdf->Cell(16,10, $team->wins, 0, 0, 'C');
-                        $pdf->Cell(16,10, $team->draws, 0, 0, 'C');
-                        $pdf->Cell(16,10, $team->loses, 0, 0, 'C');
-                        $pdf->Cell(16,10, $team->points, 0, 0, 'C');
-
-                        $pdf->Ln(6);
-                }
-
-                $pdf->Ln(16);
+                $mpdf->SetDisplayMode('fullpage');
+                #$mpdf->list_indent_first_level = 0;	// 1 or 0 - whether to indent the first level of a list
                 
-                foreach($matches as $match) {
-                        $pdf->SetFont('Courier','I',15);
-                        $pdf->Cell(70, 10, $names[$match->team1ID]->name . ' ', 0, 0, 'R');
-                        $pdf->SetFont('Courier','B',18);
-                        $pdf->Cell(13, 10, $match->team1goals . ":" . $match->team2goals, 0, 0);
-                        $pdf->SetFont('Courier','I',15);
-                        $pdf->Cell(70, 10, ' '. $names[$match->team2ID]->name, 0, 0);
-                        $pdf->Ln(6);
-                } 
+                $mpdf->WriteHTML(file_get_contents(WWW_DIR."/css/pdf.css"), 1);
+                $mpdf->WriteHTML($out, 2);
+                $mpdf->Output('mpdf.pdf','I');
 
-
-                $pdf->Output();
-
+                exit;
 
         }
 
