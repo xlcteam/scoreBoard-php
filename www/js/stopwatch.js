@@ -1,4 +1,4 @@
-window.mins = 20;
+window.mins = 10;
 window.secs = 0;
 
 window.halftime = 1;
