@@ -46,6 +46,8 @@ function toggleHalf()
 	halftimeNumber = document.getElementById("halftime");  
   halftimeNumber.innerHTML = "2.";
 
+  /*$('.leftBckg').css("float", "right");
+  $('.rightBckg').css("float", "left");*/
 	toggle();
 
 }

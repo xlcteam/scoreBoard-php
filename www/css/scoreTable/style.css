@@ -32,7 +32,6 @@ body {
 	padding-top: 20px;
 	width: 50%;
 	float: left;
-        height: 280px;
 }
 
 
@@ -208,10 +207,3 @@ body {
   text-align: center;
 }
 
-#footer span {
-  font-size: 30px;
-}
-
-.logo {
-  background: url(imgs/logo_black.png);
-}
