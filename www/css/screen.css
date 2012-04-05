@@ -95,7 +95,7 @@ a[href^="error:"] {
 .teamTable th{
         margin: 0 5px;
         font-size: 120%;
-	min-width: 30px;
+	      min-width: 30px;
         border: 0;
 }
 .teamTable td{
