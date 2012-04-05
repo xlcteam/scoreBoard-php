@@ -73,9 +73,7 @@ function format(millis) {
         $('#startSpan').html("Start 2nd half");
         $('#startAll').show();			
 			}				
-		}		
-			
-		else if (window.halftime == 2 && minutes >= window.mins){
+		}else if (window.halftime == 2 && minutes >= window.mins){
 			if (seconds >= window.secs){
         $("#time").stopwatch().stopwatch('stop');        
         $.idleTimer('destroy');
@@ -134,14 +132,16 @@ function resetTime()
     btnStart.innerHTML = "Start";
   }
   if ($("#startAll").is(':hidden')){
-    $('#startAll').html("Start match");
+    $('#startSpan').html("Start match");
     $('#startAll').show();
+  }else {
+    $('#startSpan').html("Start match");
   }
 	halftimeNumber = document.getElementById("halftime"); 
 	if (halftimeNumber.innerHTML == "2."){
 		halftimeNumber.innerHTML = "1."
 	} 
-
+  window.halftime = 1;
 	
   return;
 }
@@ -153,7 +153,7 @@ function newTime()
 	
 	window.mins = inpMins;
 	window.secs = inpSecs;
-	$('.saved').fadeIn(200).delay(500).fadeOut(200);
+  $('.saved').fadeIn(200).delay(500).fadeOut(200);
 
 
 	return false;
