@@ -225,11 +225,16 @@ body {
 
 .matchTable .left{
         text-align: right;
-        width: 140px;
+        font-family: Arial;
+        padding-right: 10px;
+        width: 250px;
+
 }
 
 .matchTable .right{
         text-align: left;
+        font-family: Arial;
+        padding-left: 10px;
 }
 
 .matchTable a{

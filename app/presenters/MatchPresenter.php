@@ -137,6 +137,7 @@ class MatchPresenter extends SecuredPresenter
                                 $match['team1goals'] = $data['team1goals'];
                                 $match['team2goals'] = $data['team2goals'];
                                 $match['state'] = 'played';
+                                $match['date'] = 'NOW()';
                                 break;
 
 
