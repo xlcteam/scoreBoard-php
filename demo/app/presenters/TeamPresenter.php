@@ -6,7 +6,7 @@
  * @author     John Doe
  * @package    MyApplication
  */
-class TeamPresenter extends NPresenter
+class TeamPresenter extends SecuredPresenter
 {
         private $teams;
 
@@ -48,9 +48,11 @@ class TeamPresenter extends NPresenter
                 $groups = array();
                 foreach($events as $event){
                         $g = $this->getService('model')->getGroups()->where('eventID', $event->id);
+                        $o = array();
                         foreach ($g as $group) {
-                                $groups[$group->id] = $event->name . " - " . $group->name;
+                                $o[$group->id] = $group->name;
                         }
+                        $groups[$event->name] = $o;
                 }
 
 		$form = new NAppForm;
@@ -85,11 +87,13 @@ class TeamPresenter extends NPresenter
 
                                 $result = array();
                                 //TODO: last insert ID
-                                $result['teamID'] = $team->id; 
+                                $result['id'] = $team->id; 
+                                $result['matches_played'] = 0;
                                 $result['wins'] = 0;
                                 $result['loses'] = 0;
                                 $result['draws'] = 0;
-                                $result['score'] = 0;
+                                $result['goal_diff'] = 0;
+                                $result['goals_shot'] = 0;
                                 $result['groupID'] = $values->groupID;
                                 
                                 $this->results->insert($result);
@@ -98,7 +102,7 @@ class TeamPresenter extends NPresenter
                         }
                         
 
-                        $this->redirect('Dashboard:');
+                        $this->redirect('Group:list', $values->groupID);
                 }
                 
         }

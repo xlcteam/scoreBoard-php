@@ -25,14 +25,11 @@ class TeamList extends NControl
 	{
 		$template = $this->template;
 		$template->setFile(dirname(__FILE__) . '/TeamList.latte');
-                $teams = $this->results->where('groupID', $id);
-                foreach($teams as $team) {
-                        $team->points = $team->wins*3 + $team->draws;
-                }
-                
-                //dump($teams);
-                $template->names = $this->teams;
-                $template->teams = $teams;
+        $teams = $this->results->where('groupID', $id)
+                    ->order('points DESC, goal_diff DESC');
+        //dump($teams);
+        $template->names = $this->teams;
+        $template->teams = $teams;
 		$template->render();
 	}
 

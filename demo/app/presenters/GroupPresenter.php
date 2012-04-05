@@ -6,7 +6,7 @@
  * @author     John Doe
  * @package    MyApplication
  */
-class GroupPresenter extends NPresenter
+class GroupPresenter extends SecuredPresenter
 {
         private $groups;
 
@@ -34,6 +34,7 @@ class GroupPresenter extends NPresenter
                 }
  
                 $this->template->group = $row;
+                $this->template->events = $this->getService('model')->getEvents();
 
         }
 
@@ -77,6 +78,23 @@ class GroupPresenter extends NPresenter
                 
         }
 
+
+        public function handleMatches($id)
+        {
+                
+                header("Content-type: application/vnd.ms-excel");
+                header("Content-Disposition: attachment; filename=matches$id.xls");               
+
+                $this->template->model = $this->getService('model');
+                $this->template->setFile(APP_DIR."/templates/Match/table.latte");
+                $this->template->groups= $this->getService('model')->getGroups();
+                $this->template->id = $id;
+                $this->template->names = $this->getService('model')->getTeams();
+
+        }
+
+
+
         public function renderEdit($id = 0)
         {
                 $this->groups = $this->getService('model')->getGroups();
@@ -97,6 +115,60 @@ class GroupPresenter extends NPresenter
         {
                 return new TeamList($this->getService('model'));
         }
+
+        public function createComponentMatchList()
+        {
+                return new MatchList($this->getService('model'));
+        }
+
+        public function handleExport($id = 0)
+        {
+                if($id === 0)
+                        throw new NBadRequestException('No groupID provided');
+
+                $groups = $this->getService('model')->getGroups();
+
+                $row = $groups->get($id);
+                if(!$row) {
+                        throw new NBadRequestException('Group not found');
+                }
+ 
+                $group = $row;
+                $events = $this->getService('model')->getEvents();
+                $results = $this->getService('model')->getResults();
+
+                $teams = $results->where('groupID', $group->id)
+                        ->order('points DESC, goal_diff DESC');
+                $names = $this->getService('model')->getTeams();
+
+                $matches = $this->getService('model')->getMatches()
+                        ->where(array(
+                                'groupID'=> $group->id,
+                                'state' => 'played'
+                        ));
+
+
+                $this->template->setFile(APP_DIR."/templates/Group/grouplist.latte");
+                $this->template->teams = $teams;
+                $this->template->names = $names;
+                $this->template->matches = $matches;
+                $this->template->group = $group;
+
+                $out = $this->template->__toString();
+
+                $mpdf = new mPDF('c','A4','','',32,25,27,25,16,13); 
+
+                $mpdf->SetDisplayMode('fullpage');
+                #$mpdf->list_indent_first_level = 0;	// 1 or 0 - whether to indent the first level of a list
+                
+                $mpdf->WriteHTML(file_get_contents(WWW_DIR."/css/pdf.css"), 1);
+                $mpdf->WriteHTML($out, 2);
+                $mpdf->Output('mpdf.pdf','I');
+
+                exit;
+
+        }
+
 
 
 }

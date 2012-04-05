@@ -1,6 +1,9 @@
 var goal1 = 0;
 var goal2 = 0;
 
+window.scaling1 = 0;
+window.scaling2 = 0;
+
 function toggleOnGoal()
 {
 	btnStart = document.getElementById("btnStart");
@@ -12,18 +15,36 @@ function toggleOnGoal()
 
 function team1Goal()
 {
-	goal1++;
-	toggleOnGoal();
-	$("#team1").html(goal1);
-	$("#team1").effect("scale", { percent: 150}, 1000).effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000);
+	if (window.scaling1 == 1){ return false;}
+  else {
+		goal1++;
+		//toggleOnGoal();
+		$("#team1").html(goal1);
+		if(document.forms['effects'][0].checked) {
+			window.scaling1 = 1;
+			$("#team1").effect("scale", { percent: 150}, 500)
+				           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+		                      window.scaling1 = 0;
+								});
+		}
+	}
 }
 
 function team2Goal()
 {
-	goal2++;
-	toggleOnGoal();
-	$("#team2").html(goal2);
-	$("#team2").effect("scale", { percent: 150}, 1000).effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000);
+	if (window.scaling2 == 1){ return false;}
+	else {
+		goal2++;
+		//toggleOnGoal();
+		$("#team2").html(goal2);
+		if(document.forms['effects'][0].checked) {
+			window.scaling2 = 1;
+			$("#team2").effect("scale", { percent: 150}, 500)
+				         .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+												window.scaling2 = 0;
+									});
+		}
+	}
 }
 
 function team1Down()
@@ -32,9 +53,18 @@ function team1Down()
 		goal1 = 0;
 		return false;	
 	}else{
-		goal1--;
-		$("#team1").html(goal1);	
-		return false;
+		if (window.scaling1 == 1){ return false;}
+		else {		
+			goal1--;
+			$("#team1").html(goal1);
+			if(document.forms['effects'][0].checked) {
+				window.scaling1 = 1;	
+				$("#team1").effect("scale", { percent: 150}, 500)
+		             	.effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+                        	window.scaling1 = 0;
+									});
+			}
+		}
 	}
 }
 
@@ -44,9 +74,18 @@ function team2Down()
 		goal2 = 0;
 		return false;	
 	}else{
-		goal2--;
-		$("#team2").html(goal2);
-		return false;	
+		if (window.scaling2 == 1){ return false;}
+		else {
+			goal2--;
+			$("#team2").html(goal2);
+			if(document.forms['effects'][0].checked) {
+				window.scaling2 = 1;
+				$("#team2").effect("scale", { percent: 150}, 500)
+				           .effect("scale", { percent: Math.ceil(100 / (150 / 100))}, 1000, function(){
+													window.scaling2 = 0
+									});
+			}
+		}
 	}
 }
 

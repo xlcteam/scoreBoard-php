@@ -1,6 +1,21 @@
+{block head}
+		<script type="text/javascript">
+			$(function () {
+				$('input#id_search').quicksearch('.matchTable tbody tr');		
+
+			});
+		</script>
+{/block}
+
+
+
 {block #content}
 
-<h1> {$group->name} </h1>
+<div class="back" onclick="history.back();">
+  &#8249;
+</div>
+
+<h1><strong> {$events[$group->eventID]->name}</strong>: {$group->name}  </h1>
 
 <div>
 <a class="button smaller" href="{plink Group:edit $group->id}"> Edit </a>  
@@ -9,5 +24,23 @@
 </div>
 
 
-{control teamList $group->id}
+<div>
+        <div style="float: left; padding-top: 20px;padding-right: 120px;">
+        {control teamList $group->id}
+        </div>
+        <div style="float: left;padding-top: 20px;">
+        <strong style="font-size: 120%"> Upcomming matches: <input type="text" placeholder="Quick Search" id="id_search" value="" name="search" style="margin-left: 5px;"> </strong>
+          {control matchList $group->id}
+        <strong style="font-size: 120%"> Playing right now:  </strong>
+          {control matchList $group->id, 'playing'}
+
+        <strong style="font-size: 120%"> Played matches:  </strong>
+          {control matchList $group->id, 'played'}
+        </div>
+
+<div style="clear: both" ></div>
+</div>
+
+<a href="{link export! $group->id}">Export results to PDF </a>
+<a href="{link matches! $group->id}">Export matches to xls</a>
 

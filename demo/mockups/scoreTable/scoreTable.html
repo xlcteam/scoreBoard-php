@@ -3,135 +3,329 @@
     <title> scoreTable </title>    
     <meta http-equiv="Content-Language" content="en-EN">
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/scrollingcarousel.2.0.min.js"></script>
     <link rel="stylesheet" href="css/style.css">    
+    
+    <script>
+      $(document).ready(function() {  
+            $('#slider').scrollingCarousel( {
+              scrollerAlignment : 'horizontal',
+              autoScroll: true,
+              autoScrollSpeed: 40000
+             });
+          /*  $('#tables').scrollingCarousel( {
+              scrollerAlignment : 'vertical',
+              autoScroll: true,
+              autoScrollDirection: "down",
+              autoScrollSpeed: 40000
+             });*/
+       });
+    </script>
+
   </head>
 
   <body>
-		<div id="main">
-			<div class="wholeEvent">
-				<div class="eventDiv"><span class="eventName">Open Soccer A</span></div>
+		<div id="slider">
+      <ul>
+        <li> <strong> XLC1 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC2 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC3 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC4 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC5 </strong> 0:0 <strong> 0x584c43</strong> </li>
+        <li> <strong> XLC6 </strong> 0:0 <strong> 0x584c43</strong> </li>
+      </ul>
+    </div>
+  
+    <div id="tables">
+      <!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table A - Group 1</span></div>
 				<div class="matches">
-					<!-- new match A -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-					
-					<!-- new match A -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match A -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match A -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>			
 				</div>
 			</div>
+			<!--/table-->
 
-
-			<div class="wholeEvent">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
+			<!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
 				<div class="matches">
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>				
 				</div>
 			</div>
-
-			<div class="wholeEvent">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
+			<!-- /table-->
+    
+			<!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
 				<div class="matches">
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>				
 				</div>
 			</div>
-
-			<div class="wholeEvent">
-				<div class="eventDiv"><span class="eventName">Open Soccer B</span></div>
+			<!-- /table-->
+      
+      <!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
 				<div class="matches">
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
-
-					<!-- new match B -->	
-					<div class="match">
-						<span class="leftName">teamName</span>
-						<span class="score">0 : 0</span>
-						<span class="rightName">teamName</span>
-					</div>
-					<!-- match -->
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>				
 				</div>
 			</div>
-		</div>
+			<!-- /table-->
+
+      <!--new table-->
+			<div class="wholeEventTable">
+				<div class="eventDiv"><span class="eventName">Table B - Group 1</span></div>
+				<div class="matches">
+					<table class="resultTable">
+						<tbody>
+							<tr>
+								<th>Pos.</th>
+								<th></th>
+								<th>S</th>
+								<th>W</th>
+								<th>D</th>
+								<th>L</th>
+								<th>P</th>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+							<tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+              <tr>
+								<td>1.</td>
+								<td class="name">XLC</td>
+								<td>2</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td class="points"><strong>6</strong></td>
+							</tr>
+						</tbody>
+					</table>				
+				</div>
+			</div>
+			<!-- /table-->
+      </ul>
+    </div>
+    <div id="footer">
+      <span>Brought to you by the XLC team</span>
+    </div>
   </body>
 </html> 

@@ -36,7 +36,16 @@ function format(millis) {
 		else if (window.halftime == 2 && minutes >= window.newMins){
 			if (seconds >= window.newSecs){
 				$("#time").stopwatch().stopwatch('stop');
-				//funct for sending results		
+				//funct for sending results (dialog)	
+				$('#dialogMain').show();    
+				$("#dialog").dialog({ buttons: {
+							 "Send results": function() { $(this).dialog("close");}
+						}
+					});
+				$('#dname').html($('#name1').text());
+				$('#d2name').html($('#name2').text());
+				$('#dgoals').val($('#team1').text());
+				$('#d2goals').val($('#team2').text());
 			}			
 		}
 		return [pad2(minutes), pad2(seconds)].join(':') + ',' + pad2(millis);
@@ -68,6 +77,12 @@ function resetTime()
     $("#time").html("00:00,00");
     btnStart.innerHTML = "Start";
   }
+	halftimeNumber = document.getElementById("halftime"); 
+	if (halftimeNumber.innerHTML == "2."){
+		halftimeNumber.innerHTML = "1."
+	} 
+
+	
   return;
 }
 
