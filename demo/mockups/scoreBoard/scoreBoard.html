@@ -74,6 +74,13 @@
 				$(".element2").bind("mouseout", unfill2);
 				$(".element3").bind("mouseover", fill3);
 				$(".element3").bind("mouseout", unfill3);
+
+        $(".leftBckg").bind("mouseover", fill1);
+				$(".leftBckg").bind("mouseout", unfill1);
+				$(".rightBckg").bind("mouseover", fill2);
+				$(".rightBckg").bind("mouseout", unfill2);
+				$(".startBckg").bind("mouseover", fill3);
+				$(".startBckg").bind("mouseout", unfill3);
 			});
 
 
@@ -81,6 +88,10 @@
 
 	</head>
   <body>
+    <div id="startAll" onclick="startMatch()">
+      <div style="height: 30px;">&nbsp;</div> 
+      <span id="startSpan">Start match</span>
+    </div>
 		<div id="underMain">
 		  <div id="panel">
 				<div id="tabs">
@@ -97,7 +108,8 @@
 								<center>Time: <input class="input" type="text" id="fmins" value="20"/>
 								: <input class="input" type="text" id="fsecs" value="00"/> 
 									<input type="button" onclick="newTime()" value="Set time"/> <br /> 
-									<span class="saved">Saved!</span></center>
+									<span class="saved">Saved!</span>
+                </center>
 							</form>
 						</div> 
 					</div>
@@ -117,25 +129,30 @@
 		</div>
 
 		<div id="main">
-			<div class="leftBckg" onmouseover="fill1()" onmouseout="unfill1()"> 
+			<div class="leftBckg"> 
 				<span class="goalLText">Goal!</span>	
 			</div>
-			<div class="rightBckg" onmouseover="fill2()" onmouseout="unfill2()"> 
+			<div class="rightBckg"> 
 				<span class="goalRText">Goal!</span>
 			</div>
-      <div class="startBckg" onclick="toggle()" onmouseover="fill3()" onmouseout="unfill3()">
+      <div class="startBckg" onclick="toggle()">
 				<span id="btnStart" class="startText">Start</span>
       </div>
 		</div>
 
 		<!-- dialog, hidden at the begin of game by jquery funct .hide() -->
 		<div id="dialogMain">
-			<div id="dialog" title="Results" style="font-size:50.5%; text-align: center;">
-				<div style="margin: 0 auto; text-align: center; height: 50px; font-size:130.5%;">		
-						<span id="dname"></span> <input style="width: 30px;" type="text" id="dgoals"/> 
-																<b>:</b> 
-																<input style="width: 30px;" type="text" id="d2goals"/> 
-						<span id="d2name"></span> 
+			<div id="dialog" title="Results" style="font-size:50.5%;">
+				<div style="margin: 0 auto;height: 70px; font-size:130.5%;">		
+          <table style="width: 260px; margin: 0 auto;">
+            <tr>
+              <td style="width: 100px; text-align: right;"> <span id="dname" style="color: #000000;"></span> </td>
+              <td> <input style="width: 30px;" type="text" id="dgoals"/> </td>
+              <td> <b>:</b> </td>
+              <td>  <input style="width: 30px;" type="text" id="d2goals"/> </td>
+              <td style="width: 100px; text-align: left;">  <span id="d2name" style="color: #000000;"></span> </td>
+            </tr>
+          </table>
 				</div>	
 			</div>
 		</div>
@@ -145,9 +162,10 @@
       <div class="half name"><span class="element2" id="name2">Human</span></div>
     </div>
     <div id="scores" style="width: 100%;">
-      <div class="third score"><span class="element1" id="team1">0</span></div>
+      <div class="third score"><span class="element1" id="team1" style="display: inline-block;">0</span></div>
       <div class="colon"><span class="element">:</span></div>
-      <div class="third score"><span class="element2" id="team2">0</span></div>
+      <div class="third score"><span class="element2" id="team2" style="display: inline-block;">0</span></div>
+      <dic style="clear:both;"></div>
     </div>				
     <div id="timeBar" class="element3">		
 			<div id="time" class="time"><span >00:00,00</span></div>
