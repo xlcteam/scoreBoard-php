@@ -71,12 +71,15 @@
           tags: 'scoreBoard'
         },
         itemTemplate: '<li>'+
-                '<a rel="colorbox" href="{{image}}" title="{{title}}">' +
+                '<a rel="colorbox" href="{{image_b}}" title="{{title}}">' +
                   '<img src="{{image_s}}" alt="{{title}}" />' +
                 '</a>' +
                 '</li>'
       }, function(data) {
-        $('#cbox a').colorbox();
+        $('#cbox a').colorbox({
+          initialWidth: '50%',
+          initialHeight: '50%',
+        });
       });
     }); 
   
